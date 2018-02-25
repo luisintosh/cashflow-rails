@@ -10,6 +10,16 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require rails-ujs
-//= require turbolinks
-//= require_tree .
+// require rails-ujs
+// require turbolinks
+//= require jquery
+//= require jquery_ujs
+//= require libs/jquery/jquery-migrate-1.2.1.min
+// require libs/bootstrap/bootstrap
+//= require bootstrap-sprockets
+// Theme
+//= require libs/spin.js/spin
+//= require libs/autosize/jquery.autosize
+//= require libs/nanoscroller/jquery.nanoscroller
+//= require_directory ./core/source/
+//= require_directory .

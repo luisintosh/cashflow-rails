@@ -1,0 +1,126 @@
+/ BEGIN MENUBAR
+#menubar.menubar-inverse.animate
+  .menubar-fixed-panel
+    %div
+      %a.btn.btn-icon-toggle.btn-default.menubar-toggle{'data-toggle' => 'menubar', :href => 'javascript:void(0);'}
+        %i.fa.fa-bars
+    .expanded
+      %a{:href => '#'}
+        %span.text-lg.text-bold.text-primary MATERIAL ADMIN
+  .nano.has-scrollbar{:style => 'height: 560px;'}
+    .nano-content{:style => 'right: -15px;', :tabindex => '0'}
+      .menubar-scroll-panel{:style => 'padding-bottom: 33px;'}
+        / BEGIN MAIN MENU
+        %ul#main-menu.gui-controls
+          / BEGIN DASHBOARD
+          %li
+            = link_to '#', {} do
+              .gui-icon
+                %i.md.md-home
+              %span.title Panel
+          %li.gui-folder
+            %a
+              .gui-icon
+                %i.md.fa.fa-building
+              %span.title Empresa
+            %ul
+              %li
+                = link_to '#', {} do
+                  %span.title Departamentos
+              %li
+                = link_to '#', {} do
+                  %span.title Clasif. contable
+              %li
+                = link_to '#', {} do
+                  %span.title Empleados
+          %li.gui-folder
+            %a
+              .gui-icon
+                %i.md.fa.fa-retweet
+              %span.title Movimientos
+            %ul
+              %li
+                = link_to '#', {} do
+                  %span.title Agregar entrada
+              %li
+                = link_to '#', {} do
+                  %span.title Agregar salida
+              %li
+                = link_to '#', {} do
+                  %span.title Historial
+          %li.gui-folder
+            %a
+              .gui-icon
+                %i.md.fa.fa-users
+              %span.title Clientes
+            %ul
+              %li
+                = link_to '#', {} do
+                  %span.title Agregar cliente
+              %li
+                = link_to '#', {} do
+                  %span.title Lista de clientes
+          %li.gui-folder
+            %a
+              .gui-icon
+                %i.md.fa.fa-handshake
+              %span.title Proveedores
+            %ul
+              %li
+                = link_to '#', {} do
+                  %span.title Agregar proveedor
+              %li
+                = link_to '#', {} do
+                  %span.title Lista de proveedores
+          %li.gui-folder
+            %a
+              .gui-icon
+                %i.md.fa.fa-shopping-bag
+              %span.title Inventario
+            %ul
+              %li
+                = link_to '#', {} do
+                  %span.title Categorías de producto
+              %li
+                = link_to '#', {} do
+                  %span.title Lista de productos
+              %li
+                = link_to '#', {} do
+                  %span.title Stock
+          %li.gui-folder
+            %a
+              .gui-icon
+                %i.md.fa.fa-shopping-cart
+              %span.title Compras
+            %ul
+              %li
+                = link_to '#', {} do
+                  %span.title Agregar compra
+              %li
+                = link_to '#', {} do
+                  %span.title Creditos
+              %li
+                = link_to '#', {} do
+                  %span.title Lista de compras
+          %li.gui-folder
+            %a
+              .gui-icon
+                %i.md.fa.fa-money-bill-alt
+              %span.title Banco
+            %ul
+              %li
+                = link_to '#', {} do
+                  %span.title Cuentas
+              %li
+                = link_to '#', {} do
+                  %span.title Credito/Balance
+              %li
+                = link_to '#', {} do
+                  %span.title Reportes
+        .menubar-foot-panel
+          %small.no-linebreak.hidden-folded
+            %span.opacity-75 Copyright ©
+            = Time.now.year
+            %strong Rohers S.A. de C.V.
+    .nano-pane{:style => 'display: none;'}
+      .nano-slider{:style => 'height: 545px; transform: translate(0px, 0px);'}

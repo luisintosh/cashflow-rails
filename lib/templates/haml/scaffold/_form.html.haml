@@ -1,0 +1,17 @@
+= simple_form_for(@<%= singular_table_name %>) do |f|
+  .alert.alert-info
+    %h4 Información
+    %ul
+      %li Todos los campos con * son requeridos.
+  = f.error_notification
+
+  .form-inputs.row
+  <%- attributes.each do |attribute| -%>
+    .col-md-12
+      = f.<%= attribute.reference? ? :association : :input %> :<%= attribute.name %>
+  <%- end -%>
+
+  .form-actions
+    = button_tag(type: :submit, class: 'btn btn-success btn-addon m-b-sm') do
+      %i.fa.fa-check
+      Guardar

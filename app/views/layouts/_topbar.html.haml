@@ -1,0 +1,62 @@
+/ BEGIN HEADER
+%header#header
+  .headerbar
+    / Brand and toggle get grouped for better mobile display
+    .headerbar-left
+      %ul.header-nav.header-nav-options
+        %li.header-nav-brand
+          .brand-holder
+            %a{:href => '#'}
+              %span.text-lg.text-bold.text-primary ROHERS
+        %li
+          %a.btn.btn-icon-toggle.menubar-toggle{'data-toggle' => 'menubar', :href => 'javascript:void(0);'}
+            %i.fa.fa-bars
+    / Collect the nav links, forms, and other content for toggling
+    .headerbar-right
+      %ul.header-nav.header-nav-options
+        %li.dropdown.hidden-xs
+          %a.btn.btn-icon-toggle.btn-default{'aria-expanded' => 'false', 'data-toggle' => 'dropdown', :href => 'javascript:void(0);'}
+            %i.fa.fa-bell
+            %sup.badge.style-danger 4
+          %ul.dropdown-menu.animation-expand
+            %li.dropdown-header Today's messages
+            %li
+              %a.alert.alert-callout.alert-warning{:href => 'javascript:void(0);'}
+                %img.pull-right.img-circle.dropdown-avatar{:alt => '', :src => '#/assets/img/modules/materialadmin/avatar2.jpg?1422538624'}/
+                %strong Alex Anistor
+                %br/
+                %small Testing functionality...
+            %li
+              %a.alert.alert-callout.alert-info{:href => 'javascript:void(0);'}
+                %img.pull-right.img-circle.dropdown-avatar{:alt => '', :src => '#/assets/img/modules/materialadmin/avatar3.jpg?1422538624'}/
+                %strong Alicia Adell
+                %br/
+                %small Reviewing last changes...
+            %li.dropdown-header Options
+            %li
+              %a{:href => '#/materialadmin/pages/login'}
+                View all messages
+                %span.pull-right
+                  %i.fa.fa-arrow-right
+            %li
+              %a{:href => '#/materialadmin/pages/login'}
+                Mark as read
+                %span.pull-right
+                  %i.fa.fa-arrow-right
+      %ul.header-nav.header-nav-profile
+        %li.dropdown
+          %a.dropdown-toggle.ink-reaction{'aria-expanded' => 'false', 'data-toggle' => 'dropdown', :href => 'javascript:void(0);'}
+            %img{:alt => '', :src => '#/assets/img/modules/materialadmin/avatar1.jpg?1422538623'}/
+            = image_tag 'avatars/avatar.png'
+            %span.profile-info
+              Daniel Johnson
+              %small Administrator
+          %ul.dropdown-menu.animation-dock
+            %li.dropdown-header Config
+            %li
+              %a{:href => '#/materialadmin/pages/profile'} My profile
+            %li.divider
+            %li
+              %a{:href => '#/materialadmin/pages/login'}
+                %i.fa.fa-fw.fa-power-off.text-danger
+                Logout

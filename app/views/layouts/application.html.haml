@@ -1,0 +1,27 @@
+!!!
+%html
+  %head
+    %meta{:charset => 'utf-8'}/
+    %meta{:content => 'IE=edge', 'http-equiv' => 'X-UA-Compatible'}/
+    %meta{:content => 'width=device-width, initial-scale=1.0', :name => 'viewport'}/
+    %title Rohers
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body.menubar-hoverable.header-fixed.menubar-pin.menubar-visible
+    = render 'layouts/topbar'
+    / BEGIN BASE
+    #base
+      / BEGIN OFFCANVAS LEFT
+      .offcanvas
+      / BEGIN CONTENT
+      #content
+        %section
+          // Partial content
+          = yield
+      = render 'layouts/sidebar'
+    #device-breakpoints
+      .device-xs.visible-xs{'data-breakpoint' => 'xs'}
+      .device-sm.visible-sm{'data-breakpoint' => 'sm'}
+      .device-md.visible-md{'data-breakpoint' => 'md'}
+      .device-lg.visible-lg{'data-breakpoint' => 'lg'}

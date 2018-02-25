@@ -1,0 +1,16 @@
+.section-header
+  %ol.breadcrumb
+    %li
+      Administración de #{<%= singular_table_name.camelize %>::PLURAL}
+    %li.active
+      Registrando #{<%= singular_table_name.camelize %>::SINGULAR}
+.section-body
+  .card
+    .card-head.style-primary
+      .tools
+        = link_to <%= index_helper %>_path, class: 'btn btn-flat hidden-xs' do
+          %i.glyphicon.glyphicon-arrow-left
+          Regresar a lista
+    .card-body
+      .row
+        = render 'form'
