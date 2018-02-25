@@ -10,10 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180222005830) do
+ActiveRecord::Schema.define(version: 20180225031919) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "emp_perfils", force: :cascade do |t|
+    t.string "tel_fijo"
+    t.string "tel_movil"
+    t.string "email"
+    t.string "rfc"
+    t.string "direccion"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "emp_proveedors", force: :cascade do |t|
+    t.string "empresa"
+    t.decimal "saldo", precision: 10, scale: 2
+    t.decimal "saldo_max", precision: 10, scale: 2
+    t.bigint "emp_perfil_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["emp_perfil_id"], name: "index_emp_proveedors_on_emp_perfil_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -32,4 +52,5 @@ ActiveRecord::Schema.define(version: 20180222005830) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "emp_proveedors", "emp_perfils"
 end

@@ -1,0 +1,66 @@
+.section-header
+  %ol.breadcrumb
+    %li
+      Administración de #{EmpProveedor::PLURAL}
+    %li.active
+      Mostrando #{@emp_proveedor.title}
+.section-body
+  .card
+    .card-head.style-primary
+      .tools
+        = link_to emp_proveedors_path, class: 'btn btn-flat hidden-xs' do
+          %i.glyphicon.glyphicon-arrow-left
+          Regresar a lista
+        = link_to edit_emp_proveedor_path(@emp_proveedor), class: 'btn btn-flat hidden-xs' do
+          %i.fa.fa-edit
+          Editar
+    .card-body
+      %ul.list.divider-full-bleed
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Empresa
+              %small
+                = @emp_proveedor.empresa
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Saldo
+              %small
+                = number_to_currency @emp_proveedor.saldo
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Saldo máximo
+              %small
+                = number_to_currency @emp_proveedor.saldo_max
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Teléfono móvil
+              %small
+                = @emp_proveedor.emp_perfil.tel_movil
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Teléfono fijo
+              %small
+                = @emp_proveedor.emp_perfil.tel_fijo
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Email
+              %small
+                = @emp_proveedor.emp_perfil.email
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              RFC
+              %small
+                = @emp_proveedor.emp_perfil.rfc
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Dirección
+              %small
+                = @emp_proveedor.emp_perfil.direccion

@@ -1,0 +1,37 @@
+- unless smart_listing.empty?
+  .table-responsive
+    %table.table.table-striped.table-hover
+      %thead
+        %tr
+          %th= smart_listing.sortable 'Empresa', :empresa
+          %th= smart_listing.sortable 'Saldo', :saldo
+          %th= smart_listing.sortable 'Saldo max', :saldo_max
+          %th= smart_listing.sortable 'Tel. móvil', :tel_movil
+          %th= smart_listing.sortable 'Tel. fijo', :tel_fijo
+          %th= smart_listing.sortable 'Email', :email
+          %th= smart_listing.sortable 'Creado', :created_at
+          %th= smart_listing.sortable 'Actualizado', :updated_at
+          %th
+      %tbody
+        - @emp_proveedors.each do |emp_proveedor|
+          %tr
+            %td= emp_proveedor.empresa
+            %td= number_to_currency emp_proveedor.saldo
+            %td= number_to_currency emp_proveedor.saldo_max
+            %td= emp_proveedor.emp_perfil.tel_movil
+            %td= emp_proveedor.emp_perfil.tel_fijo
+            %td= emp_proveedor.emp_perfil.email
+            %th= emp_proveedor.created_at.strftime '%Y %m %d'
+            %th= emp_proveedor.updated_at.strftime '%Y %m %d'
+            %td.actions
+              = link_to emp_proveedor, class: 'btn btn-success btn-xs' do
+                %i.fa.fa-eye
+              = link_to edit_emp_proveedor_path(emp_proveedor), class: 'btn btn-info btn-xs' do
+                %i.fa.fa-edit
+              = link_to emp_proveedor, method: :delete, data: { confirm: '¿Esta usted seguro?' }, class: 'btn btn-danger btn-xs' do
+                %i.fa.fa-times
+
+  = smart_listing.paginate
+  = smart_listing.pagination_per_page_links
+- else
+  %p.warning No se han encontrado registros para mostrar

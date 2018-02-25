@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tel_fijo: MyString
+  tel_movil: MyString
+  email: MyString
+  rfc: MyString
+  direccion: MyString
+
+two:
+  tel_fijo: MyString
+  tel_movil: MyString
+  email: MyString
+  rfc: MyString
+  direccion: MyString

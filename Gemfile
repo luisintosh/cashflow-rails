@@ -48,6 +48,9 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  # Errors page
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -66,3 +69,6 @@ gem 'font-awesome-sass', '~> 5'
 
 # Forms helper
 gem 'simple_form'
+
+# Data list, sorting and search
+gem 'smart_listing'

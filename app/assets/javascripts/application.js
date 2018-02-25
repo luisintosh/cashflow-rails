@@ -17,9 +17,12 @@
 //= require libs/jquery/jquery-migrate-1.2.1.min
 // require libs/bootstrap/bootstrap
 //= require bootstrap-sprockets
+// Sorting and filter
+//= require smart_listing
 // Theme
 //= require libs/spin.js/spin
 //= require libs/autosize/jquery.autosize
 //= require libs/nanoscroller/jquery.nanoscroller
+//= require libs/DataTables/jquery.dataTables
 //= require_directory ./core/source/
 //= require_directory .

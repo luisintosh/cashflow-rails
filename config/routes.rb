@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :emp_proveedors
   devise_for :users
   get 'panel/index'
 

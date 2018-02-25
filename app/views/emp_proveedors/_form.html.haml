@@ -1,0 +1,34 @@
+= simple_form_for(@emp_proveedor) do |f|
+  .alert.alert-info
+    %h4 Información
+    %ul
+      %li Todos los campos con * son requeridos.
+      %li Empresa: Nombre completo de la empresa que va a registrar.
+      %li Saldo: Deuda actual con el proveedor.
+      %li Saldo Max: Máximo de deuda con dicho proveedor, sobrepasando el límite se le mostrará una alerta.
+  = f.error_notification
+
+  .form-inputs.row
+    .col-md-12
+      = f.input :empresa
+    .col-md-6
+      = f.input :saldo
+    .col-md-6
+      = f.input :saldo_max
+    = f.simple_fields_for :emp_perfil do |ff|
+      .col-md-6
+        = ff.input :tel_fijo, label: 'Teléfono fijo'
+      .col-md-6
+        = ff.input :tel_movil, label: 'Teléfono movil'
+      .col-md-6
+        = ff.input :email, placeholder: 'nombre@correo.com'
+      .col-md-6
+        = ff.input :rfc, label: 'RFC'
+      .col-md-12
+        = ff.input :direccion, label: 'Dirección'
+
+  .card-actionbar
+    .card-actionbar-row
+      = button_tag(type: :submit, class: 'btn btn-flat btn-primary ink-reaction') do
+        %i.fa.fa-check
+        Guardar

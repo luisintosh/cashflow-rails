@@ -11,14 +11,16 @@
         = link_to <%= index_helper %>_path, class: 'btn btn-flat hidden-xs' do
           %i.glyphicon.glyphicon-arrow-left
           Regresar a lista
-        = link_to @<%= singular_table_name %>, class: 'btn btn-flat hidden-xs' do
-          %i.fa.fa-pencil
+        = link_to edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), class: 'btn btn-flat hidden-xs' do
+          %i.fa.fa-edit
           Editar
     .card-body
-      %ul.list.divider-full-bleed <%- attributes.each do |attribute| -%>
+      %ul.list.divider-full-bleed
+        <%- attributes.each do |attribute| -%>
         %li.tile
           %a.tile-content.ink-reaction
             .tile-text
               <%= attribute.human_name %>
               %small
-                = @<%= singular_table_name %>.<%= attribute.name %> <%- end -%>
+                = @<%= singular_table_name %>.<%= attribute.name %>
+        <%- end -%>

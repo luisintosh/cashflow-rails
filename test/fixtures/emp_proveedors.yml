@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  empresa: MyString
+  saldo: 9.99
+  saldo_max: 9.99
+  emp_perfil: one
+
+two:
+  empresa: MyString
+  saldo: 9.99
+  saldo_max: 9.99
+  emp_perfil: two
