@@ -1,0 +1,76 @@
+.section-header
+  %ol.breadcrumb
+    %li.active
+      Administración de #{MovMovimiento::PLURAL}
+.section-body
+  .card
+    .card-head.style-primary
+      .tools.pull-left
+        = smart_listing_controls_for :mov_movimiento, {class: 'navbar-search expanded'} do
+          .form-group
+            = text_field_tag :search, '', class: 'form-control', placeholder: 'Buscar...', autocomplete: :off
+          %button.btn.btn-icon-toggle.ink-reaction{type: :submit}
+            %i.fa.fa-search
+      .tools
+        = link_to new_mov_movimiento_path(type: 'ingreso'), {class: 'btn btn-flat'} do
+          %i.fa.fa-arrow-down
+          Nuevo ingreso
+        = link_to new_mov_movimiento_path(type: 'egreso'), {class: 'btn btn-flat'} do
+          %i.fa.fa-arrow-up
+          Nuevo egreso
+    .card-body
+      = smart_listing_controls_for :mov_movimiento, {class: ''} do
+        .row
+          .col-md-1.m-b-sm
+            %label.label-control Hoja
+            = text_field_tag :f_hoja, '', {class: 'form-control input-sm'}
+          .col-md-2.m-b-sm
+            %label.label-control Fecha desde:
+            = date_field_tag :f_fecha_desde, '', {class: 'form-control input-sm'}
+          .col-md-2.m-b-sm
+            %label.label-control Fecha hasta:
+            = date_field_tag :f_fecha_hasta, '', {class: 'form-control input-sm'}
+          .col-md-2.m-b-sm
+            %label.label-control Ciclo:
+            = select '', :f_ciclo, MovMovimiento.lista_ciclos, {include_blank: true},
+              {class: 'form-control input-sm'}
+          .col-md-3.m-b-sm
+            %label.label-control Clasificación:
+            = select '', :f_clasificacion, EmpClasificacion.all.collect {|itm| [itm.title, itm.id]},
+              {include_blank: true}, {class: 'form-control input-sm'}
+          .col-md-2.m-b-sm
+            %label.label-control Cuenta:
+            = select '', :f_cuenta, EmpCuentab.all.collect {|itm| [itm.title, itm.id]}, {include_blank: true},
+              {class: 'form-control input-sm'}
+          .col-md-2.m-b-sm
+            %label.label-control Proveedor:
+            = select '', :f_proveedor, EmpProveedor.all.collect {|itm| [itm.title, itm.id]}, {include_blank: true},
+              {class: 'form-control input-sm'}
+          .col-md-2.m-b-sm
+            %label.label-control Cliente:
+            = select '', :f_cliente, EmpCliente.all.collect {|itm| [itm.title, itm.id]}, {include_blank: true},
+              {class: 'form-control input-sm'}
+          .col-md-2.m-b-sm
+            %label.label-control Locación:
+            = select '', :f_locacion, EmpLocacion.all.collect {|itm| [itm.title, itm.id]}, {include_blank: true},
+              {class: 'form-control input-sm'}
+          .col-md-2.m-b-sm
+            %label.label-control Factura:
+            = text_field_tag :f_factura, '', {class: 'form-control input-sm'}
+          .col-md-2.m-b-sm
+            %label.label-control Comprobante:
+            = text_field_tag :f_comprobante, '', {class: 'form-control input-sm'}
+          .col-md-2.m-b-sm
+            %label.label-control Tipo de comprobante:
+            = select '', :f_tipo_comprobante, MovMovimiento.tipo_comprobantes, {include_blank: true},
+              {class: 'form-control input-sm'}
+          .col-md-2.m-b-sm
+            %label.label-control Total:
+            = number_field_tag :f_total, '', {class: 'form-control input-sm', step: :any}
+          .col-lg-12.m-b-sm.text-right
+            %div
+              %button.btn.btn-success{type: 'submit'}
+                %i.fa.fa-search
+                Filtrar
+
+      = smart_listing_render :mov_movimiento

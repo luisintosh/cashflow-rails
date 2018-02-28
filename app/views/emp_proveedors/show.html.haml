@@ -2,16 +2,18 @@
   %ol.breadcrumb
     %li
       Administración de #{EmpProveedor::PLURAL}
+    %li
+      Ver
     %li.active
-      Mostrando #{@emp_proveedor.title}
+      #{@emp_proveedor.title}
 .section-body
   .card
     .card-head.style-primary
       .tools
-        = link_to emp_proveedors_path, class: 'btn btn-flat hidden-xs' do
+        = link_to emp_proveedors_path, class: 'btn btn-flat' do
           %i.glyphicon.glyphicon-arrow-left
           Regresar a lista
-        = link_to edit_emp_proveedor_path(@emp_proveedor), class: 'btn btn-flat hidden-xs' do
+        = link_to edit_emp_proveedor_path(@emp_proveedor), class: 'btn btn-flat' do
           %i.fa.fa-edit
           Editar
     .card-body
@@ -64,3 +66,15 @@
               Dirección
               %small
                 = @emp_proveedor.emp_perfil.direccion
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Fecha de creación
+              %small
+                = @emp_proveedor.created_at
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Fecha de actualización
+              %small
+                = @emp_proveedor.updated_at

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyString
+  tipo_cuenta: MyString
+  tipo_subcuenta: MyString
+  tipo_movimiento: MyString
+
+two:
+  nombre: MyString
+  tipo_cuenta: MyString
+  tipo_subcuenta: MyString
+  tipo_movimiento: MyString

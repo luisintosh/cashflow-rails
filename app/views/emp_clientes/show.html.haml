@@ -1,0 +1,87 @@
+.section-header
+  %ol.breadcrumb
+    %li
+      Administración de #{EmpCliente::PLURAL}
+    %li
+      Ver
+    %li.active
+      #{@emp_cliente.title}
+.section-body
+  .card
+    .card-head.style-primary
+      .tools
+        = link_to emp_clientes_path, class: 'btn btn-flat' do
+          %i.glyphicon.glyphicon-arrow-left
+          Regresar a lista
+        = link_to edit_emp_cliente_path(@emp_cliente), class: 'btn btn-flat' do
+          %i.fa.fa-edit
+          Editar
+    .card-body
+      %ul.list.divider-full-bleed
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Nombre
+              %small
+                = @emp_cliente.nombre
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Apellidos
+              %small
+                = @emp_cliente.apellidos
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Saldo
+              %small
+                = number_to_currency @emp_cliente.saldo
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Saldo máximo
+              %small
+                = number_to_currency @emp_cliente.saldo_max
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Teléfono móvil
+              %small
+                = @emp_cliente.emp_perfil.tel_movil
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Teléfono fijo
+              %small
+                = @emp_cliente.emp_perfil.tel_fijo
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Email
+              %small
+                = @emp_cliente.emp_perfil.email
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              RFC
+              %small
+                = @emp_cliente.emp_perfil.rfc
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Dirección
+              %small
+                = @emp_cliente.emp_perfil.direccion
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Fecha de creación
+              %small
+                = @emp_cliente.created_at
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Fecha de actualización
+              %small
+                = @emp_cliente.updated_at
+                

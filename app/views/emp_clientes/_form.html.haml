@@ -1,0 +1,33 @@
+= simple_form_for(@emp_cliente) do |f|
+  .alert.alert-info
+    %h4 Información
+    %ul
+      %li Todos los campos con * son requeridos.
+  = f.error_notification
+
+  .form-inputs.row
+    .col-md-6
+      = f.input :nombre
+    .col-md-6
+      = f.input :apellidos
+    .col-md-6
+      = f.input :saldo
+    .col-md-6
+      = f.input :saldo_max
+    = f.simple_fields_for :emp_perfil do |ff|
+      .col-md-6
+        = ff.input :tel_fijo, label: 'Teléfono fijo'
+      .col-md-6
+        = ff.input :tel_movil, label: 'Teléfono movil'
+      .col-md-6
+        = ff.input :email
+      .col-md-6
+        = ff.input :rfc, label: 'RFC'
+      .col-md-12
+        = ff.input :direccion, label: 'Dirección'
+
+  .card-actionbar
+    .card-actionbar-row
+      = button_tag(type: :submit, class: 'btn btn-flat btn-primary ink-reaction') do
+        %i.fa.fa-check
+        Guardar

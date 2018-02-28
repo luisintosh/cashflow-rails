@@ -1,0 +1,59 @@
+- unless smart_listing.empty?
+  .table-responsive
+    %table.table.table-striped.table-hover
+      %thead
+        %tr
+          %th= smart_listing.sortable 'Tipo movimiento', :tipo_movimiento
+          %th= smart_listing.sortable 'Hoja', :hoja
+          %th= smart_listing.sortable 'Fecha', :fecha
+          %th= smart_listing.sortable 'Ciclo', :ciclo
+          %th= smart_listing.sortable 'Clasificación', :clasificacion
+          %th= smart_listing.sortable 'Cuenta', :cuenta
+          %th= smart_listing.sortable 'Concepto', :concepto
+          %th Proveedor
+          %th Cliente
+          %th= smart_listing.sortable 'Departamento', :departamento
+          %th= smart_listing.sortable 'Factura', :factura
+          %th= smart_listing.sortable 'Comprobante', :comprobante
+          %th Tipo comprobante
+          %th Subtotal
+          %th IVA
+          %th IEPS
+          %th= smart_listing.sortable 'Total', :total
+          %th= smart_listing.sortable 'Creado', :created_at
+          %th= smart_listing.sortable 'Actualizado', :updated_at
+          %th
+        %tbody
+          - @mov_movimientos.each do |mov_movimiento|
+            %tr
+              %td= mov_movimiento.tipo_movimiento.capitalize
+              %td= mov_movimiento.hoja
+              %td= mov_movimiento.fecha
+              %td= mov_movimiento.ciclo
+              %td= mov_movimiento.emp_clasificacion.title
+              %td= mov_movimiento.emp_cuentab.title
+              %td= mov_movimiento.concepto
+              %td= mov_movimiento.emp_proveedor_id? ? mov_movimiento.emp_proveedor.title : '-'
+              %td= mov_movimiento.emp_cliente_id? ? mov_movimiento.emp_cliente.title : '-'
+              %td= mov_movimiento.emp_locacion.nombre
+              %td= mov_movimiento.factura
+              %td= mov_movimiento.comprobante
+              %td= mov_movimiento.tipo_comprobante
+              %td= number_to_currency mov_movimiento.subtotal
+              %td= number_to_currency mov_movimiento.iva
+              %td= number_to_currency mov_movimiento.ieps
+              %td= number_to_currency mov_movimiento.total
+              %td= mov_movimiento.created_at.strftime '%Y %m %d'
+              %td= mov_movimiento.updated_at.strftime '%Y %m %d'
+              %td.actions
+                = link_to mov_movimiento, class: 'btn btn-success btn-xs' do
+                  %i.fa.fa-eye
+                = link_to edit_mov_movimiento_path(mov_movimiento), class: 'btn btn-info btn-xs' do
+                  %i.fa.fa-edit
+                = link_to mov_movimiento, method: :delete, data: { confirm: '¿Esta usted seguro?' }, class: 'btn btn-danger btn-xs' do
+                  %i.fa.fa-times
+
+  = smart_listing.paginate
+  = smart_listing.pagination_per_page_links
+- else
+  %p.warning Ningún dato disponible para mostrar

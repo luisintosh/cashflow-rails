@@ -2,16 +2,18 @@
   %ol.breadcrumb
     %li
       Administración de #{<%= singular_table_name.camelize %>::PLURAL}
+    %li
+      Ver
     %li.active
-      Mostrando #{@<%= singular_table_name %>.title}
+      #{@<%= singular_table_name %>.title}
 .section-body
   .card
     .card-head.style-primary
       .tools
-        = link_to <%= index_helper %>_path, class: 'btn btn-flat hidden-xs' do
+        = link_to <%= index_helper %>_path, class: 'btn btn-flat' do
           %i.glyphicon.glyphicon-arrow-left
           Regresar a lista
-        = link_to edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), class: 'btn btn-flat hidden-xs' do
+        = link_to edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), class: 'btn btn-flat' do
           %i.fa.fa-edit
           Editar
     .card-body
@@ -24,3 +26,15 @@
               %small
                 = @<%= singular_table_name %>.<%= attribute.name %>
         <%- end -%>
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Fecha de creación
+              %small
+                = @<%= singular_table_name %>.created_at
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Fecha de actualización
+              %small
+                = @<%= singular_table_name %>.updated_at

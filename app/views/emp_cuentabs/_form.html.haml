@@ -1,0 +1,20 @@
+= simple_form_for(@emp_cuentab) do |f|
+  .alert.alert-info
+    %h4 Información
+    %ul
+      %li Todos los campos con * son requeridos.
+  = f.error_notification
+
+  .form-inputs.row
+    .col-md-12
+      = f.input :nombre
+    .col-md-12
+      = f.input :moneda, collection: EmpCuentab.monedas.keys
+    .col-md-12
+      = f.input :saldo
+
+  .card-actionbar
+    .card-actionbar-row
+      = button_tag(type: :submit, class: 'btn btn-flat btn-primary ink-reaction') do
+        %i.fa.fa-check
+        Guardar

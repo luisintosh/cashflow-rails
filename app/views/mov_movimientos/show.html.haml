@@ -1,0 +1,138 @@
+.section-header
+  %ol.breadcrumb
+    %li
+      Administración de #{MovMovimiento::PLURAL}
+    %li
+      Ver
+    %li.active
+      #{@mov_movimiento.title}
+.section-body
+  .card
+    .card-head.style-primary
+      .tools
+        = link_to mov_movimientos_path, class: 'btn btn-flat' do
+          %i.glyphicon.glyphicon-arrow-left
+          Regresar a lista
+        = link_to edit_mov_movimiento_path(@mov_movimiento), class: 'btn btn-flat' do
+          %i.fa.fa-edit
+          Editar
+    .card-body
+      %ul.list.divider-full-bleed
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Tipo de movimiento
+              %small
+                = @mov_movimiento.tipo_movimiento
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Hoja
+              %small
+                = @mov_movimiento.hoja
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Fecha
+              %small
+                = @mov_movimiento.fecha
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Ciclo
+              %small
+                = @mov_movimiento.ciclo
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              = EmpClasificacion::SINGULAR
+              %small
+                = @mov_movimiento.emp_clasificacion.title
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              = EmpCuentab::SINGULAR
+              %small
+                = @mov_movimiento.emp_cuentab.title
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Concepto
+              %small
+                = @mov_movimiento.concepto
+
+        - if @mov_movimiento.egreso?
+          %li.tile
+            %a.tile-content.ink-reaction
+              .tile-text
+                = EmpProveedor::SINGULAR
+                %small
+                  = @mov_movimiento.emp_proveedor.title
+        - elsif @mov_movimiento.ingreso?
+          %li.tile
+            %a.tile-content.ink-reaction
+              .tile-text
+                = EmpCliente::SINGULAR
+                %small
+                  = @mov_movimiento.emp_cliente.title
+
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              = EmpLocacion::SINGULAR
+              %small
+                = @mov_movimiento.emp_locacion.title
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Factura
+              %small
+                = @mov_movimiento.factura
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Comprobante
+              %small
+                = @mov_movimiento.comprobante
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Tipo de comprobante
+              %small
+                = @mov_movimiento.tipo_comprobante
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Subtotal
+              %small
+                = number_to_currency @mov_movimiento.subtotal
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              IVA
+              %small
+                = number_to_currency @mov_movimiento.iva
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              IEPS
+              %small
+                = number_to_currency @mov_movimiento.ieps
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Total
+              %small
+                = number_to_currency @mov_movimiento.total
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Fecha de creación
+              %small
+                = @mov_movimiento.created_at
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Fecha de actualización
+              %small
+                = @mov_movimiento.updated_at

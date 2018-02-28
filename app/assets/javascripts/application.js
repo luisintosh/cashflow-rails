@@ -11,7 +11,7 @@
 // about supported directives.
 //
 // require rails-ujs
-// require turbolinks
+//= require turbolinks
 //= require jquery
 //= require jquery_ujs
 //= require libs/jquery/jquery-migrate-1.2.1.min
@@ -24,5 +24,7 @@
 //= require libs/autosize/jquery.autosize
 //= require libs/nanoscroller/jquery.nanoscroller
 //= require libs/DataTables/jquery.dataTables
+//= require libs/select2/select2
+//= require extras
 //= require_directory ./core/source/
 //= require_directory .

@@ -1,0 +1,44 @@
+.section-header
+  %ol.breadcrumb
+    %li
+      Administración de #{EmpLocacion::PLURAL}
+    %li
+      Ver
+    %li.active
+      #{@emp_locacion.title}
+.section-body
+  .card
+    .card-head.style-primary
+      .tools
+        = link_to emp_locacions_path, class: 'btn btn-flat' do
+          %i.glyphicon.glyphicon-arrow-left
+          Regresar a lista
+        = link_to edit_emp_locacion_path(@emp_locacion), class: 'btn btn-flat' do
+          %i.fa.fa-edit
+          Editar
+    .card-body
+      %ul.list.divider-full-bleed
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Nombre
+              %small
+                = @emp_locacion.nombre
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Direccion
+              %small
+                = @emp_locacion.direccion
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Fecha de creación
+              %small
+                = @emp_locacion.created_at
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Fecha de actualización
+              %small
+                = @emp_locacion.updated_at

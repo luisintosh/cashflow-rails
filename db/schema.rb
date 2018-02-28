@@ -10,10 +10,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180225031919) do
+ActiveRecord::Schema.define(version: 20180225201034) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "emp_clasificacions", force: :cascade do |t|
+    t.string "nombre"
+    t.string "tipo_cuenta"
+    t.string "tipo_subcuenta"
+    t.integer "tipo_movimiento"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "emp_clientes", force: :cascade do |t|
+    t.string "nombre"
+    t.string "apellidos"
+    t.decimal "saldo", precision: 10, scale: 2, default: "0.0"
+    t.decimal "saldo_max", precision: 10, scale: 2, default: "0.0"
+    t.bigint "emp_perfil_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["emp_perfil_id"], name: "index_emp_clientes_on_emp_perfil_id"
+  end
+
+  create_table "emp_cuentabs", force: :cascade do |t|
+    t.string "nombre"
+    t.integer "moneda"
+    t.decimal "saldo", precision: 10, scale: 2, default: "0.0"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "emp_locacions", force: :cascade do |t|
+    t.string "nombre"
+    t.string "direccion"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "emp_perfils", force: :cascade do |t|
     t.string "tel_fijo"
@@ -35,6 +70,33 @@ ActiveRecord::Schema.define(version: 20180225031919) do
     t.index ["emp_perfil_id"], name: "index_emp_proveedors_on_emp_perfil_id"
   end
 
+  create_table "mov_movimientos", force: :cascade do |t|
+    t.integer "tipo_movimiento"
+    t.string "hoja"
+    t.date "fecha"
+    t.string "ciclo"
+    t.bigint "emp_clasificacion_id"
+    t.bigint "emp_cuentab_id"
+    t.string "concepto"
+    t.bigint "emp_proveedor_id"
+    t.bigint "emp_cliente_id"
+    t.bigint "emp_locacion_id"
+    t.string "factura"
+    t.string "comprobante"
+    t.integer "tipo_comprobante"
+    t.decimal "subtotal", precision: 10, scale: 2, default: "0.0"
+    t.decimal "iva", precision: 10, scale: 2, default: "0.0"
+    t.decimal "ieps", precision: 10, scale: 2, default: "0.0"
+    t.decimal "total", precision: 10, scale: 2, default: "0.0"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["emp_clasificacion_id"], name: "index_mov_movimientos_on_emp_clasificacion_id"
+    t.index ["emp_cliente_id"], name: "index_mov_movimientos_on_emp_cliente_id"
+    t.index ["emp_cuentab_id"], name: "index_mov_movimientos_on_emp_cuentab_id"
+    t.index ["emp_locacion_id"], name: "index_mov_movimientos_on_emp_locacion_id"
+    t.index ["emp_proveedor_id"], name: "index_mov_movimientos_on_emp_proveedor_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -52,5 +114,11 @@ ActiveRecord::Schema.define(version: 20180225031919) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "emp_clientes", "emp_perfils"
   add_foreign_key "emp_proveedors", "emp_perfils"
+  add_foreign_key "mov_movimientos", "emp_clasificacions"
+  add_foreign_key "mov_movimientos", "emp_clientes"
+  add_foreign_key "mov_movimientos", "emp_cuentabs"
+  add_foreign_key "mov_movimientos", "emp_locacions"
+  add_foreign_key "mov_movimientos", "emp_proveedors"
 end

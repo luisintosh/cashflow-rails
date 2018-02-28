@@ -1,0 +1,20 @@
+.section-header
+  %ol.breadcrumb
+    %li
+      Administración de #{MovMovimiento::PLURAL}
+    %li
+      Editar
+    %li.active
+      #{@mov_movimiento.title}
+.section-body
+  .card
+    .card-head.style-primary
+      .tools
+        = link_to mov_movimientos_path, class: 'btn btn-flat' do
+          %i.glyphicon.glyphicon-arrow-left
+          Regresar a lista
+        = link_to @mov_movimiento, class: 'btn btn-flat' do
+          %i.fa.fa-eye
+          Ver
+    .card-body
+      = render 'form'

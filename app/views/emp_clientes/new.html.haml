@@ -1,0 +1,15 @@
+.section-header
+  %ol.breadcrumb
+    %li
+      Administración de #{EmpCliente::PLURAL}
+    %li.active
+      Registrando #{EmpCliente::SINGULAR}
+.section-body
+  .card
+    .card-head.style-primary
+      .tools
+        = link_to emp_clientes_path, class: 'btn btn-flat' do
+          %i.glyphicon.glyphicon-arrow-left
+          Regresar a lista
+    .card-body
+      = render 'form'

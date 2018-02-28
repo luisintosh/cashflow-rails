@@ -22,4 +22,6 @@ $.extend true, $.fn.dataTable.defaults,
       'sSortDescending': ': Activar para ordenar la columna de manera descendente'
   'bStateSave': true
 
-$('.dataTable').dataTable()
+# Turbolinks ready
+$(document).on 'turbolinks:load', ()->
+  $('.dataTable').dataTable()

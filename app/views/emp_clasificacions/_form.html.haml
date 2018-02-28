@@ -1,0 +1,28 @@
+= simple_form_for(@emp_clasificacion) do |f|
+  .alert.alert-info
+    %h4 Información
+    %ul
+      %li Todos los campos con * son requeridos.
+  = f.error_notification
+
+  .form-inputs.row
+    .col-md-6
+      = f.input :nombre
+    .col-md-6
+      = f.input :tipo_cuenta, input_html: {list: 'dlTipoCuentas'}
+      %datalist#dlTipoCuentas
+        = for tc in EmpClasificacion.tcuentas
+          %option= tc
+    .col-md-6
+      = f.input :tipo_subcuenta, input_html: {list: 'dlTipoSubCuentas'}
+      %datalist#dlTipoSubCuentas
+        = for ts in EmpClasificacion.tsubcuentas
+          %option= ts
+    .col-md-6
+      = f.input :tipo_movimiento, collection: EmpClasificacion.tipo_movimientos.keys
+
+  .card-actionbar
+    .card-actionbar-row
+      = button_tag(type: :submit, class: 'btn btn-flat btn-primary ink-reaction') do
+        %i.fa.fa-check
+        Guardar

@@ -1,0 +1,34 @@
+.section-header
+  %ol.breadcrumb
+    %li.active
+      Administración de #{EmpClasificacion::PLURAL}
+.section-body
+  .card
+    .card-head.style-primary
+      .tools
+        = link_to new_emp_clasificacion_path, class: 'btn btn-floating-action btn-default-light' do
+          %i.fa.fa-plus
+    .card-body
+      .table-responsive
+        %table.table.table-striped.table-hover.dataTable
+          %thead
+            %tr
+              %th Nombre
+              %th Tipo cuenta
+              %th Tipo subcuenta
+              %th Tipo movimiento
+              %th
+          %tbody
+            - @emp_clasificacions.each do |emp_clasificacion|
+              %tr
+                %td= emp_clasificacion.nombre
+                %td= emp_clasificacion.tipo_cuenta
+                %td= emp_clasificacion.tipo_subcuenta
+                %td= emp_clasificacion.tipo_movimiento
+                %td.actions
+                  = link_to emp_clasificacion, class: 'btn btn-success btn-xs' do
+                    %i.fa.fa-eye
+                  = link_to edit_emp_clasificacion_path(emp_clasificacion), class: 'btn btn-info btn-xs' do
+                    %i.fa.fa-edit
+                  = link_to emp_clasificacion, method: :delete, data: { confirm: '¿Esta usted seguro?' }, class: 'btn btn-danger btn-xs' do
+                    %i.fa.fa-times

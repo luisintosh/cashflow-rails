@@ -1,0 +1,30 @@
+.section-header
+  %ol.breadcrumb
+    %li.active
+      Administración de #{EmpLocacion::PLURAL}
+.section-body
+  .card
+    .card-head.style-primary
+      .tools
+        = link_to new_emp_locacion_path, class: 'btn btn-floating-action btn-default-light' do
+          %i.fa.fa-plus
+    .card-body
+      .table-responsive
+        %table.table.table-striped.table-hover.dataTable
+          %thead
+            %tr
+              %th Nombre
+              %th Direccion
+              %th
+          %tbody
+            - @emp_locacions.each do |emp_locacion|
+              %tr
+                %td= emp_locacion.nombre
+                %td= emp_locacion.direccion
+                %td.actions
+                  = link_to emp_locacion, class: 'btn btn-success btn-xs' do
+                    %i.fa.fa-eye
+                  = link_to edit_emp_locacion_path(emp_locacion), class: 'btn btn-info btn-xs' do
+                    %i.fa.fa-edit
+                  = link_to emp_locacion, method: :delete, data: { confirm: '¿Esta usted seguro?' }, class: 'btn btn-danger btn-xs' do
+                    %i.fa.fa-times

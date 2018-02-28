@@ -1,0 +1,18 @@
+.section-header
+  %ol.breadcrumb
+    %li.active
+      Administración de #{EmpCliente::PLURAL}
+.section-body
+  .card
+    .card-head.style-primary
+      .tools.pull-left
+        = smart_listing_controls_for :emp_cliente, {class: 'navbar-search expanded'} do
+          .form-group
+            = text_field_tag :search, '', class: 'form-control', placeholder: 'Buscar...', autocomplete: :off
+          %button.btn.btn-icon-toggle.ink-reaction{type: :submit}
+            %i.fa.fa-search
+      .tools
+        = link_to new_emp_cliente_path, class: 'btn btn-floating-action btn-default-light' do
+          %i.fa.fa-plus
+    .card-body
+      = smart_listing_render :emp_cliente

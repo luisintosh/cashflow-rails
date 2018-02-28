@@ -1,0 +1,32 @@
+.section-header
+  %ol.breadcrumb
+    %li.active
+      Administración de #{EmpCuentab::PLURAL}
+.section-body
+  .card
+    .card-head.style-primary
+      .tools
+        = link_to new_emp_cuentab_path, class: 'btn btn-floating-action btn-default-light' do
+          %i.fa.fa-plus
+    .card-body
+      .table-responsive
+        %table.table.table-striped.table-hover.dataTable
+          %thead
+            %tr
+              %th Nombre
+              %th Moneda
+              %th Saldo
+              %th
+          %tbody
+            - @emp_cuentabs.each do |emp_cuentab|
+              %tr
+                %td= emp_cuentab.nombre
+                %td= emp_cuentab.moneda
+                %td= emp_cuentab.saldo
+                %td.actions
+                  = link_to emp_cuentab, class: 'btn btn-success btn-xs' do
+                    %i.fa.fa-eye
+                  = link_to edit_emp_cuentab_path(emp_cuentab), class: 'btn btn-info btn-xs' do
+                    %i.fa.fa-edit
+                  = link_to emp_cuentab, method: :delete, data: { confirm: '¿Esta usted seguro?' }, class: 'btn btn-danger btn-xs' do
+                    %i.fa.fa-times

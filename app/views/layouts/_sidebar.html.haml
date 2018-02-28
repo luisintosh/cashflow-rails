@@ -25,10 +25,10 @@
               %span.title Empresa
             %ul
               %li
-                = link_to '#', {} do
+                = link_to emp_locacions_url, {} do
                   %span.title Departamentos
               %li
-                = link_to '#', {} do
+                = link_to emp_clasificacions_url, {} do
                   %span.title Clasif. contable
               %li
                 = link_to '#', {} do
@@ -40,13 +40,13 @@
               %span.title Movimientos
             %ul
               %li
-                = link_to '#', {} do
+                = link_to new_mov_movimiento_url(type: 'ingreso'), {} do
                   %span.title Agregar entrada
               %li
-                = link_to '#', {} do
+                = link_to new_mov_movimiento_url(type: 'egreso'), {} do
                   %span.title Agregar salida
               %li
-                = link_to '#', {} do
+                = link_to mov_movimientos_url, {} do
                   %span.title Historial
           %li.gui-folder
             %a
@@ -55,10 +55,10 @@
               %span.title Clientes
             %ul
               %li
-                = link_to '#', {} do
+                = link_to new_emp_cliente_url, {} do
                   %span.title Agregar cliente
               %li
-                = link_to '#', {} do
+                = link_to emp_clientes_url, {} do
                   %span.title Lista de clientes
           %li.gui-folder
             %a
@@ -67,10 +67,10 @@
               %span.title Proveedores
             %ul
               %li
-                = link_to '#', {} do
+                = link_to new_emp_proveedor_url, {} do
                   %span.title Agregar proveedor
               %li
-                = link_to '#', {} do
+                = link_to emp_proveedors_url, {} do
                   %span.title Lista de proveedores
           %li.gui-folder
             %a
@@ -109,7 +109,7 @@
               %span.title Banco
             %ul
               %li
-                = link_to '#', {} do
+                = link_to emp_cuentabs_url, {} do
                   %span.title Cuentas
               %li
                 = link_to '#', {} do

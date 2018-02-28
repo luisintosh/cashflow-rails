@@ -1,0 +1,56 @@
+.section-header
+  %ol.breadcrumb
+    %li
+      Administración de #{EmpClasificacion::PLURAL}
+    %li
+      Ver
+    %li.active
+      #{@emp_clasificacion.title}
+.section-body
+  .card
+    .card-head.style-primary
+      .tools
+        = link_to emp_clasificacions_path, class: 'btn btn-flat' do
+          %i.glyphicon.glyphicon-arrow-left
+          Regresar a lista
+        = link_to edit_emp_clasificacion_path(@emp_clasificacion), class: 'btn btn-flat' do
+          %i.fa.fa-edit
+          Editar
+    .card-body
+      %ul.list.divider-full-bleed
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Nombre
+              %small
+                = @emp_clasificacion.nombre
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Tipo cuenta
+              %small
+                = @emp_clasificacion.tipo_cuenta
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Tipo subcuenta
+              %small
+                = @emp_clasificacion.tipo_subcuenta
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Tipo movimiento
+              %small
+                = @emp_clasificacion.tipo_movimiento
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Fecha de creación
+              %small
+                = @emp_clasificacion.created_at
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Fecha de actualización
+              %small
+                = @emp_clasificacion.updated_at

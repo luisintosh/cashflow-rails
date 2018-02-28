@@ -1,0 +1,69 @@
+= simple_form_for(@mov_movimiento) do |f|
+  .alert.alert-info
+    %h4 Información
+    %ul
+      %li Todos los campos con * son requeridos.
+  = f.error_notification
+
+  .form-inputs.row
+    = f.hidden_field :tipo_movimiento
+    = hidden_field_tag 'save_and_add', '0'
+    .col-md-4
+      = f.input :hoja
+    .col-md-4
+      = f.input :fecha
+    .col-md-4
+      = f.input :ciclo, collection: MovMovimiento.lista_ciclos, include_blank: false
+
+    .col-md-8
+      = f.input :concepto, input_html: { class: 'uppercase' }
+    .col-md-4
+      = f.association :emp_locacion, label: EmpLocacion::SINGULAR, prompt: '-- Selecciona --'
+
+    .col-md-4
+      = f.association :emp_clasificacion, label: EmpClasificacion::SINGULAR, prompt: '-- Selecciona --'
+    .col-md-4
+      = f.association :emp_cuentab, label: EmpCuentab::SINGULAR, prompt: '-- Selecciona --'
+    .col-md-4
+      .form-group
+        - if @mov_movimiento.egreso?
+          %label.control-label.select.required= EmpProveedor::SINGULAR
+          .input-group
+            = f.association :emp_proveedor, label: false, prompt: '-- Selecciona --'
+            %span.input-group-btn
+              = link_to new_emp_proveedor_url, {class: 'btn btn-default'} do
+                %i.fa.fa-plus
+        - elsif @mov_movimiento.ingreso?
+          %label.control-label.select.required= EmpCliente::SINGULAR
+          .input-group
+            = f.association :emp_cliente, label: false, prompt: '-- Selecciona --'
+            %span.input-group-btn
+              = link_to new_emp_cliente_url, {class: 'btn btn-default'} do
+                %i.fa.fa-plus
+    .col-md-4
+      = f.input :factura
+    .col-md-4
+      = f.input :comprobante
+    .col-md-4
+      = f.input :tipo_comprobante, collection: MovMovimiento.tipo_comprobantes.keys, prompt: '-- Selecciona --'
+
+    .col-md-3
+      = f.input :subtotal, label: 'SUBTOTAL'
+    .col-md-3
+      = f.input :iva, label: 'IVA'
+      %ul
+        %li
+          = link_to 'Calcular 16% IVA', '#', { id: 'calcular-iva' }
+    .col-md-3
+      = f.input :ieps, label: 'IEPS'
+      %ul
+        %li
+          = link_to 'Calcular diferencia del total', '#', { id: 'calcular-dif-total' }
+    .col-md-3
+      = f.input :total, label: 'TOTAL'
+
+  .card-actionbar
+    .card-actionbar-row
+      = button_tag(type: :submit, class: 'btn btn-flat btn-primary ink-reaction') do
+        %i.fa.fa-check
+        Guardar

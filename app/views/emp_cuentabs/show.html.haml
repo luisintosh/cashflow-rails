@@ -1,0 +1,50 @@
+.section-header
+  %ol.breadcrumb
+    %li
+      Administración de #{EmpCuentab::PLURAL}
+    %li
+      Ver
+    %li.active
+      #{@emp_cuentab.title}
+.section-body
+  .card
+    .card-head.style-primary
+      .tools
+        = link_to emp_cuentabs_path, class: 'btn btn-flat' do
+          %i.glyphicon.glyphicon-arrow-left
+          Regresar a lista
+        = link_to edit_emp_cuentab_path(@emp_cuentab), class: 'btn btn-flat' do
+          %i.fa.fa-edit
+          Editar
+    .card-body
+      %ul.list.divider-full-bleed
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Nombre
+              %small
+                = @emp_cuentab.nombre
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Moneda
+              %small
+                = @emp_cuentab.moneda
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Saldo
+              %small
+                = number_to_currency @emp_cuentab.saldo
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Fecha de creación
+              %small
+                = @emp_cuentab.created_at
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Fecha de actualización
+              %small
+                = @emp_cuentab.updated_at
