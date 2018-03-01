@@ -51,8 +51,6 @@ group :development do
   # Errors page
   gem 'better_errors'
   gem 'binding_of_caller'
-  # Fake data
-  gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -74,3 +72,6 @@ gem 'simple_form'
 
 # Data list, sorting and search
 gem 'smart_listing'
+
+# Fake data
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
