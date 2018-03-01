@@ -49,14 +49,14 @@
             %img{:alt => '', :src => '#/assets/img/modules/materialadmin/avatar1.jpg?1422538623'}/
             = image_tag 'avatars/avatar.png'
             %span.profile-info
-              Daniel Johnson
-              %small Administrator
+              = current_user.email
+              %small Administrador
           %ul.dropdown-menu.animation-dock
-            %li.dropdown-header Config
+            %li.dropdown-header Configuración
             %li
-              %a{:href => '#/materialadmin/pages/profile'} My profile
+              = link_to 'Mi Perfil', edit_empleado_path(current_user)
             %li.divider
             %li
-              %a{:href => '#/materialadmin/pages/login'}
+              = link_to destroy_user_session_path, {method: :delete} do
                 %i.fa.fa-fw.fa-power-off.text-danger
-                Logout
+                Salir

@@ -74,3 +74,11 @@
                 Filtrar
 
       = smart_listing_render :mov_movimiento
+      %p
+        %b
+          Suma de ingresos:
+          = number_to_currency @mov_movimientos.where(tipo_movimiento: 'ingreso').sum(:total)
+      %p
+        %b
+          Suma de egresos:
+          = number_to_currency @mov_movimientos.where(tipo_movimiento: 'egreso').sum(:total)

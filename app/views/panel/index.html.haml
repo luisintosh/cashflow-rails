@@ -1,2 +1,53 @@
-%h1 Panel#index
-%p Find me in app/views/panel/index.html.haml
+.section-body
+  .row
+    .col-md-3.col-sm-6
+      .card
+        .card-body.no-padding
+          .alert.alert-callout.alert-info.no-margin
+            %strong.pull-right.text-success.text-lg
+              0,38%
+              %i.md.md-trending-up
+            %strong.text-xl $ 32,829
+            %br/
+            %span.opacity-50 Deuda con proveedores
+            .stick-bottom-left-right
+              .height-2.sparkline-revenue{"data-line-color" => "#bdc1c1"}
+                %canvas{:height => "80", :style => "display: inline-block; width: 268px; height: 80px; vertical-align: top;", :width => "268"}
+
+    .col-md-3.col-sm-6
+      .card
+        .card-body.no-padding
+          .alert.alert-callout.alert-warning.no-margin
+            %strong.pull-right.text-warning.text-lg
+              0,01%
+              %i.md.md-swap-vert
+            %strong.text-xl $ 72,829
+            %br/
+            %span.opacity-50 Deuda de clientes
+            .stick-bottom-right
+              .height-1.sparkline-visits{"data-bar-color" => "#e5e6e6"}
+                %canvas{:height => "40", :style => "display: inline-block; width: 265px; height: 40px; vertical-align: top;", :width => "265"}
+
+    .col-md-3.col-sm-6
+      .card
+        .card-body.no-padding
+          .alert.alert-callout.alert-danger.no-margin
+            %strong.pull-right.text-danger.text-lg
+              0,18%
+              %i.md.md-trending-down
+            %strong.text-xl 42.90%
+            %br/
+            %span.opacity-50 Incremento en ventas
+            .stick-bottom-left-right
+              .progress.progress-hairline.no-margin
+                .progress-bar.progress-bar-danger{:style => "width:43%"}
+
+    .col-md-3.col-sm-6
+      .card
+        .card-body.no-padding
+          .alert.alert-callout.alert-success.no-margin
+            %h1.pull-right.text-success
+              %i.md.md-timer
+            %strong.text-xl 12 dias.
+            %br/
+            %span.opacity-50 Prox. pago

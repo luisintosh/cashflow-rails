@@ -1,0 +1,18 @@
+= simple_form_for(@user, url: {action: @user.new_record? ? 'create' : 'update'}, method: @user.new_record? ? 'post' : 'put') do |f|
+  .alert.alert-info
+    %h4 Información
+    %ul
+      %li Todos los campos con * son requeridos.
+  = f.error_notification
+
+  .form-inputs.row
+    .col-md-6
+      = f.input :email
+    .col-md-6
+      = f.input :password
+
+  .card-actionbar
+    .card-actionbar-row
+      = button_tag(type: :submit, class: 'btn btn-flat btn-primary ink-reaction') do
+        %i.fa.fa-check
+        Guardar

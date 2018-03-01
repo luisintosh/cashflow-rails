@@ -1,0 +1,39 @@
+.section-header
+  %ol.breadcrumb
+    %li
+      Administración de User
+    %li
+      Ver
+    %li.active
+      #{@user.email}
+.section-body
+  .card
+    .card-head.style-primary
+      .tools
+        = link_to empleados_path, class: 'btn btn-flat' do
+          %i.glyphicon.glyphicon-arrow-left
+          Regresar a lista
+        = link_to edit_empleado_path(@user), class: 'btn btn-flat' do
+          %i.fa.fa-edit
+          Editar
+    .card-body
+      %ul.list.divider-full-bleed
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              E-mail
+              %small
+                = @user.email
+      %ul.list.divider-full-bleed
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Fecha de creación
+              %small
+                = @user.created_at
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Fecha de actualización
+              %small
+                = @user.updated_at

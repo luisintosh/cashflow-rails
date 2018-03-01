@@ -1,0 +1,24 @@
+!!!
+%html
+  %head
+    %meta{:charset => 'utf-8'}/
+    %meta{:content => 'IE=edge', 'http-equiv' => 'X-UA-Compatible'}/
+    %meta{:content => 'width=device-width, initial-scale=1.0', :name => 'viewport'}/
+    %title Rohers
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body.menubar-hoverable.header-fixed
+    %section.section-account
+      .img-backdrop{style: "background: url(#{image_url('bg/login_page.png')})"}
+      .spacer
+      .card.contain-sm.style-transparent
+        .card-body
+          %h1 ROHERS
+          .row
+            .col-md-6
+              = yield
+
+  %script
+    $('#user_email, #user_password').addClass('form-control');
+    $('input[type="submit"]').addClass('btn btn-primary');

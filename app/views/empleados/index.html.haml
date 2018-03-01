@@ -1,0 +1,35 @@
+.section-header
+  %ol.breadcrumb
+    %li.active
+      Administración de Usuarios
+.section-body
+  .card
+    .card-head.style-primary
+      .tools
+        = link_to new_empleado_path, class: 'btn btn-floating-action btn-default-light' do
+          %i.fa.fa-plus
+    .card-body
+      .table-responsive
+        %table.table.table-striped.table-hover.dataTable
+          %thead
+            %tr
+              %th Usuario
+              %th Creado
+              %th Actualizado
+              %th
+          %tbody
+            - @users.each do |user|
+              %tr
+                %td
+                  = user.email
+                %td
+                  = user.created_at.strftime('%Y-%m-%d')
+                %td
+                  = user.updated_at.strftime('%Y-%m-%d')
+                %td.actions
+                  = link_to empleado_path(user), class: 'btn btn-success btn-xs' do
+                    %i.fa.fa-eye
+                  = link_to edit_empleado_path(user), class: 'btn btn-info btn-xs' do
+                    %i.fa.fa-edit
+                  = link_to empleado_path(user), method: :delete, data: { confirm: '¿Esta usted seguro?' }, class: 'btn btn-danger btn-xs' do
+                    %i.fa.fa-times
