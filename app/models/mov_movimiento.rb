@@ -8,6 +8,7 @@ class MovMovimiento < ApplicationRecord
   validates_presence_of :hoja, :fecha, :ciclo, :emp_clasificacion_id, :emp_cuentab_id, :concepto,
                         :emp_locacion_id, :subtotal, :iva, :ieps, :total
   validate :total_correcto
+  validate :resta_demas
 
   enum tipo_comprobante: ['Factura', 'Boleta de venta', 'Ticket', 'Comprobante de opercion',
                           'Documento', 'Recibo']
@@ -26,6 +27,13 @@ class MovMovimiento < ApplicationRecord
     suma = subtotal + iva + ieps
     unless suma == total
       errors.add(:total, 'La sumatoria del subtotal, IVA e IEPS, no concuerda')
+    end
+  end
+
+  # Revisa que el movimiento no afecte con numeros negativos a la cuenta
+  def resta_demas
+    if emp_cuentab.saldo_actual < total and tipo_movimiento == 'egreso'
+      errors.add(:emp_cuentab, 'Saldo insuficiente')
     end
   end
 
@@ -98,7 +106,7 @@ class MovMovimiento < ApplicationRecord
       scope = scope.where('emp_clasificacion_id = ?', params[:f_clasificacion])
     end
     unless params[:f_cuenta].blank?
-      scope = scope.where('emp_cuenta_id = ?', params[:f_cuenta])
+      scope = scope.where('emp_cuentab_id = ?', params[:f_cuenta])
     end
     unless params[:f_proveedor].blank?
       scope = scope.where('emp_proveedor_id = ?', params[:f_proveedor])

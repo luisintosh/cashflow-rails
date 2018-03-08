@@ -14,7 +14,7 @@
         %ul#main-menu.gui-controls
           / BEGIN DASHBOARD
           %li
-            = link_to '#', {} do
+            = link_to root_url, {} do
               .gui-icon
                 %i.md.md-home
               %span.title Panel
@@ -98,7 +98,10 @@
                   %span.title Agregar compra
               %li
                 = link_to '#', {} do
-                  %span.title Creditos
+                  %span.title Credito/Balance
+              %li
+                = link_to '#', {} do
+                  %span.title Reportes
               %li
                 = link_to '#', {} do
                   %span.title Lista de compras
@@ -109,14 +112,11 @@
               %span.title Banco
             %ul
               %li
+                = link_to new_emp_cuentab_url, {} do
+                  %span.title Agregar cuenta
+              %li
                 = link_to emp_cuentabs_url, {} do
-                  %span.title Cuentas
-              %li
-                = link_to '#', {} do
-                  %span.title Credito/Balance
-              %li
-                = link_to '#', {} do
-                  %span.title Reportes
+                  %span.title Lista de cuentas
         .menubar-foot-panel
           %small.no-linebreak.hidden-folded
             %span.opacity-75 Copyright ©

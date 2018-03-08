@@ -15,14 +15,20 @@
             %tr
               %th Nombre
               %th Moneda
-              %th Saldo
+              %th Saldo inicial
+              %th Ingresos
+              %th Egresos
+              %th Saldo actual
               %th
           %tbody
             - @emp_cuentabs.each do |emp_cuentab|
               %tr
                 %td= emp_cuentab.nombre
                 %td= emp_cuentab.moneda
-                %td= emp_cuentab.saldo
+                %td= number_to_currency emp_cuentab.saldo
+                %td= number_to_currency emp_cuentab.ingresos
+                %td= number_to_currency emp_cuentab.egresos
+                %td= number_to_currency emp_cuentab.saldo_actual
                 %td.actions
                   = link_to emp_cuentab, class: 'btn btn-success btn-xs' do
                     %i.fa.fa-eye

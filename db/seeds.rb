@@ -122,6 +122,8 @@ EmpCuentab.create nombre: 'GREENHOUSE CAJA CHICA MXN', moneda: 'MXN', saldo: 0.0
   m = EmpProveedor.new
   m.build_emp_perfil
   m.empresa = Faker::Company.name
+  m.saldo = 0.0
+  m.saldo_max = 0.0
   m.emp_perfil.tel_fijo = Faker::PhoneNumber.cell_phone
   m.emp_perfil.tel_movil = Faker::PhoneNumber.cell_phone
   m.emp_perfil.email = Faker::Internet.email
@@ -129,11 +131,14 @@ EmpCuentab.create nombre: 'GREENHOUSE CAJA CHICA MXN', moneda: 'MXN', saldo: 0.0
   m.save
 end
 
+# Clientes
 50.times do |i|
   m = EmpCliente.new
   m.build_emp_perfil
   m.nombre = Faker::Name.first_name
   m.apellidos = Faker::Name.last_name
+  m.saldo = 0.0
+  m.saldo_max = 0.0
   m.emp_perfil.tel_fijo = Faker::PhoneNumber.cell_phone
   m.emp_perfil.tel_movil = Faker::PhoneNumber.cell_phone
   m.emp_perfil.email = Faker::Internet.email
@@ -141,6 +146,7 @@ end
   m.save
 end
 
+# Movimientos
 hoja = 150
 200.times do |i|
   m = MovMovimiento.new
@@ -167,5 +173,9 @@ hoja = 150
   m.total = m.subtotal + m.iva + m.ieps
   m.created_at = m.fecha
   m.updated_at = rand(10)==5 ? m.fecha + 1.day : m.fecha
-  m.save
+  begin
+    m.save
+  rescue
+  end
+
 end
