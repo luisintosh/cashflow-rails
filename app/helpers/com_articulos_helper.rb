@@ -1,0 +1,2 @@
+module ComArticulosHelper
+end

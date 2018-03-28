@@ -1,0 +1,38 @@
+.section-header
+  %ol.breadcrumb
+    %li.active
+      Administración de #{ComArticulo::PLURAL}
+.section-body
+  .card
+    .card-head.style-primary
+      .tools
+        = link_to new_com_articulo_path, class: 'btn btn-floating-action btn-default-light' do
+          %i.fa.fa-plus
+    .card-body
+      .table-responsive
+        %table.table.table-striped.table-hover.dataTable
+          %thead
+            %tr
+              %th Codigo
+              %th Nombre
+              %th Categoria
+              %th Unidad de compra
+              %th Unidad de inventario
+              %th Total en inventario
+              %th
+          %tbody
+            - @com_articulos.each do |com_articulo|
+              %tr
+                %td= com_articulo.codigo
+                %td= com_articulo.nombre
+                %td= com_articulo.categoria
+                %td= com_articulo.unidad_compra
+                %td= com_articulo.unidad_inventario
+                %td= com_articulo.total_inventario
+                %td.actions
+                  = link_to com_articulo, class: 'btn btn-success btn-xs' do
+                    %i.fa.fa-eye
+                  = link_to edit_com_articulo_path(com_articulo), class: 'btn btn-info btn-xs' do
+                    %i.fa.fa-edit
+                  = link_to com_articulo, method: :delete, data: { confirm: '¿Esta usted seguro?' }, class: 'btn btn-danger btn-xs' do
+                    %i.fa.fa-times

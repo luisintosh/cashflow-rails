@@ -1,0 +1,78 @@
+.section-header
+  %ol.breadcrumb
+    %li
+      Administración de #{ComArticulo::PLURAL}
+    %li
+      Ver
+    %li.active
+      #{@com_articulo.title}
+.section-body
+  .card
+    .card-head.style-primary
+      .tools
+        = link_to com_articulos_path, class: 'btn btn-flat' do
+          %i.glyphicon.glyphicon-arrow-left
+          Regresar a lista
+        = link_to edit_com_articulo_path(@com_articulo), class: 'btn btn-flat' do
+          %i.fa.fa-edit
+          Editar
+    .card-body
+      %h3 Sobre el artículo
+      .row
+        .col-md-4
+          Código
+          %b
+            = @com_articulo.codigo
+        .col-md-4
+          Nombre
+          %b
+            = @com_articulo.nombre
+        .col-md-4
+          Categoría
+          %b
+            = @com_articulo.categoria
+        .col-md-4
+          Unidad de compra
+          %b
+            = @com_articulo.unidad_compra
+        .col-md-4
+          Unidad de inventario
+          %b
+            = @com_articulo.unidad_inventario
+        .col-md-4
+          Cantidad a inventariar
+          %b
+            = @com_articulo.cantidad_inventario
+        .col-md-4
+          Fecha de creación
+          %b
+            = @com_articulo.created_at
+        .col-md-4
+          Fecha de actualización
+          %b
+            = @com_articulo.updated_at
+
+      %hr
+
+      %h3 Inventario
+      %table.table.table-striped.table-hover
+        %thead
+          %tr
+            %th Departamento
+            %th Stock
+            %th Mínimo
+        %tbody
+          - @com_articulo.com_inventario.each do |inventario|
+            %tr
+              %td
+                %b= inventario.emp_locacion.title
+              %td
+                = inventario.stock
+              %td
+                = inventario.stock_min
+          %tr
+            %td
+            %td.text-right
+              %b Total
+            %td
+              %b= @com_articulo.total_inventario

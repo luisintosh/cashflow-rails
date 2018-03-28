@@ -1,0 +1,42 @@
+= simple_form_for(@com_articulo) do |f|
+  .alert.alert-info
+    %h4 Información
+    %ul
+      %li Todos los campos con * son requeridos.
+      %li Codigo: Identificador interno para el producto
+      %li Nombre: Nombre del producto (debe ser único)
+      %li Unidad de compra: Unidad en la que se compra el producto
+      %li Unidad de inventario: Unidad en la que se va a guardar en el inventario
+      %li Cantidad a inventario: Cantidad de unidades de inventario por cada unidad de compra
+  = f.error_notification
+
+  .form-inputs.row
+    .col-md-4
+      = f.input :codigo
+    .col-md-4
+      = f.input :nombre
+    .col-md-4
+      = f.input :categoria, label: 'Categoría del producto'
+    .col-md-4
+      = f.input :unidad_compra, label: 'Unidad de compra', collection: ComArticulo.unidades
+    .col-md-4
+      = f.input :unidad_inventario, label: 'Unidad de inventario', collection: ComArticulo.unidades
+    .col-md-4
+      = f.input :cantidad_inventario, label: 'Cantidad a inventario'
+
+  %h3 Inventario
+  = f.fields_for :com_inventario do |ff|
+    .row
+      .col-md-4.text-rights
+        = ff.hidden_field :emp_locacion_id
+        %h4= ff.object.emp_locacion.title
+      .col-md-2
+        = ff.input :stock
+      .col-md-2
+        = ff.input :stock_min
+
+  .card-actionbar
+    .card-actionbar-row
+      = button_tag(type: :submit, class: 'btn btn-flat btn-primary ink-reaction') do
+        %i.fa.fa-check
+        Guardar

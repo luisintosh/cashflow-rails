@@ -10,10 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180225201034) do
+ActiveRecord::Schema.define(version: 20180323062721) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "com_articulos", force: :cascade do |t|
+    t.string "codigo"
+    t.string "nombre"
+    t.string "categoria"
+    t.string "unidad_compra"
+    t.string "unidad_inventario"
+    t.decimal "cantidad_inventario", precision: 10, scale: 2, default: "0.0"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "com_inventarios", force: :cascade do |t|
+    t.bigint "com_articulo_id"
+    t.bigint "emp_locacion_id"
+    t.decimal "stock", precision: 10, scale: 2, default: "0.0"
+    t.decimal "stock_min", precision: 10, scale: 2, default: "0.0"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["com_articulo_id"], name: "index_com_inventarios_on_com_articulo_id"
+    t.index ["emp_locacion_id"], name: "index_com_inventarios_on_emp_locacion_id"
+  end
 
   create_table "emp_clasificacions", force: :cascade do |t|
     t.string "nombre"
@@ -114,6 +136,8 @@ ActiveRecord::Schema.define(version: 20180225201034) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "com_inventarios", "com_articulos"
+  add_foreign_key "com_inventarios", "emp_locacions"
   add_foreign_key "emp_clientes", "emp_perfils"
   add_foreign_key "emp_proveedors", "emp_perfils"
   add_foreign_key "mov_movimientos", "emp_clasificacions"

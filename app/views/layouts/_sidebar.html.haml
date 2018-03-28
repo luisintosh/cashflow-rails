@@ -79,14 +79,11 @@
               %span.title Inventario
             %ul
               %li
-                = link_to '#', {} do
-                  %span.title Categorías de producto
+                = link_to new_com_articulo_url, {} do
+                  %span.title Nuevo artículo
               %li
-                = link_to '#', {} do
-                  %span.title Lista de productos
-              %li
-                = link_to '#', {} do
-                  %span.title Stock
+                = link_to com_articulos_url, {} do
+                  %span.title Lista de artículos
           %li.gui-folder
             %a
               .gui-icon

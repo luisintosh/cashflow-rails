@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :com_articulos
   resources :empleados
   resources :mov_movimientos
   resources :emp_clasificacions

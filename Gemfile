@@ -75,3 +75,6 @@ gem 'smart_listing'
 
 # Fake data
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+
+# Translations
+gem 'rails-i18n'
