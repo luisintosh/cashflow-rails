@@ -1,0 +1,20 @@
+.section-header
+  %ol.breadcrumb
+    %li
+      Administración de #{ComPago::PLURAL}
+    %li
+      Editar
+    %li.active
+      #{@com_pago.title}
+.section-body
+  .card
+    .card-head.style-primary
+      .tools
+        = link_to com_pagos_path(com_compra_id: @com_pago.com_compra.id), class: 'btn btn-flat' do
+          %i.glyphicon.glyphicon-arrow-left
+          Regresar a lista
+        = link_to @com_pago, class: 'btn btn-flat' do
+          %i.fa.fa-eye
+          Ver
+    .card-body
+      = render 'form'

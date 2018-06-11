@@ -24,7 +24,10 @@
 //= require libs/autosize/jquery.autosize
 //= require libs/nanoscroller/jquery.nanoscroller
 //= require libs/DataTables/jquery.dataTables
-//= require libs/select2/select2
+// require libs/select2/select2
+//= require select2
+//= require cocoon
 //= require extras
+//= require datatables
 //= require_directory ./core/source/
 //= require_directory .

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :com_pagos
+  resources :com_compras
   resources :com_articulos
   resources :empleados
   resources :mov_movimientos

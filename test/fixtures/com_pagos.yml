@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  com_compra: one
+  mov_movimiento: one
+  monto: MyString
+  tipo_pago: 1
+
+two:
+  com_compra: two
+  mov_movimiento: two
+  monto: MyString
+  tipo_pago: 1

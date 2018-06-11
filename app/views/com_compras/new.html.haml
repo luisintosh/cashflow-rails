@@ -1,0 +1,15 @@
+.section-header
+  %ol.breadcrumb
+    %li
+      Administración de #{ComCompra::PLURAL}
+    %li.active
+      Registrando #{ComCompra::SINGULAR}
+.section-body
+  .card
+    .card-head.style-primary
+      .tools
+        = link_to com_compras_path, class: 'btn btn-flat' do
+          %i.glyphicon.glyphicon-arrow-left
+          Regresar a lista
+    .card-body
+      = render 'form'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180323062721) do
+ActiveRecord::Schema.define(version: 20180529051034) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,42 @@ ActiveRecord::Schema.define(version: 20180323062721) do
     t.decimal "cantidad_inventario", precision: 10, scale: 2, default: "0.0"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "iva", precision: 5, scale: 2, default: "0.0"
+    t.decimal "ieps", precision: 5, scale: 2, default: "0.0"
+  end
+
+  create_table "com_compras", force: :cascade do |t|
+    t.string "ciclo"
+    t.bigint "emp_clasificacion_id"
+    t.bigint "emp_proveedor_id"
+    t.integer "estado", default: 0
+    t.date "fecha"
+    t.string "factura"
+    t.string "comprobante"
+    t.integer "tipo_comprobante"
+    t.decimal "descuento", precision: 5, scale: 2, default: "0.0"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["emp_clasificacion_id"], name: "index_com_compras_on_emp_clasificacion_id"
+    t.index ["emp_proveedor_id"], name: "index_com_compras_on_emp_proveedor_id"
+  end
+
+  create_table "com_det_compras", force: :cascade do |t|
+    t.bigint "com_compra_id"
+    t.bigint "com_articulo_id"
+    t.bigint "emp_locacion_id"
+    t.decimal "cantidad", precision: 10, scale: 2, default: "0.0"
+    t.decimal "precio", precision: 10, scale: 2, default: "0.0"
+    t.integer "moneda"
+    t.decimal "descuento", precision: 5, scale: 2, default: "0.0"
+    t.boolean "inventariar", default: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.decimal "iva", precision: 5, scale: 2, default: "0.0"
+    t.decimal "ieps", precision: 5, scale: 2, default: "0.0"
+    t.index ["com_articulo_id"], name: "index_com_det_compras_on_com_articulo_id"
+    t.index ["com_compra_id"], name: "index_com_det_compras_on_com_compra_id"
+    t.index ["emp_locacion_id"], name: "index_com_det_compras_on_emp_locacion_id"
   end
 
   create_table "com_inventarios", force: :cascade do |t|
@@ -35,6 +71,23 @@ ActiveRecord::Schema.define(version: 20180323062721) do
     t.datetime "updated_at", null: false
     t.index ["com_articulo_id"], name: "index_com_inventarios_on_com_articulo_id"
     t.index ["emp_locacion_id"], name: "index_com_inventarios_on_emp_locacion_id"
+  end
+
+  create_table "com_pagos", force: :cascade do |t|
+    t.bigint "com_compra_id"
+    t.bigint "mov_movimiento_id"
+    t.bigint "emp_cuentab_id"
+    t.bigint "emp_locacion_id"
+    t.decimal "monto", precision: 10, scale: 2, default: "0.0"
+    t.integer "tipo_pago"
+    t.string "hoja"
+    t.string "concepto"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["com_compra_id"], name: "index_com_pagos_on_com_compra_id"
+    t.index ["emp_cuentab_id"], name: "index_com_pagos_on_emp_cuentab_id"
+    t.index ["emp_locacion_id"], name: "index_com_pagos_on_emp_locacion_id"
+    t.index ["mov_movimiento_id"], name: "index_com_pagos_on_mov_movimiento_id"
   end
 
   create_table "emp_clasificacions", force: :cascade do |t|
@@ -136,8 +189,17 @@ ActiveRecord::Schema.define(version: 20180323062721) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "com_compras", "emp_clasificacions"
+  add_foreign_key "com_compras", "emp_proveedors"
+  add_foreign_key "com_det_compras", "com_articulos"
+  add_foreign_key "com_det_compras", "com_compras"
+  add_foreign_key "com_det_compras", "emp_locacions"
   add_foreign_key "com_inventarios", "com_articulos"
   add_foreign_key "com_inventarios", "emp_locacions"
+  add_foreign_key "com_pagos", "com_compras"
+  add_foreign_key "com_pagos", "emp_cuentabs"
+  add_foreign_key "com_pagos", "emp_locacions"
+  add_foreign_key "com_pagos", "mov_movimientos"
   add_foreign_key "emp_clientes", "emp_perfils"
   add_foreign_key "emp_proveedors", "emp_perfils"
   add_foreign_key "mov_movimientos", "emp_clasificacions"

@@ -11,6 +11,7 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_directory .
+ *= require select2
  *= require_self
  */
 
@@ -25,6 +26,7 @@
 @import "theme/theme-default/material-design-iconic-font";
 @import "theme/theme-default/libs/DataTables/jquery.dataTables";
 @import "theme/theme-default/libs/select2/select2";
+@import "spacing-helpers";
 
 
 /* uppercase class */
@@ -41,10 +43,10 @@
   display: flex;
   flex-wrap: wrap;
 }
-.row > [class*='col-'] {
+/*.row > [class*='col-'] {
   display: flex;
   flex-direction: column;
-}
+}*/
 
 // margins
 .m-b-sm {

@@ -1,0 +1,31 @@
+- com_det_compra = ComDetCompra.exists?(f.object.id) ?  ComDetCompra.find(f.object.id) : nil
+%tr.nested-fields
+  %td
+    - if f.object.errors.any?
+      .bg-danger
+        %ul
+          - f.object.errors.full_messages.each do |msg|
+            %li
+              %small= msg
+    .row
+      .col-xs-12.col-md-8
+        = f.association :com_articulo, label: ComArticulo::SINGULAR, input_html: {class: 'articulo readonly-select noselect2', readonly: true}
+      .col-xs-6.col-md-2
+        = f.input :cantidad, input_html: {class: 'cantidad', min: 0, step: 'any', readonly: true}
+      .col-xs-6.col-md-2
+        = f.input :precio, input_html: {class: 'precio', min: 0, step: 'any', readonly: true}
+    .row
+      .col-sm-6.col-md-2
+        = f.input :moneda, collection: EmpCuentab.monedas.keys, include_blank: false, input_html: {class: 'moneda readonly-select noselect2', readonly: true}
+      .col-sm-6.col-md-2
+        = f.input :descuento, label: 'Descuento %', input_html: {class: 'descuento', min: 0, required: true}
+      .col-sm-6.col-md-2
+        = f.input :iva, label: 'IVA %', input_html: {class: 'iva', min: 0, required: true, readonly: true}
+      .col-sm-6.col-md-2
+        = f.input :ieps, label: 'IEPS %', input_html: {class: 'ieps', min: 0, required: true, readonly: true}
+      .col-sm-6.col-md-3
+        = f.association :emp_locacion, label: EmpLocacion::SINGULAR, input_html: {class: 'locacion readonly-select noselect2', readonly: true}
+      .col-sm-2.col-md-1
+        = f.input :inventariar, label: 'Inventariar', input_html: {class: 'inventariar form-control', readonly: true}
+  %td
+    = link_to_remove_association 'X', f, class: 'btn btn-sm btn-default'

@@ -1,0 +1,58 @@
+.section-header
+  %ol.breadcrumb
+    %li.active
+      Administración de #{ComCompra::PLURAL}
+.section-body
+  .card
+    .card-head.style-primary
+      .tools
+        = link_to new_com_compra_path, class: 'btn btn-floating-action btn-default-light' do
+          %i.fa.fa-plus
+    .card-body
+      .table-responsive
+        %table.table.table-striped.table-hover.dataTable
+          %thead
+            %tr
+              %th Fecha
+              %th Estado
+              %th Ciclo
+              %th Proveedor
+              %th Clasificacion
+              %th Fecha
+              %th Factura
+              %th Comprobante
+              %th Tipo comprobante
+              %th Total MXN
+              %th Adeudo MXN
+              %th Total USD
+              %th Adeudo USD
+              %th Total EUR
+              %th Adeudo EUR
+              %th
+          %tbody
+            - @com_compras.each do |com_compra|
+              %tr
+                %td= com_compra.created_at.strftime('%Y-%m-%d %H:%M:%S')
+                %td= com_compra.estado.upcase
+                %td= com_compra.ciclo
+                %td= com_compra.emp_proveedor.title
+                %td= com_compra.emp_clasificacion.title
+                %td= com_compra.fecha
+                %td= com_compra.factura
+                %td= com_compra.comprobante
+                %td= com_compra.tipo_comprobante
+                %td= number_to_currency com_compra.adeudos['MXN'][:total]
+                %td= number_to_currency com_compra.adeudos['MXN'][:deuda]
+                %td= number_to_currency com_compra.adeudos['USD'][:total]
+                %td= number_to_currency com_compra.adeudos['USD'][:deuda]
+                %td= number_to_currency com_compra.adeudos['EUR'][:total]
+                %td= number_to_currency com_compra.adeudos['EUR'][:deuda]
+                %td.actions
+                  = link_to com_pagos_path(com_compra_id: com_compra.id), class: 'btn btn-primary btn-xs' do
+                    %i.fa.fa-dollar
+                  = link_to com_compra, class: 'btn btn-success btn-xs' do
+                    %i.fa.fa-eye
+                  = link_to edit_com_compra_path(com_compra), class: 'btn btn-info btn-xs' do
+                    %i.fa.fa-edit
+                  = link_to com_compra, method: :delete, data: { confirm: '¿Esta usted seguro?' }, class: 'btn btn-danger btn-xs' do
+                    %i.fa.fa-times

@@ -78,3 +78,9 @@ gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 
 # Translations
 gem 'rails-i18n'
+
+# Nested forms helper
+gem 'cocoon'
+
+# Select2 js library
+gem 'rails-assets-select2', source: 'https://rails-assets.org'

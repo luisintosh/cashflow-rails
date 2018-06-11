@@ -23,6 +23,10 @@
       = f.input :unidad_inventario, label: 'Unidad de inventario', collection: ComArticulo.unidades
     .col-md-4
       = f.input :cantidad_inventario, label: 'Cantidad a inventario'
+    .col-md-4
+      = f.input :iva, label: '% de IVA'
+    .col-md-4
+      = f.input :ieps, label: '% de IEPS'
 
   %h3 Inventario
   = f.fields_for :com_inventario do |ff|

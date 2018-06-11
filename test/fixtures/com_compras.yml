@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ciclo: MyString
+  emp_clasificacion: one
+  emp_proveedor: one
+  estado: 1
+  fecha: 2018-03-27
+  factura: MyString
+  comprobante: MyString
+  tipo_comprobante: 1
+  descuento: 9.99
+
+two:
+  ciclo: MyString
+  emp_clasificacion: two
+  emp_proveedor: two
+  estado: 1
+  fecha: 2018-03-27
+  factura: MyString
+  comprobante: MyString
+  tipo_comprobante: 1
+  descuento: 9.99

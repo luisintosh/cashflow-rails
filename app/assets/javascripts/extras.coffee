@@ -37,4 +37,21 @@ $('input.required[type="number"]').on 'change', ()->
 
 # Convierte todos los elementos tipo select a un selector más avanzado con filtros
 $(document).on 'turbolinks:load', ()->
-  $('select.select').select2()
+  $('select.select:not(.noselect2)').select2()
+
+# Busqueda where en arreglos de objetos
+Array::where = (query) ->
+  return [] if typeof query isnt "object"
+  hit = Object.keys(query).length
+  @filter (item) ->
+    match = 0
+    for key, val of query
+      match += 1 if item[key] is val
+    if match is hit then true else false
+
+# Desactiva la capacidad de mostrar la lista de un select
+$(document).on('mousedown', '.readonly-select', (e)->
+  e.preventDefault()
+  this.blur()
+  window.focus()
+)

@@ -16,5 +16,8 @@
         = link_to @com_articulo, class: 'btn btn-flat' do
           %i.fa.fa-eye
           Ver
+        = link_to new_com_compra_path, class: 'btn btn-flat' do
+          %i.fa.fa-shopping-cart
+          Nueva compra
     .card-body
       = render 'form'

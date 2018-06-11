@@ -1,0 +1,63 @@
+.section-header
+  %ol.breadcrumb
+    %li
+      Administración de #{ComPago::PLURAL}
+    %li
+      Ver #{ComPago::SINGULAR} de #{@com_pago.com_compra.title}
+    %li.active
+      #{@com_pago.title}
+%br
+.section-body
+  .card
+    .card-head.style-primary
+      .tools
+        = link_to com_pagos_path(com_compra_id: @com_pago.com_compra.id), class: 'btn btn-flat' do
+          %i.glyphicon.glyphicon-arrow-left
+          Regresar a lista
+        = link_to edit_com_pago_path(@com_pago), class: 'btn btn-flat' do
+          %i.fa.fa-edit
+          Editar
+    .card-body
+      %ul.list.divider-full-bleed
+        %li.tile
+          .tile-content.ink-reaction
+            .tile-text
+              Compra
+              %small
+                = link_to @com_pago.com_compra.title, com_compra_path(@com_pago.com_compra)
+        %li.tile
+          .tile-content.ink-reaction
+            .tile-text
+              Movimiento
+              %small
+                = link_to @com_pago.mov_movimiento.concepto, mov_movimiento_path(@com_pago.mov_movimiento)
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Monto
+              %small
+                = "#{@com_pago.emp_cuentab.moneda} #{number_to_currency @com_pago.monto}"
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Tipo de pago
+              %small
+                = @com_pago.tipo_pago
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Departamento
+              %small
+                = @com_pago.emp_locacion.title
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Fecha de creación
+              %small
+                = @com_pago.created_at
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
+              Fecha de actualización
+              %small
+                = @com_pago.updated_at

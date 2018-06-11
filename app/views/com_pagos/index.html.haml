@@ -1,0 +1,97 @@
+.section-header
+  %ol.breadcrumb
+    %li.active
+      #{ComPago::PLURAL} de la compra
+      %strong #{@com_compra.title}
+
+.section-body
+  .row
+    .col-md-3.col-sm-6
+      .card
+        .card-body.no-padding
+          .alert.alert-callout.alert-info.no-margin
+            %strong.pull-right.text-success.text-lg
+              MXN
+            %strong.text-xl= number_to_currency @com_compra.adeudos['MXN'][:deuda]
+            %br/
+            %span.opacity-50 Para #{number_to_currency @com_compra.adeudos['MXN'][:total]}
+            .stick-bottom-left-right
+              .height-2.sparkline-revenue{"data-line-color" => "#bdc1c1"}
+                %canvas{:height => "80", :style => "display: inline-block; width: 268px; height: 80px; vertical-align: top;", :width => "268"}
+
+    .col-md-3.col-sm-6
+      .card
+        .card-body.no-padding
+          .alert.alert-callout.alert-warning.no-margin
+            %strong.pull-right.text-success.text-lg
+              USD
+            %strong.text-xl= number_to_currency @com_compra.adeudos['USD'][:deuda]
+            %br/
+            %span.opacity-50 Para #{number_to_currency @com_compra.adeudos['USD'][:total]}
+            .stick-bottom-left-right
+              .height-2.sparkline-revenue{"data-line-color" => "#bdc1c1"}
+                %canvas{:height => "80", :style => "display: inline-block; width: 268px; height: 80px; vertical-align: top;", :width => "268"}
+
+    .col-md-3.col-sm-6
+      .card
+        .card-body.no-padding
+          .alert.alert-callout.alert-danger.no-margin
+            %strong.pull-right.text-success.text-lg
+              EUR
+            %strong.text-xl= number_to_currency @com_compra.adeudos['EUR'][:deuda]
+            %br/
+            %span.opacity-50 Para #{number_to_currency @com_compra.adeudos['EUR'][:total]}
+            .stick-bottom-left-right
+              .height-2.sparkline-revenue{"data-line-color" => "#bdc1c1"}
+                %canvas{:height => "80", :style => "display: inline-block; width: 268px; height: 80px; vertical-align: top;", :width => "268"}
+
+    .col-md-3.col-sm-6
+      .card
+        .card-body.no-padding
+          .alert.alert-callout.alert-success.no-margin
+            %h1.pull-right.text-success
+              %i.md.md-timer
+            %strong.text-xl #{@com_compra.dias_pasados} dias
+            %br/
+            %span.opacity-50 Desde la compra
+
+.section-body
+  .card
+    .card-head.style-primary
+      .tools
+        = link_to com_compra_path(@com_compra.id), class: 'btn btn-flat' do
+          %i.fa.fa-eye
+          Ver Compra
+        - if @com_compra.adeudos[:cuentas_con_deuda] > 0
+          = link_to new_com_pago_path(com_compra_id: @com_compra.id), class: 'btn btn-floating-action btn-default-light' do
+            %i.fa.fa-plus
+    .card-body
+      .table-responsive
+        %table.table.table-striped.table-hover.dataTable
+          %thead
+            %tr
+              %th #
+              %th Fecha
+              %th Monto
+              %th Moneda
+              %th Tipo pago
+              %th Movimiento
+              %th Cuenta
+              %th
+          %tbody
+            - @com_pagos.each_with_index do |com_pago, i|
+              %tr
+                %td= i+1
+                %td= com_pago.created_at.strftime('%Y-%m-%d %H:%M:%S')
+                %td= number_to_currency com_pago.monto
+                %td= com_pago.emp_cuentab.moneda
+                %td= com_pago.tipo_pago
+                %td= link_to com_pago.mov_movimiento.concepto, mov_movimiento_path(com_pago.mov_movimiento)
+                %td= com_pago.emp_cuentab.title
+                %td.actions
+                  = link_to com_pago, class: 'btn btn-success btn-xs' do
+                    %i.fa.fa-eye
+                  = link_to edit_com_pago_path(com_pago), class: 'btn btn-info btn-xs' do
+                    %i.fa.fa-edit
+                  = link_to com_pago, method: :delete, data: { confirm: '¿Esta usted seguro?' }, class: 'btn btn-danger btn-xs' do
+                    %i.fa.fa-times

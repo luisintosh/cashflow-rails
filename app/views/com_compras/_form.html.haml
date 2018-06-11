@@ -1,0 +1,199 @@
+= simple_form_for(@com_compra) do |f|
+  .alert.alert-info
+    %h4 Información
+    %ul
+      %li Todos los campos con * son requeridos.
+  = f.error_notification
+
+  .form-inputs.row
+    .col-md-3
+      = f.input :ciclo, collection: MovMovimiento.lista_ciclos, include_blank: false
+    .col-md-3
+      = f.association :emp_clasificacion, label: EmpClasificacion::SINGULAR, prompt: '-- Selecciona --'
+    .col-md-3
+      = f.association :emp_proveedor, label: EmpProveedor::SINGULAR, prompt: '-- Selecciona --'
+    .col-md-3
+      = f.input :fecha
+    .col-md-3
+      = f.input :factura
+    .col-md-3
+      = f.input :comprobante
+    .col-md-3
+      = f.input :tipo_comprobante, collection: ComCompra.tipo_comprobantes.keys, prompt: '-- Selecciona --'
+    .col-md-3
+      = f.input :descuento, label: 'Descuento %'
+
+  %h3 Lista de artículos
+  .row
+    #buscar-articulo.col-md-12
+      .container
+        .row.m-b-sm
+          .col-xs-12.col-md-6
+            %label Nombre o Clave del producto
+            %select#buscar-producto.form-control
+              %option{value: -1} -- Buscar artículo --
+          .col-xs-6.col-md-3
+            = link_to new_com_articulo_path, {class: 'btn btn-info'} do
+              %i.fa.fa-plus
+              Nuevo Artículo
+
+  %hr
+  #com_det_compra
+    %table.table.table-striped
+      %thead
+        %tr.row
+          %th.col-xs-11
+            Artículo
+          %th.col-xs-1
+            Quitar
+      %tbody.line-items
+        = f.simple_fields_for :com_det_compra do |ff|
+          = render 'com_det_compra_fields', f: ff
+    .hide
+      = link_to_add_association 'Agregar', f, :com_det_compra, data: {'association-insertion-node': 'tbody.line-items', 'association-insertion-method': 'append'}
+  .row
+    .col-md-5.col-md-offset-7
+      %table.table.table-condensed
+        %thead
+          %tr
+            %th
+
+            %th
+              MXN
+            %th
+              USD
+            %th
+              EUR
+        %tbody
+          %tr
+            %td
+              Valor
+            %td#cc_MXN_valor
+              $ -
+            %td#cc_USD_valor
+              $ -
+            %td#cc_EUR_valor
+              $ -
+          %tr
+            %td
+              Descuento
+            %td#cc_MXN_descuento
+              $ -
+            %td#cc_USD_descuento
+              $ -
+            %td#cc_EUR_descuento
+              $ -
+          %tr
+            %td
+              Subtotal
+            %td#cc_MXN_subtotal
+              $ -
+            %td#cc_USD_subtotal
+              $ -
+            %td#cc_EUR_subtotal
+              $ -
+          %tr
+            %td
+              IVA
+            %td#cc_MXN_iva
+              $ -
+            %td#cc_USD_iva
+              $ -
+            %td#cc_EUR_iva
+              $ -
+          %tr
+            %td
+              IEPS
+            %td#cc_MXN_ieps
+              $ -
+            %td#cc_USD_ieps
+              $ -
+            %td#cc_EUR_ieps
+              $ -
+          %tr
+            %td
+              Total
+            %td#cc_MXN_total
+              $ -
+            %td#cc_USD_total
+              $ -
+            %td#cc_EUR_total
+              $ -
+
+  .card-actionbar
+    .card-actionbar-row
+      = button_tag(type: :submit, class: 'btn btn-flat btn-primary ink-reaction') do
+        %i.fa.fa-check
+        Guardar
+
+
+#modalAgregarArticulo.modal.fade{role: :dialog}
+  .modal-dialog.modal-lg{role: :document}
+    .modal-content
+      .modal-header
+        %button.close{type: :button, 'data-dismiss': :modal, 'aria-label': :close}
+          %span{'aria-hidden': :true} &times;
+        %h4.modal-title Agregar artículo a la lista
+      .modal-body
+        %h3.nombre -
+        .row.com_articulo
+          .col-md-4
+            %ul.list-unstyled
+              %li.text-muted Código
+              %li
+                %i.fa.fa-barcode
+                %b.codigo -
+              %li.text-muted Categoría
+              %li
+                %i.fa.fa-tag
+                %b.categoria -
+          .col-md-4
+            %ul.list-unstyled
+              %li.text-muted Unidad de compra
+              %li
+                %i.fa.fa-shopping-cart
+                %b.unidad_compra -
+              %li.text-muted Unidad de inventario
+              %li
+                %i.fa.fa-th
+                %b.unidad_inventario -
+          .col-md-4
+            %ul.list-unstyled
+              %li.text-muted Cantidad a inventario
+              %li
+                %i.fa.fa-plus
+                %b.cantidad_inventario -
+              %li.text-muted Impuestos
+              %li
+                %i.fa.fa-dollar
+                %b.impuestos IVA: -%, IEPS: -%
+        %hr
+        .row.com_det_compra
+          %form#form-det-articulo
+            .col-md-2
+              %label Cantidad
+              = number_field_tag 'cdc_cantidad', 1, {min: 0.01, step: :any, class: 'form-control', required: true}
+            .col-md-2
+              %label Precio unitario
+              = number_field_tag 'cdc_precio', 0.0, {min: 0.01, step: :any, class: 'form-control', autofocus: true, required: true}
+            .col-md-2
+              %label Moneda
+              = select_tag 'cdc_moneda', options_for_select(EmpCuentab.monedas.keys), {class: 'form-control'}
+            .col-md-3
+              %label Destino
+              = select_tag 'cdc_com_locacion_id', options_from_collection_for_select(@com_locaciones, 'id', 'title'), {class: 'form-control'}
+            .col-md-1
+              %label Inventariar
+              %br
+              = check_box_tag 'cdc_inventariar', '1', true
+            .col-md-2
+              %label Descuento %
+              = number_field_tag 'cdc_descuento', 0.0, {min: 0, max: 100, step: :any, class: 'form-control', required: true}
+      .modal-footer
+        %button.btn.btn-default{type: :button, data: {dismiss: :modal}} Cerrar
+        %button#btn-add-com_det_compra.btn.btn-primary{type: :button} Agregar
+
+%script
+  ! var comArticulos = #{@com_articulos}; // lista de articulos
+  ! var comArticuloTemp = {}; // articulo a registrar
+  ! var monedas = #{EmpCuentab.monedas.keys} // tipos de moneda existentes

@@ -24,4 +24,4 @@ $.extend true, $.fn.dataTable.defaults,
 
 # Turbolinks ready
 $(document).on 'turbolinks:load', ()->
-  $('.dataTable').dataTable()
+  window.data_table = $('.dataTable').DataTable()

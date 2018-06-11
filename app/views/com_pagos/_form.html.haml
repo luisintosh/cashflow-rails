@@ -1,0 +1,39 @@
+= simple_form_for(@com_pago) do |f|
+  .alert.alert-info
+    %h4 Información
+    %ul
+      %li Todos los campos con * son requeridos
+  = f.error_notification
+
+  .form-inputs.row
+    .col-md-4
+      %small.text-muted ADEUDA
+      %h3 MXN #{number_to_currency @com_pago.com_compra.adeudos['MXN'][:deuda]}
+    .col-md-4
+      %small.text-muted ADEUDA
+      %h3 USD #{number_to_currency @com_pago.com_compra.adeudos['USD'][:deuda]}
+    .col-md-4
+      %small.text-muted ADEUDA
+      %h3 EUR #{number_to_currency @com_pago.com_compra.adeudos['EUR'][:deuda]}
+    .col-md-12
+      = f.hidden_field :com_compra_id
+    .col-md-12
+      = f.hidden_field :mov_movimiento_id
+    .col-md-4
+      = f.input :tipo_pago, collection: ComPago.tipo_pagos.keys, prompt: '-- Selecciona --'
+    .col-md-5
+      = f.association :emp_cuentab, label: EmpCuentab::SINGULAR, prompt: '-- Selecciona --'
+    .col-md-3
+      = f.input :monto
+    .col-md-2
+      = f.input :hoja
+    .col-md-7
+      = f.input :concepto
+    .col-md-3
+      = f.association :emp_locacion, label: EmpLocacion::SINGULAR, prompt: '-- Selecciona --'
+
+  .card-actionbar
+    .card-actionbar-row
+      = button_tag(type: :submit, class: 'btn btn-flat btn-primary ink-reaction') do
+        %i.fa.fa-check
+        Guardar

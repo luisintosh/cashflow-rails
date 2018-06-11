@@ -46,6 +46,7 @@
     <orderEntry type="library" scope="PROVIDED" name="byebug (v10.0.0, RVM: ruby-2.5.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="capybara (v2.18.0, RVM: ruby-2.5.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="childprocess (v0.8.0, RVM: ruby-2.5.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="cocoon (v1.2.11, RVM: ruby-2.5.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coderay (v1.1.2, RVM: ruby-2.5.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coffee-rails (v4.2.2, RVM: ruby-2.5.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coffee-script (v2.4.1, RVM: ruby-2.5.0) [gem]" level="application" />
@@ -85,6 +86,7 @@
     <orderEntry type="library" scope="PROVIDED" name="rack (v2.0.4, RVM: ruby-2.5.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack-test (v0.8.2, RVM: ruby-2.5.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rails (v5.1.5, RVM: ruby-2.5.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rails-assets-select2 (v4.0.5, RVM: ruby-2.5.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rails-dom-testing (v2.0.3, RVM: ruby-2.5.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rails-html-sanitizer (v1.0.3, RVM: ruby-2.5.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rails-i18n (v5.1.1, RVM: ruby-2.5.0) [gem]" level="application" />

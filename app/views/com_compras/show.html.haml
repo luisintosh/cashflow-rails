@@ -1,0 +1,192 @@
+.section-header
+  %ol.breadcrumb
+    %li
+      Administración de #{ComCompra::PLURAL}
+    %li
+      Ver
+    %li.active
+      #{@com_compra.title}
+.section-body
+  .card
+    .card-head.style-primary
+      .tools
+        = link_to com_compras_path, class: 'btn btn-flat' do
+          %i.glyphicon.glyphicon-arrow-left
+          Regresar a lista
+        = link_to edit_com_compra_path(@com_compra), class: 'btn btn-flat' do
+          %i.fa.fa-edit
+          Editar
+        = link_to com_pagos_path(com_compra_id: @com_compra.id), class: 'btn btn-flat' do
+          %i.fa.fa-dollar
+          Pagar
+    .card-body
+      .title.m-b-30
+        %h2
+          %small Proveedor
+          = @com_compra.emp_proveedor.title
+      .row
+        .col-md-4
+          -#informacion del proveedor
+          .direccion.m-b-sm
+            %b= @com_compra.emp_proveedor.emp_perfil.direccion
+          .email.m-b-sm
+            %b
+              Email:
+              = @com_compra.emp_proveedor.emp_perfil.email
+          .tel1.m-b-sm
+            %b
+              Teléfono fijo:
+              = @com_compra.emp_proveedor.emp_perfil.tel_fijo
+          .tel2.m-b-sm
+            %b
+              Teléfono móvil:
+              = @com_compra.emp_proveedor.emp_perfil.tel_movil
+          .rfc.m-b-sm
+            %b
+              RFC:
+              = @com_compra.emp_proveedor.emp_perfil.rfc
+        .col-md-4
+          -#informacion del pedido
+          .pedido.m-b-sm
+            %b ID de la compra:
+            = @com_compra.id
+          .estado.m-b-sm
+            %b Estado de la compra:
+            = @com_compra.estado.upcase
+          .fecha.m-b-sm
+            %b Fecha de la compra:
+            = @com_compra.fecha
+          .creacion.m-b-sm
+            %b Creación:
+            = @com_compra.created_at
+          .actualizacion.m-b-sm
+            %b Actualización:
+            = @com_compra.updated_at
+        .col-md-4
+          -#informacion de la compra
+          .factura.m-b-sm
+            %b Factura:
+            = @com_compra.factura
+          .comprobante.m-b-sm
+            %b Comprobante:
+            = @com_compra.comprobante
+          .tipo_comprobante.m-b-sm
+            %b Tipo de comprobante:
+            = @com_compra.tipo_comprobante
+          .descuento.m-b-sm
+            %b Descuento aplicado:
+            = @com_compra.descuento
+            \ %
+
+      %h3 Lista de artículos
+      %table.table.table-striped
+        %thead
+          %tr
+            %th
+              \ #
+            %th
+              Código
+            %th
+              Artículo
+            %th
+              Cantidad
+            %th
+              Precio
+            %th
+              Moneda
+            %th
+              Costo
+            %th
+              Descuento
+            %th
+              Total
+        %tbody
+          - @com_compra.com_det_compra.each_with_index do |cdc, i|
+            %tr
+              %td
+                = i+1
+              %td
+                = cdc.com_articulo.codigo
+              %td
+                = cdc.com_articulo.nombre
+              %td
+                = cdc.cantidad
+              %td
+                = number_to_currency cdc.precio
+              %td
+                = cdc.moneda
+              %td
+                = number_to_currency cdc.calcular_costo
+              %td
+                = number_to_currency cdc.calcular_descuento
+              %td
+                = number_to_currency cdc.calcular_total
+
+      %hr
+      .row
+        .col-md-5.col-md-offset-7
+          %table.table.table-condensed
+            %thead
+              %tr
+                %th
+                %th
+                  MXN
+                %th
+                  USD
+                %th
+                  EUR
+            %tbody
+              %tr
+                %td
+                  Precio
+                %td
+                  = number_to_currency @com_compra.suma_valores['MXN'][:valor]
+                %td
+                  = number_to_currency @com_compra.suma_valores['USD'][:valor]
+                %td
+                  = number_to_currency @com_compra.suma_valores['EUR'][:valor]
+              %tr
+                %td
+                  Descuento
+                %td
+                  = number_to_currency @com_compra.suma_valores['MXN'][:descuento]
+                %td
+                  = number_to_currency @com_compra.suma_valores['USD'][:descuento]
+                %td
+                  = number_to_currency @com_compra.suma_valores['EUR'][:descuento]
+              %tr
+                %td
+                  Subtotal
+                %td
+                  = number_to_currency @com_compra.suma_valores['MXN'][:subtotal]
+                %td
+                  = number_to_currency @com_compra.suma_valores['USD'][:subtotal]
+                %td
+                  = number_to_currency @com_compra.suma_valores['EUR'][:subtotal]
+              %tr
+                %td
+                  IVA
+                %td
+                  = number_to_currency @com_compra.suma_valores['MXN'][:iva]
+                %td
+                  = number_to_currency @com_compra.suma_valores['USD'][:iva]
+                %td
+                  = number_to_currency @com_compra.suma_valores['EUR'][:iva]
+              %tr
+                %td
+                  IEPS
+                %td
+                  = number_to_currency @com_compra.suma_valores['MXN'][:ieps]
+                %td
+                  = number_to_currency @com_compra.suma_valores['USD'][:ieps]
+                %td
+                  = number_to_currency @com_compra.suma_valores['EUR'][:ieps]
+              %tr
+                %td
+                  Total
+                %td
+                  = number_to_currency @com_compra.suma_valores['MXN'][:total]
+                %td
+                  = number_to_currency @com_compra.suma_valores['USD'][:total]
+                %td
+                  = number_to_currency @com_compra.suma_valores['EUR'][:total]
