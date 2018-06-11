@@ -23,7 +23,12 @@
 //= require libs/spin.js/spin
 //= require libs/autosize/jquery.autosize
 //= require libs/nanoscroller/jquery.nanoscroller
-//= require libs/DataTables/jquery.dataTables
+//= require libs/DataTables/jquery.dataTables.min
+//= require libs/DataTables/dataTables.buttons.min
+//= require libs/DataTables/jszip.min
+//= require libs/DataTables/pdfmake.min
+//= require libs/DataTables/vfs_fonts
+//= require libs/DataTables/buttons.html5.min
 // require libs/select2/select2
 //= require select2
 //= require cocoon

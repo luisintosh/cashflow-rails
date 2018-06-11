@@ -2,68 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3f3b0c66-ccb9-4b61-a64d-d8f5d500df0c" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/com_compras.coffee" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/com_pagos.coffee" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/_spacing-helpers.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/com_compras.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/com_pagos.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/controllers/com_compras_controller.rb" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/controllers/com_pagos_controller.rb" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/helpers/com_compras_helper.rb" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/helpers/com_pagos_helper.rb" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/models/com_compra.rb" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/models/com_det_compra.rb" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/models/com_pago.rb" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/views/com_compras/_com_compra.json.jbuilder" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/views/com_compras/_com_det_compra_fields.html.haml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/views/com_compras/_form.html.haml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/views/com_compras/edit.html.haml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/views/com_compras/index.html.haml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/views/com_compras/index.json.jbuilder" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/views/com_compras/new.html.haml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/views/com_compras/show.html.haml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/views/com_compras/show.json.jbuilder" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/views/com_pagos/_com_pago.json.jbuilder" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/views/com_pagos/_form.html.haml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/views/com_pagos/edit.html.haml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/views/com_pagos/index.html.haml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/views/com_pagos/index.json.jbuilder" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/views/com_pagos/new.html.haml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/views/com_pagos/show.html.haml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/views/com_pagos/show.json.jbuilder" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/db/migrate/20180328041203_create_com_compras.rb" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/db/migrate/20180328041640_create_com_det_compras.rb" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/db/migrate/20180502035310_add_ivaieps_to_com_articulos.rb" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/db/migrate/20180525034154_add_impuestos_to_com_det_compras.rb" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/db/migrate/20180529051034_create_com_pagos.rb" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/test/controllers/com_compras_controller_test.rb" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/test/controllers/com_pagos_controller_test.rb" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/test/fixtures/com_compras.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/test/fixtures/com_det_compras.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/test/fixtures/com_pagos.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/test/models/com_compra_test.rb" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/test/models/com_det_compra_test.rb" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/test/models/com_pago_test.rb" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/test/system/com_compras_test.rb" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/test/system/com_pagos_test.rb" />
-      <change beforePath="$PROJECT_DIR$/.idea/rohers.iml" afterPath="$PROJECT_DIR$/.idea/rohers.iml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/libs/DataTables/buttons.html5.min.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/libs/DataTables/dataTables.buttons.min.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/libs/DataTables/jszip.min.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/libs/DataTables/pdfmake.min.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/libs/DataTables/vfs_fonts.js" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
       <change beforePath="$PROJECT_DIR$/app/assets/javascripts/application.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/application.js" />
       <change beforePath="$PROJECT_DIR$/app/assets/javascripts/datatables.coffee" afterPath="$PROJECT_DIR$/app/assets/javascripts/datatables.coffee" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/extras.coffee" afterPath="$PROJECT_DIR$/app/assets/javascripts/extras.coffee" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.scss" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/scaffold_tables.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/scaffold_tables.scss" />
-      <change beforePath="$PROJECT_DIR$/app/views/com_articulos/_form.html.haml" afterPath="$PROJECT_DIR$/app/views/com_articulos/_form.html.haml" />
-      <change beforePath="$PROJECT_DIR$/app/views/com_articulos/edit.html.haml" afterPath="$PROJECT_DIR$/app/views/com_articulos/edit.html.haml" />
-      <change beforePath="$PROJECT_DIR$/app/views/com_articulos/new.html.haml" afterPath="$PROJECT_DIR$/app/views/com_articulos/new.html.haml" />
-      <change beforePath="$PROJECT_DIR$/app/views/com_articulos/show.html.haml" afterPath="$PROJECT_DIR$/app/views/com_articulos/show.html.haml" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/_sidebar.html.haml" afterPath="$PROJECT_DIR$/app/views/layouts/_sidebar.html.haml" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
-      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/libs/DataTables/jquery.dataTables.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/libs/DataTables/jquery.dataTables.js" />
+      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/libs/DataTables/jquery.dataTables.min.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/libs/DataTables/jquery.dataTables.min.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -86,7 +34,58 @@
     <favorites_list name="rohers" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="empleados_controller.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/empleados_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-262">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="datatables.coffee" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/datatables.coffee">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="593">
+              <caret line="43" column="16" lean-forward="false" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="30" column="45" lean-forward="false" selection-start-line="30" selection-start-column="45" selection-end-line="30" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html.haml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/com_articulos/index.html.haml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" column="56" lean-forward="false" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="56" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/user.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -110,6 +109,7 @@
       <find>comArticuloTemp</find>
       <find>resta_demas</find>
       <find>pagos_alafecha</find>
+      <find>sInfoFiltered</find>
     </findStrings>
     <replaceStrings>
       <replace>#</replace>
@@ -123,6 +123,7 @@
       <replace>unless</replace>
       <replace>scope = scope.where</replace>
       <replace>window.articuloTemp</replace>
+      <replace />
     </replaceStrings>
     <dirStrings>
       <dir>$USER_HOME$/.rvm/gems/ruby-2.5.0/gems/rails-assets-adminbsb-materialdesign-1.0.5/app</dir>
@@ -180,16 +181,16 @@
         <option value="$PROJECT_DIR$/app/views/com_pagos/show.html.haml" />
         <option value="$PROJECT_DIR$/app/controllers/com_pagos_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/com_pagos/index.html.haml" />
-        <option value="$PROJECT_DIR$/app/assets/javascripts/datatables.coffee" />
         <option value="$PROJECT_DIR$/app/models/com_compra.rb" />
         <option value="$PROJECT_DIR$/app/views/com_compras/index.html.haml" />
-        <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/com_compras.coffee" />
         <option value="$PROJECT_DIR$/app/models/com_pago.rb" />
         <option value="$PROJECT_DIR$/app/views/com_compras/_form.html.haml" />
         <option value="$PROJECT_DIR$/app/views/com_articulos/new.html.haml" />
         <option value="$PROJECT_DIR$/app/views/com_articulos/show.html.haml" />
         <option value="$PROJECT_DIR$/app/views/com_articulos/edit.html.haml" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/datatables.coffee" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
       </list>
     </option>
   </component>
@@ -260,13 +261,6 @@
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
               <item name="javascripts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="rohers" type="b2602c69:ProjectViewProjectNode" />
-              <item name="rohers" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="stylesheets" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="rohers" type="b2602c69:ProjectViewProjectNode" />
@@ -531,7 +525,7 @@
       <workItem from="1527814757089" duration="11248000" />
       <workItem from="1528339592726" duration="7111000" />
       <workItem from="1528430262590" duration="15587000" />
-      <workItem from="1528659765147" duration="3008000" />
+      <workItem from="1528659765147" duration="6904000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1519258704656</created>
@@ -561,11 +555,18 @@
       <option name="project" value="LOCAL" />
       <updated>1522209928549</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Crear módulo de compras y pagos&#10;&#10;Creación del módulo de compra de articulos y pagos de articulos creando movimiento por cada pago">
+      <created>1528678878723</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1528678878723</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="215755000" />
+    <option name="totallyTimeSpent" value="219651000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1021" y="-900" width="1600" height="900" extended-state="0" />
@@ -575,6 +576,7 @@
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32630098" sideWeight="0.503231" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32552403" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5302096" sideWeight="0.49676898" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32552403" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -587,7 +589,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32552403" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -602,7 +603,8 @@
     <MESSAGE value="Crear el modulo de proveedores usando smart_listing para filtrar resultados del index" />
     <MESSAGE value="Crear modulo de movimientos y arreglar la sumatoria de saldos de las cuentas, ademas cambiar idioma de la app a español" />
     <MESSAGE value="Crear módulo de inventario&#10;&#10;Creación del módulo de articulos e inventario de estos." />
-    <option name="LAST_COMMIT_MESSAGE" value="Crear módulo de inventario&#10;&#10;Creación del módulo de articulos e inventario de estos." />
+    <MESSAGE value="Crear módulo de compras y pagos&#10;&#10;Creación del módulo de compra de articulos y pagos de articulos creando movimiento por cada pago" />
+    <option name="LAST_COMMIT_MESSAGE" value="Crear módulo de compras y pagos&#10;&#10;Creación del módulo de compra de articulos y pagos de articulos creando movimiento por cada pago" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -611,28 +613,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/mov_movimientos.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-380">
-          <caret line="5" column="42" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../rohers2/app/views/com_compras/_form.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-512">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../rohers2/app/views/com_compras/_com_det_compra_fields.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20180508033447_add_descuento_to_com_det_compras.rb" />
     <entry file="file://$PROJECT_DIR$/db/migrate/20180502035310_add_ivaieps_to_com_articulos.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -790,6 +770,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="38" lean-forward="true" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="70" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -797,6 +778,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="71" lean-forward="false" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="71" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -841,6 +823,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="51" lean-forward="false" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="51" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -894,6 +877,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="952">
           <caret line="56" column="0" lean-forward="true" selection-start-line="7" selection-start-column="2" selection-end-line="56" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -909,22 +893,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="610">
           <caret line="78" column="5" lean-forward="false" selection-start-line="78" selection-start-column="5" selection-end-line="78" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/datatables.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="38" lean-forward="true" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="30" column="22" lean-forward="false" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
           <folding />
         </state>
       </provider>
@@ -981,6 +949,54 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="20" column="22" lean-forward="false" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/empleados_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-262">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/com_articulos/index.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="56" lean-forward="false" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/libs/DataTables/jquery.dataTables.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/datatables.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="593">
+          <caret line="43" column="16" lean-forward="false" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="45" lean-forward="false" selection-start-line="30" selection-start-column="45" selection-end-line="30" selection-end-column="45" />
           <folding />
         </state>
       </provider>

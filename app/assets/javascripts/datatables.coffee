@@ -24,4 +24,31 @@ $.extend true, $.fn.dataTable.defaults,
 
 # Turbolinks ready
 $(document).on 'turbolinks:load', ()->
-  window.data_table = $('.dataTable').DataTable()
+  $('.dataTable thead').each( (k,v)->
+    tr = $(v).html()
+    table = $(v).parent()
+    table.append($('<tfoot>').append(tr))
+    table.find('tfoot th').each( (k,v)->
+      title = $(v).text()
+      if title
+        $(v).html('<input class="form-control" type="text" placeholder="Buscar '+title+'">')
+    )
+  )
+
+  window.data_table = $('.dataTable').DataTable(
+    dom: 'Bfrtip'
+    buttons: [
+      'copyHtml5',
+      'excelHtml5',
+      'csvHtml5',
+      'pdfHtml5'
+    ]
+  )
+
+  window.data_table.columns().every ->
+    that = @
+    $('input', @footer()).on 'keyup change', ->
+      if that.search() != @.value
+        that.search( @value ).draw()
+
+
