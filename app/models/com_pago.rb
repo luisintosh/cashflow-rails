@@ -25,6 +25,8 @@ class ComPago < ApplicationRecord
   accepts_nested_attributes_for :mov_movimiento, reject_if: :all_blank, allow_destroy: true
 
   after_validation :crear_mov_movimiento, if: :new_record?
+  after_create :revisa_deuda
+  before_destroy :revisa_deuda
 
   def title
     concepto
@@ -82,5 +84,12 @@ class ComPago < ApplicationRecord
     end
   end
 
-  # suma
+  # revisa si el pago completa la deuda de la compra y cambia el estado de esta
+  def revisa_deuda
+    if com_compra.adeudos[:cuentas_con_deuda] == 0
+      com_compra.pagado!
+    else
+      com_compra.pendiente!
+    end
+  end
 end

@@ -31,7 +31,7 @@ class ComPagosController < ApplicationController
 
     respond_to do |format|
       if @com_pago.save
-        format.html { redirect_to @com_pago, notice: 'Com pago was successfully created.' }
+        format.html { redirect_to @com_pago, com_compra_id: @com_pago.com_compra.id, notice: 'Com pago was successfully created.' }
         format.json { render :show, status: :created, location: @com_pago }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class ComPagosController < ApplicationController
   def update
     respond_to do |format|
       if @com_pago.update(com_pago_params)
-        format.html { redirect_to @com_pago, notice: 'Com pago was successfully updated.' }
+        format.html { redirect_to @com_pago, com_compra_id: @com_pago.com_compra.id, notice: 'Com pago was successfully updated.' }
         format.json { render :show, status: :ok, location: @com_pago }
       else
         format.html { render :edit }
@@ -57,9 +57,10 @@ class ComPagosController < ApplicationController
   # DELETE /com_pagos/1
   # DELETE /com_pagos/1.json
   def destroy
+    compra_id = @com_pago.com_compra.id
     @com_pago.destroy
     respond_to do |format|
-      format.html { redirect_to com_pagos_url, notice: 'Com pago was successfully destroyed.' }
+      format.html { redirect_to com_pagos_path(com_compra_id: compra_id), notice: 'Com pago was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

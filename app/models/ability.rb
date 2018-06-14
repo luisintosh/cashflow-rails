@@ -31,7 +31,7 @@ class Ability
 
 
     if user.admin?
-      can :mange, :all
+      can :manage, :all
     elsif user.empleado?
       can :read, [ComArticulo, EmpLocacion]
       can [:read], [User, EmpPerfil]
