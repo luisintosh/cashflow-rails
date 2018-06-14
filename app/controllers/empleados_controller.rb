@@ -1,24 +1,29 @@
 class EmpleadosController < ApplicationController
+  skip_load_and_authorize_resource
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
   def index
+    error_404 unless can? :manage, User
     @users = User.all
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
+    error_404 unless can? :read, User
   end
 
   # GET /users/new
   def new
+    error_404 unless can? :create, User
     @user = User.new
   end
 
   # GET /users/1/edit
   def edit
+    error_404 unless can? :update, User
   end
 
   # POST /users
@@ -28,8 +33,8 @@ class EmpleadosController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
+        format.html { redirect_to empleado_path(@user.id), notice: 'User was successfully created.' }
+        format.json { render :show, status: :created, location: empleado_path(@user.id) }
       else
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -42,8 +47,8 @@ class EmpleadosController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
+        format.html { redirect_to empleado_path(@user.id), notice: 'User was successfully updated.' }
+        format.json { render :show, status: :ok, location: empleado_path(@user.id) }
       else
         format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -54,6 +59,7 @@ class EmpleadosController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
+    error_404 unless can? :destroy, User
     @user.destroy
     respond_to do |format|
       format.html { redirect_to empleados_url, notice: 'User was successfully destroyed.' }
@@ -69,6 +75,11 @@ class EmpleadosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.fetch(:user, {})
+      params.require(:user).permit(:nombre, :role, :email, :password)
+    end
+
+    # Raise a new error 404 and doesn't render the content
+    def error_404
+      raise ActionController::RoutingError.new('Not Found')
     end
 end

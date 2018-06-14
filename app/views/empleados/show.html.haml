@@ -28,6 +28,13 @@
         %li.tile
           %a.tile-content.ink-reaction
             .tile-text
+              Rol de usuario
+              %small
+                = @user.role.capitalize
+      %ul.list.divider-full-bleed
+        %li.tile
+          %a.tile-content.ink-reaction
+            .tile-text
               Fecha de creación
               %small
                 = @user.created_at

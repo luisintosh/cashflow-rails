@@ -18,9 +18,9 @@
     .col-md-4
       = f.input :categoria, label: 'Categoría del producto'
     .col-md-4
-      = f.input :unidad_compra, label: 'Unidad de compra', collection: ComArticulo.unidades
+      = f.input :unidad_compra, label: 'Unidad de compra', collection: ComArticulo.unidades, prompt: '-- Selecciona --'
     .col-md-4
-      = f.input :unidad_inventario, label: 'Unidad de inventario', collection: ComArticulo.unidades
+      = f.input :unidad_inventario, label: 'Unidad de inventario', collection: ComArticulo.unidades, prompt: '-- Selecciona --'
     .col-md-4
       = f.input :cantidad_inventario, label: 'Cantidad a inventario'
     .col-md-4

@@ -24,96 +24,112 @@
                 %i.md.fa.fa-building
               %span.title Empresa
             %ul
-              %li
-                = link_to emp_locacions_url, {} do
-                  %span.title Departamentos
-              %li
-                = link_to emp_clasificacions_url, {} do
-                  %span.title Clasif. contable
-              %li
-                = link_to empleados_url, {} do
-                  %span.title Empleados
-          %li.gui-folder
-            %a
-              .gui-icon
-                %i.md.fa.fa-retweet
-              %span.title Movimientos
-            %ul
-              %li
-                = link_to new_mov_movimiento_url(type: 'ingreso'), {} do
-                  %span.title Agregar entrada
-              %li
-                = link_to new_mov_movimiento_url(type: 'egreso'), {} do
-                  %span.title Agregar salida
-              %li
-                = link_to mov_movimientos_url, {} do
-                  %span.title Historial
-          %li.gui-folder
-            %a
-              .gui-icon
-                %i.md.fa.fa-users
-              %span.title Clientes
-            %ul
-              %li
-                = link_to new_emp_cliente_url, {} do
-                  %span.title Agregar cliente
-              %li
-                = link_to emp_clientes_url, {} do
-                  %span.title Lista de clientes
-          %li.gui-folder
-            %a
-              .gui-icon
-                %i.md.fa.fa-handshake
-              %span.title Proveedores
-            %ul
-              %li
-                = link_to new_emp_proveedor_url, {} do
-                  %span.title Agregar proveedor
-              %li
-                = link_to emp_proveedors_url, {} do
-                  %span.title Lista de proveedores
-          %li.gui-folder
-            %a
-              .gui-icon
-                %i.md.fa.fa-shopping-bag
-              %span.title Inventario
-            %ul
-              %li
-                = link_to new_com_articulo_url, {} do
-                  %span.title Nuevo artículo
-              %li
-                = link_to com_articulos_url, {} do
-                  %span.title Lista de artículos
-          %li.gui-folder
-            %a
-              .gui-icon
-                %i.md.fa.fa-shopping-cart
-              %span.title Compras
-            %ul
-              %li
-                = link_to new_com_compra_url, {} do
-                  %span.title Agregar compra
-              %li
-                = link_to '#', {} do
-                  %span.title Credito/Balance
-              %li
-                = link_to '#', {} do
-                  %span.title Reportes
-              %li
-                = link_to com_compras_url, {} do
-                  %span.title Lista de compras
-          %li.gui-folder
-            %a
-              .gui-icon
-                %i.md.fa.fa-money-bill-alt
-              %span.title Banco
-            %ul
-              %li
-                = link_to new_emp_cuentab_url, {} do
-                  %span.title Agregar cuenta
-              %li
-                = link_to emp_cuentabs_url, {} do
-                  %span.title Lista de cuentas
+              - if can? :read, EmpLocacion
+                %li
+                  = link_to emp_locacions_url, {} do
+                    %span.title Departamentos
+              - if can? :read, EmpClasificacion
+                %li
+                  = link_to emp_clasificacions_url, {} do
+                    %span.title Clasif. contable
+              - if current_user.admin?
+                %li
+                  = link_to empleados_url, {} do
+                    %span.title Empleados
+          - if can? :read, MovMovimiento
+            %li.gui-folder
+              %a
+                .gui-icon
+                  %i.md.fa.fa-retweet
+                %span.title Movimientos
+              %ul
+                - if can? :create, MovMovimiento
+                  %li
+                    = link_to new_mov_movimiento_url(type: 'ingreso'), {} do
+                      %span.title Agregar entrada
+                - if can? :create, MovMovimiento
+                  %li
+                    = link_to new_mov_movimiento_url(type: 'egreso'), {} do
+                      %span.title Agregar salida
+                - if can? :read, MovMovimiento
+                  %li
+                    = link_to mov_movimientos_url, {} do
+                      %span.title Historial
+          - if can? :read, EmpCliente
+            %li.gui-folder
+              %a
+                .gui-icon
+                  %i.md.fa.fa-users
+                %span.title Clientes
+              %ul
+                - if can? :create, EmpCliente
+                  %li
+                    = link_to new_emp_cliente_url, {} do
+                      %span.title Agregar cliente
+                - if can? :read, EmpCliente
+                  %li
+                    = link_to emp_clientes_url, {} do
+                      %span.title Lista de clientes
+          - if can? :read, EmpProveedor
+            %li.gui-folder
+              %a
+                .gui-icon
+                  %i.md.fa.fa-handshake
+                %span.title Proveedores
+              %ul
+                - if can? :create, EmpProveedor
+                  %li
+                    = link_to new_emp_proveedor_url, {} do
+                      %span.title Agregar proveedor
+                - if can? :read, EmpProveedor
+                  %li
+                    = link_to emp_proveedors_url, {} do
+                      %span.title Lista de proveedores
+          - if can? :read, ComArticulo
+            %li.gui-folder
+              %a
+                .gui-icon
+                  %i.md.fa.fa-shopping-bag
+                %span.title Inventario
+              %ul
+                - if can? :create, ComArticulo
+                  %li
+                    = link_to new_com_articulo_url, {} do
+                      %span.title Nuevo artículo
+                - if can? :read, ComArticulo
+                  %li
+                    = link_to com_articulos_url, {} do
+                      %span.title Lista de artículos
+          - if can? :read, ComCompra
+            %li.gui-folder
+              %a
+                .gui-icon
+                  %i.md.fa.fa-shopping-cart
+                %span.title Compras
+              %ul
+                - if can? :create, ComCompra
+                  %li
+                    = link_to new_com_compra_url, {} do
+                      %span.title Agregar compra
+                - if can? :read, ComCompra
+                  %li
+                    = link_to com_compras_url, {} do
+                      %span.title Lista de compras
+          - if can? :read, EmpCuentab
+            %li.gui-folder
+              %a
+                .gui-icon
+                  %i.md.fa.fa-money-bill-alt
+                %span.title Banco
+              %ul
+                - if can? :create, EmpCuentab
+                  %li
+                    = link_to new_emp_cuentab_url, {} do
+                      %span.title Agregar cuenta
+                - if can? :read, EmpCuentab
+                  %li
+                    = link_to emp_cuentabs_url, {} do
+                      %span.title Lista de cuentas
         .menubar-foot-panel
           %small.no-linebreak.hidden-folded
             %span.opacity-75 Copyright ©

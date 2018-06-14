@@ -49,8 +49,8 @@
             %img{:alt => '', :src => '#/assets/img/modules/materialadmin/avatar1.jpg?1422538623'}/
             = image_tag 'avatars/avatar.png'
             %span.profile-info
-              = current_user.email
-              %small Administrador
+              = current_user.nombre.titleize
+              %small= current_user.role.capitalize
           %ul.dropdown-menu.animation-dock
             %li.dropdown-header Configuración
             %li

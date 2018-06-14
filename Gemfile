@@ -84,3 +84,6 @@ gem 'cocoon'
 
 # Select2 js library
 gem 'rails-assets-select2', source: 'https://rails-assets.org'
+
+# Roles
+gem 'cancancan'
