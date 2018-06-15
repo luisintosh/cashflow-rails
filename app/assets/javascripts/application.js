@@ -29,6 +29,9 @@
 //= require libs/DataTables/pdfmake.min
 //= require libs/DataTables/vfs_fonts
 //= require libs/DataTables/buttons.html5.min
+//= require libs/moment/moment
+//= require libs/flot/jquery.flot.js
+//= require_directory ./libs/flot/.
 // require libs/select2/select2
 //= require select2
 //= require cocoon

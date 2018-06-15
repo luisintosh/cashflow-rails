@@ -1,53 +1,88 @@
+/ Tarjetas de informacion top
 .section-body
   .row
     .col-md-3.col-sm-6
       .card
         .card-body.no-padding
-          .alert.alert-callout.alert-info.no-margin
-            %strong.pull-right.text-success.text-lg
-              0,38%
-              %i.md.md-trending-up
-            %strong.text-xl $ 32,829
-            %br/
-            %span.opacity-50 Deuda con proveedores
-            .stick-bottom-left-right
-              .height-2.sparkline-revenue{"data-line-color" => "#bdc1c1"}
-                %canvas{:height => "80", :style => "display: inline-block; width: 268px; height: 80px; vertical-align: top;", :width => "268"}
-
-    .col-md-3.col-sm-6
-      .card
-        .card-body.no-padding
-          .alert.alert-callout.alert-warning.no-margin
-            %strong.pull-right.text-warning.text-lg
-              0,01%
-              %i.md.md-swap-vert
-            %strong.text-xl $ 72,829
-            %br/
-            %span.opacity-50 Deuda de clientes
-            .stick-bottom-right
-              .height-1.sparkline-visits{"data-bar-color" => "#e5e6e6"}
-                %canvas{:height => "40", :style => "display: inline-block; width: 265px; height: 40px; vertical-align: top;", :width => "265"}
-
-    .col-md-3.col-sm-6
-      .card
-        .card-body.no-padding
           .alert.alert-callout.alert-danger.no-margin
-            %strong.pull-right.text-danger.text-lg
-              0,18%
-              %i.md.md-trending-down
-            %strong.text-xl 42.90%
+            %h1.pull-right.text-danger
+              %i.md.md-trending-up
+            %strong.text-xl= number_to_currency(@egresos_mes)
             %br/
-            %span.opacity-50 Incremento en ventas
-            .stick-bottom-left-right
-              .progress.progress-hairline.no-margin
-                .progress-bar.progress-bar-danger{:style => "width:43%"}
-
+            %span.opacity-50 Egresos este mes (MXN)
     .col-md-3.col-sm-6
       .card
         .card-body.no-padding
           .alert.alert-callout.alert-success.no-margin
             %h1.pull-right.text-success
-              %i.md.md-timer
-            %strong.text-xl 12 dias.
+              %i.md.md-trending-down
+            %strong.text-xl= number_to_currency(@ingresos_mes)
             %br/
-            %span.opacity-50 Prox. pago
+            %span.opacity-50 Ingresos este mes (MXN)
+    .col-md-3.col-sm-6
+      .card
+        .card-body.no-padding
+          .alert.alert-callout.alert-info.no-margin
+            %h1.pull-right.text-info
+              %i.fa.fa-shopping-cart
+            %strong.text-xl= @compras_pendientes
+            %br/
+            %span.opacity-50 Compras pendientes de pago              
+    .col-md-3.col-sm-6
+      .card
+        .card-body.no-padding
+          .alert.alert-callout.alert-warning.no-margin
+            %h1.pull-right.text-warning
+              %i.fa.fa-users
+            %strong.text-xl= @usuarios_activos
+            %br/
+            %span.opacity-50 Usuarios activos
+
+/ Grafica de movimientos
+%script
+  window.mov_ingreso_mxn = #{raw(@movimientos_mxn_mes.to_json)}
+.row
+  .col-md-12
+    .card
+      .row
+        .col-md-8
+          .card-head
+            %header Movimientos de ingreso este mes
+          .card-body.height-8
+            #flot-visitors-legend.flot-legend-horizontal.stick-top-right.no-y-padding
+            #flot-visitors.flot.height-7{"data-color" => "#8FC0FF,#0D78FF,#094DA3", "data-title" => "Activity entry"}
+        .col-md-4
+          .card-head
+            %header Deudas más grandes
+          .card-body.height-8
+            %strong 214
+            members
+            %span.pull-right.text-success.text-sm
+              0,18%
+              %i.md.md-trending-up
+            .progress.progress-hairline
+              .progress-bar.progress-bar-primary-dark{:style => "width:43%"}
+            756 pageviews
+            %span.pull-right.text-success.text-sm
+              0,68%
+              %i.md.md-trending-up
+            .progress.progress-hairline
+              .progress-bar.progress-bar-primary-dark{:style => "width:11%"}
+            291 bounce rates
+            %span.pull-right.text-danger.text-sm
+              21,08%
+              %i.md.md-trending-down
+            .progress.progress-hairline
+              .progress-bar.progress-bar-danger{:style => "width:93%"}
+            32,301 visits
+            %span.pull-right.text-success.text-sm
+              0,18%
+              %i.md.md-trending-up
+            .progress.progress-hairline
+              .progress-bar.progress-bar-primary-dark{:style => "width:63%"}
+            132 pages
+            %span.pull-right.text-success.text-sm
+              0,18%
+              %i.md.md-trending-up
+            .progress.progress-hairline
+              .progress-bar.progress-bar-primary-dark{:style => "width:47%"}
