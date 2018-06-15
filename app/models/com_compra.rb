@@ -31,9 +31,14 @@ class ComCompra < ApplicationRecord
   def suma_valores
     resultados = {}
 
-    EmpCuentab.monedas.each do |moneda, id_moneda|
-      cdc = com_det_compra.where(moneda: id_moneda)
+    # totales: moneda => 0:precio, 1:cantidad, 2:descuento, 3:iva, 4:ieps
+    totales = com_det_compra
+                  .group(:moneda)
+                  .pluck('moneda', 'SUM(precio)', 'SUM(cantidad)', 'SUM(descuento)', 'SUM(iva)', 'SUM(ieps)')
+                  .map{ |e| [e[0], e[1...e.size-1]] }.to_h
 
+    # revisa todas las monedas
+    EmpCuentab.monedas.each do |moneda|
       unless resultados[moneda]
         resultados[moneda] = {
             valor: 0.0,
@@ -45,12 +50,14 @@ class ComCompra < ApplicationRecord
         }
       end
 
-      resultados[moneda][:valor] += (cdc.sum(:precio) * cdc.sum(:cantidad)).round(2)
-      resultados[moneda][:descuento] += (resultados[moneda][:valor] * cdc.sum(:descuento) / 100).round(2)
-      resultados[moneda][:subtotal] +=  (resultados[moneda][:valor] - resultados[moneda][:descuento]).round(2)
-      resultados[moneda][:iva] += (resultados[moneda][:subtotal] * cdc.sum(:iva) / 100).round(2)
-      resultados[moneda][:ieps] += (resultados[moneda][:subtotal] * cdc.sum(:ieps) / 100).round(2)
-      resultados[moneda][:total] += (resultados[moneda][:subtotal] + resultados[moneda][:iva] + resultados[moneda][:ieps]).round(2)
+      if totales[moneda]
+        resultados[moneda][:valor] += (totales[moneda][0] * totales[moneda][1])
+        resultados[moneda][:descuento] += (resultados[moneda][:valor] * totales[moneda][2] / 100)
+        resultados[moneda][:subtotal] += (resultados[moneda][:valor] - resultados[moneda][:descuento])
+        resultados[moneda][:iva] += (resultados[moneda][:subtotal] * totales[moneda][3] / 100)
+        resultados[moneda][:ieps] += (resultados[moneda][:subtotal] * totales[moneda][4] / 100)
+        resultados[moneda][:total] += (resultados[moneda][:subtotal] + resultados[moneda][:iva] + resultados[moneda][:ieps])
+      end
     end
 
     resultados
@@ -75,6 +82,6 @@ class ComCompra < ApplicationRecord
 
   # dias que han pasado desde la compra
   def dias_pasados
-    Time.now.yday - created_at.yday
+    (Time.now.yday - created_at.yday)
   end
 end
