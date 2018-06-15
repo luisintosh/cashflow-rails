@@ -1,8 +1,8 @@
 # Ejecuta la funcion cuando el body tiene el id indicado
 jQuery.fn.extend({
-  module: (id, func)->
+  module: (selector, func)->
     $(document).on 'turbolinks:load', ()->
-      if document.body.id == id
+      if $(selector).length
         func()
 })
 
@@ -55,3 +55,19 @@ $(document).on('mousedown', '.readonly-select', (e)->
   this.blur()
   window.focus()
 )
+
+###*
+# Formatea un número a una cantidad monetaria separando grupos de 3 números por comas
+# @param number
+# @returns {string}
+###
+window.numberToCurrency = (number) ->
+  return if typeof number != 'number'
+  number = parseInt(number).toFixed(2)
+  number = number.toString()
+  number = number.split('').reverse().join('')
+  number = number.split('.')
+  number[1] = number[1].match(/.{1,3}/g).join(',')
+  number = number.join('.')
+  number = number.split('').reverse().join('')
+  number

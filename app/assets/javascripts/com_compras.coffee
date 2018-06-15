@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(document).module 'com_compras', ()->
+$(document).module '#com_compras', ()->
   # inicializa datatable
   $('#tblComArticulos').DataTable({
     ajax: {
@@ -154,3 +154,31 @@ $(document).module 'com_compras', ()->
 
   # orden de la tabla
   window.data_table.order([0, 'desc']).draw()
+
+$(document).module '#com_compras.index', ()->
+  # suma y muestra los totales de deudas y la sumatoria de cada moneda
+  sum_totales_compras = ()->
+    dt = window.data_table.rows(filter: 'applied').data().toArray()
+    deudamxn = 0
+    deudausd = 0
+    deudaeur = 0
+    deudapendientes = 0
+
+    for d in dt
+      if d[1] == 'PENDIENTE'
+        deudamxn += parseFloat(d[11].replace(/[\$\,]/g,''))
+        deudausd += parseFloat(d[14].replace(/[\$\,]/g,''))
+        deudaeur += parseFloat(d[17].replace(/[\$\,]/g,''))
+        deudapendientes += 1
+
+    $('#dt-deudamxn').html("$ #{numberToCurrency(deudamxn)}")
+    $('#dt-deudausd').html("$ #{numberToCurrency(deudausd)}")
+    $('#dt-deudaeur').html("$ #{numberToCurrency(deudaeur)}")
+
+    $('#dt-pendientes').html(deudapendientes)
+
+  # se ejecuta al inicio y al ejecutarse el evento buscar
+  sum_totales_compras()
+  window.data_table.on('search.dt', ()->
+    sum_totales_compras()
+  )

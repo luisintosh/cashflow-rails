@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 
-$(document).module 'mov_movimientos', ()->
+$(document).module '#mov_movimientos', ()->
 
   # Calcular total
   calcular_total = ()->

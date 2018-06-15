@@ -36,6 +36,7 @@ $(document).on 'turbolinks:load', ()->
   )
 
   window.data_table = $('.dataTable').DataTable(
+    destroy: true
     dom: 'Bfrtip'
     buttons: [
       'copyHtml5',

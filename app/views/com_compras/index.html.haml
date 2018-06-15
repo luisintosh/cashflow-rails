@@ -10,7 +10,7 @@
           .alert.alert-callout.alert-success.no-margin
             %h1.pull-right.text-success
               %i.fa.fa-shopping-cart
-            %strong.text-xl 33
+            %strong.text-xl#dt-pendientes 0
             %br/
             %span.opacity-50 Pendientes de pago
 
@@ -20,9 +20,9 @@
           .alert.alert-callout.alert-warning.no-margin
             %strong.pull-right.text-success.text-lg
               MXN
-            %strong.text-xl $ 000
+            %strong.text-xl#dt-deudamxn $ 0
             %br/
-            %span.opacity-50 Para $ 000
+            %span.opacity-50 De deuda
             .stick-bottom-left-right
               .height-2.sparkline-revenue{"data-line-color" => "#bdc1c1"}
                 %canvas{:height => "80", :style => "display: inline-block; width: 268px; height: 80px; vertical-align: top;", :width => "268"}
@@ -33,9 +33,9 @@
           .alert.alert-callout.alert-danger.no-margin
             %strong.pull-right.text-success.text-lg
               USD
-            %strong.text-xl $ 000
+            %strong.text-xl#dt-deudausd $ 0
             %br/
-            %span.opacity-50 Para $ 000
+            %span.opacity-50 De deuda
             .stick-bottom-left-right
               .height-2.sparkline-revenue{"data-line-color" => "#bdc1c1"}
                 %canvas{:height => "80", :style => "display: inline-block; width: 268px; height: 80px; vertical-align: top;", :width => "268"}
@@ -45,10 +45,10 @@
         .card-body.no-padding
           .alert.alert-callout.alert-info.no-margin
             %strong.pull-right.text-success.text-lg
-              MXN
-            %strong.text-xl $ 000
+              EUR
+            %strong.text-xl#dt-deudaeur $ 0
             %br/
-            %span.opacity-50 Para $ 000
+            %span.opacity-50 De deuda
             .stick-bottom-left-right
               .height-2.sparkline-revenue{"data-line-color" => "#bdc1c1"}
                 %canvas{:height => "80", :style => "display: inline-block; width: 268px; height: 80px; vertical-align: top;", :width => "268"}
