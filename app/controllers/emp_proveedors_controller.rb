@@ -1,4 +1,5 @@
 class EmpProveedorsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_emp_proveedor, only: [:show, :edit, :update, :destroy]
 
   include SmartListing::Helper::ControllerExtensions

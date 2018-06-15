@@ -1,5 +1,4 @@
 class EmpleadosController < ApplicationController
-  skip_load_and_authorize_resource
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users

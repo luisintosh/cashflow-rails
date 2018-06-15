@@ -1,4 +1,5 @@
 class MovMovimientosController < ApplicationController
+  load_and_authorize_resource
   before_action :set_mov_movimiento, only: [:show, :edit, :update, :destroy]
 
   include SmartListing::Helper::ControllerExtensions

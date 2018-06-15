@@ -59,7 +59,6 @@
     <orderEntry type="library" scope="PROVIDED" name="erubi (v1.7.0, RVM: ruby-2.5.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="erubis (v2.7.0, RVM: ruby-2.5.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="execjs (v2.7.0, RVM: ruby-2.5.0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="faker (v1.8.7@679fd5, RVM: ruby-2.5.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ffi (v1.9.21, RVM: ruby-2.5.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="font-awesome-sass (v5.0.6.2, RVM: ruby-2.5.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="globalid (v0.4.1, RVM: ruby-2.5.0) [gem]" level="application" />

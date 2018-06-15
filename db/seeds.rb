@@ -6,10 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create! do |u|
-  u.email = 'admin@admin.com'
-  u.password = '123456'
-end
+User.create(email: 'admin@rohers.net', password: '123456', role: 1, nombre: 'Everardo Rodriguez')
+User.create(email: 'empleado@rohers.net', password: '123456', role: 0, nombre: 'Juan Perez')
+User.create(email: 'conta@rohers.net', password: '123456', role: 2, nombre: 'Matilda Martinez')
 
 
 # Crea clasificaciones
@@ -103,19 +102,19 @@ EmpLocacion.create nombre: 'Semillero', direccion: 'Sanguijuela, Rioverde, SLP'
 EmpLocacion.create nombre: 'Rancho Alegre', direccion: 'Llanitos, Cd. Fernández, SLP'
 
 # Crea cuentas
-EmpCuentab.create nombre: 'CAJA CHICA', moneda: 'MXN', saldo: 0.0
-EmpCuentab.create nombre: 'ROHERS SANTANDER 6109', moneda: 'MXN', saldo: 0.0
-EmpCuentab.create nombre: 'ROHERS MONEX USD 0429', moneda: 'USD', saldo: 0.0
-EmpCuentab.create nombre: 'ROHERS MONEX MXN 0429', moneda: 'MXN', saldo: 0.0
-EmpCuentab.create nombre: 'MARCIAL HSBC 3631', moneda: 'MXN', saldo: 0.0
-EmpCuentab.create nombre: 'MARCIAL BANAMEX 9327', moneda: 'MXN', saldo: 0.0
-EmpCuentab.create nombre: 'EVERARDO BANCOPPEL 6417', moneda: 'MXN', saldo: 0.0
-EmpCuentab.create nombre: 'EVERARDO SANTANDER 8964', moneda: 'MXN', saldo: 0.0
-EmpCuentab.create nombre: 'EVERARDO CAJA CHICA', moneda: 'MXN', saldo: 0.0
-EmpCuentab.create nombre: 'GREENHOUSE MONEX USD 1748', moneda: 'USD', saldo: 0.0
-EmpCuentab.create nombre: 'GREENHOUSE MONEX MXN 1748', moneda: 'MXN', saldo: 0.0
-EmpCuentab.create nombre: 'GREENHOUSE CAJA CHICA USD', moneda: 'USD', saldo: 0.0
-EmpCuentab.create nombre: 'GREENHOUSE CAJA CHICA MXN', moneda: 'MXN', saldo: 0.0
+EmpCuentab.create nombre: 'CAJA CHICA', moneda: 'MXN', saldo: Faker::Number.number(5)
+EmpCuentab.create nombre: 'ROHERS SANTANDER 6109', moneda: 'MXN', saldo: Faker::Number.number(5)
+EmpCuentab.create nombre: 'ROHERS MONEX USD 0429', moneda: 'USD', saldo: Faker::Number.number(5)
+EmpCuentab.create nombre: 'ROHERS MONEX MXN 0429', moneda: 'MXN', saldo: Faker::Number.number(5)
+EmpCuentab.create nombre: 'MARCIAL HSBC 3631', moneda: 'MXN', saldo: Faker::Number.number(5)
+EmpCuentab.create nombre: 'MARCIAL BANAMEX 9327', moneda: 'MXN', saldo: Faker::Number.number(5)
+EmpCuentab.create nombre: 'EVERARDO BANCOPPEL 6417', moneda: 'MXN', saldo: Faker::Number.number(5)
+EmpCuentab.create nombre: 'EVERARDO SANTANDER 8964', moneda: 'MXN', saldo: Faker::Number.number(5)
+EmpCuentab.create nombre: 'EVERARDO CAJA CHICA', moneda: 'MXN', saldo: Faker::Number.number(5)
+EmpCuentab.create nombre: 'GREENHOUSE MONEX USD 1748', moneda: 'USD', saldo: Faker::Number.number(5)
+EmpCuentab.create nombre: 'GREENHOUSE MONEX MXN 1748', moneda: 'MXN', saldo: Faker::Number.number(5)
+EmpCuentab.create nombre: 'GREENHOUSE CAJA CHICA USD', moneda: 'USD', saldo: Faker::Number.number(5)
+EmpCuentab.create nombre: 'GREENHOUSE CAJA CHICA MXN', moneda: 'MXN', saldo: Faker::Number.number(5)
 
 # Proveedores
 50.times do |i|
@@ -124,8 +123,8 @@ EmpCuentab.create nombre: 'GREENHOUSE CAJA CHICA MXN', moneda: 'MXN', saldo: 0.0
   m.empresa = Faker::Company.name
   m.saldo = 0.0
   m.saldo_max = 0.0
-  m.emp_perfil.tel_fijo = Faker::PhoneNumber.cell_phone
-  m.emp_perfil.tel_movil = Faker::PhoneNumber.cell_phone
+  m.emp_perfil.tel_fijo = Faker::Number.number(10)
+  m.emp_perfil.tel_movil = Faker::Number.number(10)
   m.emp_perfil.email = Faker::Internet.email
   m.emp_perfil.direccion = Faker::Address.street_address
   m.save
@@ -139,8 +138,8 @@ end
   m.apellidos = Faker::Name.last_name
   m.saldo = 0.0
   m.saldo_max = 0.0
-  m.emp_perfil.tel_fijo = Faker::PhoneNumber.cell_phone
-  m.emp_perfil.tel_movil = Faker::PhoneNumber.cell_phone
+  m.emp_perfil.tel_fijo = Faker::Number.number(10)
+  m.emp_perfil.tel_movil = Faker::Number.number(10)
   m.emp_perfil.email = Faker::Internet.email
   m.emp_perfil.direccion = Faker::Address.street_address
   m.save
@@ -178,4 +177,22 @@ hoja = 150
   rescue
   end
 
+end
+
+# Articulos e inventario
+50.times do |i|
+  a = ComArticulo.new
+  a.codigo = (i+1).to_s + Faker::Number.number(4)
+  a.nombre = Faker::Commerce.product_name
+  a.categoria = Faker::Commerce.department(1)
+  a.unidad_compra = ComArticulo.unidades.sample
+  a.unidad_inventario = ComArticulo.unidades.sample
+  a.cantidad_inventario = Faker::Number.number(2)
+
+  a.crear_inventarios
+
+  begin
+    a.save
+  rescue
+  end
 end

@@ -1,4 +1,5 @@
 class ComPagosController < ApplicationController
+  load_and_authorize_resource
   before_action :set_com_pago, only: [:show, :edit, :update, :destroy]
 
   # GET /com_pagos

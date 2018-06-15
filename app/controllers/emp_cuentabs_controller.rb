@@ -1,4 +1,5 @@
 class EmpCuentabsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_emp_cuentab, only: [:show, :edit, :update, :destroy]
 
   # GET /emp_cuentabs

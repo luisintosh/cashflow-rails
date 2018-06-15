@@ -1,4 +1,5 @@
 class EmpClientesController < ApplicationController
+  load_and_authorize_resource
   before_action :set_emp_cliente, only: [:show, :edit, :update, :destroy]
 
   include SmartListing::Helper::ControllerExtensions

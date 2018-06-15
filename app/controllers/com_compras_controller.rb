@@ -1,4 +1,5 @@
 class ComComprasController < ApplicationController
+  load_and_authorize_resource
   before_action :set_com_compra, only: [:show, :edit, :update, :destroy]
   before_action :set_relation_data, only: [:new, :edit, :create, :update]
 
