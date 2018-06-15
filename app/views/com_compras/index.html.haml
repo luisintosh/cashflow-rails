@@ -3,6 +3,57 @@
     %li.active
       Administración de #{ComCompra::PLURAL}
 .section-body
+  .row
+    .col-md-3.col-sm-6
+      .card
+        .card-body.no-padding
+          .alert.alert-callout.alert-success.no-margin
+            %h1.pull-right.text-success
+              %i.fa.fa-shopping-cart
+            %strong.text-xl 33
+            %br/
+            %span.opacity-50 Pendientes de pago
+
+    .col-md-3.col-sm-6
+      .card
+        .card-body.no-padding
+          .alert.alert-callout.alert-warning.no-margin
+            %strong.pull-right.text-success.text-lg
+              MXN
+            %strong.text-xl $ 000
+            %br/
+            %span.opacity-50 Para $ 000
+            .stick-bottom-left-right
+              .height-2.sparkline-revenue{"data-line-color" => "#bdc1c1"}
+                %canvas{:height => "80", :style => "display: inline-block; width: 268px; height: 80px; vertical-align: top;", :width => "268"}
+
+    .col-md-3.col-sm-6
+      .card
+        .card-body.no-padding
+          .alert.alert-callout.alert-danger.no-margin
+            %strong.pull-right.text-success.text-lg
+              USD
+            %strong.text-xl $ 000
+            %br/
+            %span.opacity-50 Para $ 000
+            .stick-bottom-left-right
+              .height-2.sparkline-revenue{"data-line-color" => "#bdc1c1"}
+                %canvas{:height => "80", :style => "display: inline-block; width: 268px; height: 80px; vertical-align: top;", :width => "268"}
+
+    .col-md-3.col-sm-6
+      .card
+        .card-body.no-padding
+          .alert.alert-callout.alert-info.no-margin
+            %strong.pull-right.text-success.text-lg
+              MXN
+            %strong.text-xl $ 000
+            %br/
+            %span.opacity-50 Para $ 000
+            .stick-bottom-left-right
+              .height-2.sparkline-revenue{"data-line-color" => "#bdc1c1"}
+                %canvas{:height => "80", :style => "display: inline-block; width: 268px; height: 80px; vertical-align: top;", :width => "268"}
+
+.section-body
   .card
     .card-head.style-primary
       .tools
@@ -23,11 +74,14 @@
               %th Comprobante
               %th Tipo comprobante
               %th Total MXN
-              %th Adeudo MXN
+              %th Anticipo MXN
+              %th Saldo MXN
               %th Total USD
-              %th Adeudo USD
+              %th Anticipo USD
+              %th Saldo USD
               %th Total EUR
-              %th Adeudo EUR
+              %th Anticipo EUR
+              %th Saldo EUR
               %th
           %tbody
             - @com_compras.each do |com_compra|
@@ -42,10 +96,13 @@
                 %td= com_compra.comprobante
                 %td= com_compra.tipo_comprobante
                 %td= number_to_currency com_compra.adeudos['MXN'][:total]
+                %td= number_to_currency (com_compra.adeudos['MXN'][:total]-com_compra.adeudos['MXN'][:deuda])
                 %td= number_to_currency com_compra.adeudos['MXN'][:deuda]
                 %td= number_to_currency com_compra.adeudos['USD'][:total]
+                %td= number_to_currency (com_compra.adeudos['USD'][:total]-com_compra.adeudos['USD'][:deuda])
                 %td= number_to_currency com_compra.adeudos['USD'][:deuda]
                 %td= number_to_currency com_compra.adeudos['EUR'][:total]
+                %td= number_to_currency (com_compra.adeudos['EUR'][:total]-com_compra.adeudos['EUR'][:deuda])
                 %td= number_to_currency com_compra.adeudos['EUR'][:deuda]
                 %td.actions
                   = link_to com_pagos_path(com_compra_id: com_compra.id), class: 'btn btn-primary btn-xs' do

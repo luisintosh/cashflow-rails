@@ -35,10 +35,10 @@ class ComCompra < ApplicationRecord
     totales = com_det_compra
                   .group(:moneda)
                   .pluck('moneda', 'SUM(precio)', 'SUM(cantidad)', 'SUM(descuento)', 'SUM(iva)', 'SUM(ieps)')
-                  .map{ |e| [e[0], e[1...e.size-1]] }.to_h
+                  .map{ |e| [e[0], e[1...6]] }.to_h
 
     # revisa todas las monedas
-    EmpCuentab.monedas.each do |moneda|
+    EmpCuentab.monedas.each do |moneda, id_moneda|
       unless resultados[moneda]
         resultados[moneda] = {
             valor: 0.0,

@@ -59,6 +59,9 @@
   .card
     .card-head.style-primary
       .tools
+        = link_to com_compras_path, class: 'btn btn-flat' do
+          %i.glyphicon.glyphicon-arrow-left
+          Regresar a compras
         = link_to com_compra_path(@com_compra.id), class: 'btn btn-flat' do
           %i.fa.fa-eye
           Ver Compra
