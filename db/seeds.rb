@@ -188,6 +188,7 @@ end
   a.unidad_compra = ComArticulo.unidades.sample
   a.unidad_inventario = ComArticulo.unidades.sample
   a.cantidad_inventario = Faker::Number.number(2)
+  a.iva = 16
 
   a.crear_inventarios
 

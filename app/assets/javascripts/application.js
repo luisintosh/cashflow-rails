@@ -36,3 +36,10 @@
 //= require datatables
 //= require_directory ./core/source/
 //= require_directory .
+
+
+// Obliga a la página a recargar en caso de congelarse los botones
+$(document).on('click', '#home-path', function (e) {
+    e.preventDefault();
+    location.href = location.protocol + '//' + location.host;
+});
