@@ -21,5 +21,7 @@ class PanelController < ApplicationController
       .where(created_at: current_day)
       .sum(:total)
     end
+
+    @ultimos_movimientos = MovMovimiento.order(id: :desc).limit(5)
   end
 end

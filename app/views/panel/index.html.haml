@@ -27,7 +27,7 @@
               %i.fa.fa-shopping-cart
             %strong.text-xl= @compras_pendientes
             %br/
-            %span.opacity-50 Compras pendientes de pago              
+            %span.opacity-50 Compras pendientes
     .col-md-3.col-sm-6
       .card
         .card-body.no-padding
@@ -38,51 +38,65 @@
             %br/
             %span.opacity-50 Usuarios activos
 
-/ Grafica de movimientos
-%script
-  window.mov_ingreso_mxn = #{raw(@movimientos_mxn_mes.to_json)}
-.row
-  .col-md-12
-    .card
-      .row
-        .col-md-8
-          .card-head
-            %header Movimientos de ingreso este mes
-          .card-body.height-8
-            #flot-visitors-legend.flot-legend-horizontal.stick-top-right.no-y-padding
-            #flot-visitors.flot.height-7{"data-color" => "#8FC0FF,#0D78FF,#094DA3", "data-title" => "Activity entry"}
-        .col-md-4
-          .card-head
-            %header Deudas más grandes
-          .card-body.height-8
-            %strong 214
-            members
-            %span.pull-right.text-success.text-sm
-              0,18%
-              %i.md.md-trending-up
-            .progress.progress-hairline
-              .progress-bar.progress-bar-primary-dark{:style => "width:43%"}
-            756 pageviews
-            %span.pull-right.text-success.text-sm
-              0,68%
-              %i.md.md-trending-up
-            .progress.progress-hairline
-              .progress-bar.progress-bar-primary-dark{:style => "width:11%"}
-            291 bounce rates
-            %span.pull-right.text-danger.text-sm
-              21,08%
-              %i.md.md-trending-down
-            .progress.progress-hairline
-              .progress-bar.progress-bar-danger{:style => "width:93%"}
-            32,301 visits
-            %span.pull-right.text-success.text-sm
-              0,18%
-              %i.md.md-trending-up
-            .progress.progress-hairline
-              .progress-bar.progress-bar-primary-dark{:style => "width:63%"}
-            132 pages
-            %span.pull-right.text-success.text-sm
-              0,18%
-              %i.md.md-trending-up
-            .progress.progress-hairline
-              .progress-bar.progress-bar-primary-dark{:style => "width:47%"}
+  .row
+    .col-md-3.col-sm-6
+      .card
+        .card-body.text-center
+          = link_to new_mov_movimiento_path(type: :ingreso) do
+            .fa.fa-2x.fa-arrow-down
+            %br
+            %strong Nuevo ingreso
+    .col-md-3.col-sm-6
+      .card
+        .card-body.text-center
+          = link_to new_mov_movimiento_path(type: :egreso) do
+            .fa.fa-2x.fa-arrow-up
+            %br
+            %strong Nuevo egreso
+    .col-md-3.col-sm-6
+      .card
+        .card-body.text-center
+          = link_to new_com_compra_path do
+            .fa.fa-2x.fa-plus
+            %br
+            %strong Nueva compra
+    .col-md-3.col-sm-6
+      .card
+        .card-body.text-center
+          = link_to com_compras_path do
+            .fa.fa-2x.fa-shopping-cart
+            %br
+            %strong Compras
+
+  / Grafica de movimientos
+  %script
+    window.mov_ingreso_mxn = #{raw(@movimientos_mxn_mes.to_json)}
+  .row
+    .col-md-12
+      .card
+        .row
+          .col-md-8
+            .card-head
+              %header Movimientos de ingreso este mes
+            .card-body.height-8
+              #flot-visitors-legend.flot-legend-horizontal.stick-top-right.no-y-padding
+              #flot-visitors.flot.height-7{"data-color" => "#8FC0FF,#0D78FF,#094DA3", "data-title" => "Activity entry"}
+          .col-md-4
+            .card-head
+              %header Ultimos movimientos
+            .card-body.height-8
+              - @ultimos_movimientos.each do |m|
+                - if m.concepto.length > 35
+                  = link_to m.concepto.slice(0,35) + "...", mov_movimiento_path(m.id)
+                - else
+                  = link_to m.concepto, mov_movimiento_path(m.id)
+                - if m.ingreso?
+                  %span.pull-right.text-success.text-sm
+                    %i.fa.fa-arrow-down
+                  .progress.progress-hairline
+                    .progress-bar.progress-bar-primary-dark{:style => "width:100%"}
+                - else
+                  %span.pull-right.text-danger.text-sm
+                    %i.fa.fa-arrow-up
+                  .progress.progress-hairline
+                    .progress-bar.progress-bar-danger-dark{:style => "width:100%"}
