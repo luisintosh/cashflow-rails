@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="3f3b0c66-ccb9-4b61-a64d-d8f5d500df0c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/panel_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/panel_controller.rb" />
-      <change beforePath="$PROJECT_DIR$/app/views/panel/index.html.haml" afterPath="$PROJECT_DIR$/app/views/panel/index.html.haml" />
+      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/panel.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/panel.scss" />
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/application_guess.html.haml" afterPath="$PROJECT_DIR$/app/views/layouts/application_guess.html.haml" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -28,31 +28,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="panel_controller.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/panel_controller.rb">
+      <file leaf-file-name="application_guess.html.haml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/layouts/application_guess.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="66" lean-forward="false" selection-start-line="24" selection-start-column="66" selection-end-line="24" selection-end-column="66" />
+            <state relative-caret-position="306">
+              <caret line="18" column="14" lean-forward="false" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.haml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/panel/index.html.haml">
+      <file leaf-file-name="panel.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/panel.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="430">
-              <caret line="65" column="36" lean-forward="false" selection-start-line="65" selection-start-column="36" selection-end-line="65" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mov_movimiento.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/mov_movimiento.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="102">
+              <caret line="6" column="36" lean-forward="false" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -113,8 +103,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/db/migrate/20180525034154_add_impuestos_to_com_det_compras.rb" />
-        <option value="$PROJECT_DIR$/app/views/com_compras/_com_det_compra_fields.html.haml" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/scaffold_tables.scss" />
         <option value="$PROJECT_DIR$/app/views/com_compras/show.html.haml" />
         <option value="$PROJECT_DIR$/app/views/com_compras/edit.html.haml" />
@@ -164,6 +152,8 @@
         <option value="$PROJECT_DIR$/app/views/com_compras/index.html.haml" />
         <option value="$PROJECT_DIR$/app/controllers/panel_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/panel/index.html.haml" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/panel.scss" />
+        <option value="$PROJECT_DIR$/app/views/layouts/application_guess.html.haml" />
       </list>
     </option>
   </component>
@@ -504,7 +494,7 @@
       <workItem from="1528339592726" duration="7111000" />
       <workItem from="1528430262590" duration="15587000" />
       <workItem from="1528659765147" duration="11701000" />
-      <workItem from="1528939624181" duration="23875000" />
+      <workItem from="1528939624181" duration="24461000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1519258704656</created>
@@ -590,11 +580,18 @@
       <option name="project" value="LOCAL" />
       <updated>1529043522346</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Agrega nuevos botones en el panel de inicio">
+      <created>1529277340156</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1529277340156</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="248323000" />
+    <option name="totallyTimeSpent" value="248909000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="6" />
@@ -639,7 +636,8 @@
     <MESSAGE value="Agrega el enlace de inicio al logo del proyecto además, agrega un IVA a los artículos creados por el seed" />
     <MESSAGE value="Optimiza la consulta sql que se hace para consultar los totales de compras" />
     <MESSAGE value="Mejora la lista de compras para cumplir con las caracteristicas del reporte solicitado" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mejora la lista de compras para cumplir con las caracteristicas del reporte solicitado" />
+    <MESSAGE value="Agrega nuevos botones en el panel de inicio" />
+    <option name="LAST_COMMIT_MESSAGE" value="Agrega nuevos botones en el panel de inicio" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -648,21 +646,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/models/emp_cuentab.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="6" lean-forward="false" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/com_pagos/_form.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="63" lean-forward="true" selection-start-line="22" selection-start-column="63" selection-end-line="22" selection-end-column="91" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20180611040534_add_roles_to_user.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -1041,6 +1024,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/panel/index.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="430">
+          <caret line="65" column="36" lean-forward="false" selection-start-line="65" selection-start-column="36" selection-end-line="65" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/panel_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
@@ -1049,10 +1040,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/panel/index.html.haml">
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/panel.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="65" column="36" lean-forward="false" selection-start-line="65" selection-start-column="36" selection-end-line="65" selection-end-column="36" />
+        <state relative-caret-position="102">
+          <caret line="6" column="36" lean-forward="false" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application_guess.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="14" lean-forward="false" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
           <folding />
         </state>
       </provider>

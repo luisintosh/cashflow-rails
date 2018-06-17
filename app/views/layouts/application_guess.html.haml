@@ -8,15 +8,14 @@
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-  %body.menubar-hoverable.header-fixed
+  %body#panel{style: "background: url(#{image_url('bg/rohers_background.jpg')})"}
     %section.section-account
-      .img-backdrop{style: "background: url(#{image_url('bg/login_page.png')})"}
       .spacer
-      .card.contain-sm.style-transparent
-        .card-body
-          %h1 ROHERS
-          .row
-            .col-md-6
+      .row
+        .col-md-4.col-md-push-4.text-center
+          .card.contain-sm
+            .card-body
+              %h1 ROHERS
               = yield
 
   %script
