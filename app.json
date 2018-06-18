@@ -1,0 +1,13 @@
+{
+    "name": "rohers",
+    "description": "Administration system",
+    "keywords": [
+        "dokku",
+        "rails"
+    ],
+    "scripts": {
+        "dokku": {
+            "postdeploy": "bundle exec rake db:migrate"
+        }
+    }
+}
