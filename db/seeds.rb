@@ -151,7 +151,7 @@ hoja = 150
   m = MovMovimiento.new
   m.tipo_movimiento = rand(2)
   m.hoja = (i/10)+100
-  m.fecha = (Time.now-1.year) + (i/10)+100
+  m.fecha = (i < 100) ? Time.new(Time.now.year, 1+Random.rand(6), 1+Random.rand(30)) : Time.new(Time.now.year, 7+Random.rand(12), 1+Random.rand(30))
   m.ciclo = (i < 100) ? '2017-A' : '2017-B'
   if i % 2
     m.emp_clasificacion = EmpClasificacion.where(tipo_movimiento: 'ENTRADA').sample
