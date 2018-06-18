@@ -9,7 +9,7 @@
     .col-md-8
       = f.input :nombre
     .col-md-4
-      - if @user.admin?
+      - if current_user.admin?
         = f.input :role, collection: User.roles.keys, prompt: '-- Selecciona --'
     .col-md-6
       = f.input :email
