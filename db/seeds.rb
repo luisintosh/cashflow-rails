@@ -147,18 +147,18 @@ end
 
 # Movimientos
 hoja = 150
-200.times do |i|
+300.times do |i|
   m = MovMovimiento.new
   m.tipo_movimiento = rand(2)
   m.hoja = (i/10)+100
-  m.fecha = (i < 100) ? Time.new(Time.now.year, 1+Random.rand(6), 1+Random.rand(30)) : Time.new(Time.now.year, 7+Random.rand(12), 1+Random.rand(30))
-  m.ciclo = (i < 100) ? '2017-A' : '2017-B'
-  if i % 2
+  m.fecha = (i < 100) ? Faker::Date::between(Date.new(2017,6,1), Date.new(2017,12,30)) : Faker::Date::between(Date.new(2018,1,1), Time.now)
+  m.ciclo = (i < 100) ? '2017-B' : '2018-A'
+  if Random.rand(2) == 1
     m.emp_clasificacion = EmpClasificacion.where(tipo_movimiento: 'ENTRADA').sample
     m.emp_cliente = EmpCliente.all.sample
   else
     m.emp_clasificacion = EmpClasificacion.where(tipo_movimiento: 'SALIDA').sample
-    m.emp_proveedors = EmpProveedor.all.sample
+    m.emp_proveedor = EmpProveedor.all.sample
   end
   m.emp_cuentab = EmpCuentab.all.sample
   m.concepto = Faker::Lorem.sentence(3)
