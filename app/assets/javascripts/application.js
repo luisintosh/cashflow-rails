@@ -43,7 +43,12 @@
 
 
 // Obliga a la página a recargar en caso de congelarse los botones
-$(document).on('click', '#home-path', function (e) {
-    e.preventDefault();
-    location.href = location.protocol + '//' + location.host;
+$(document).on('turbolinks:load', function () {
+    window.App(jQuery);
+    window.AppCard(this.materialadmin, jQuery);
+    window.AppForm(this.materialadmin, jQuery);
+    window.AppNavigation(this.materialadmin, jQuery);
+    window.AppNavSearch(this.materialadmin, jQuery);
+    window.AppOffcanvas(this.materialadmin, jQuery);
+    window.AppVendor(this.materialadmin, jQuery);
 });

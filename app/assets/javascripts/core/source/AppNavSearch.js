@@ -1,4 +1,4 @@
-(function (namespace, $) {
+window.AppNavSearch = (function (namespace, $) {
 	"use strict";
 
 	var AppNavSearch = function () {
@@ -95,4 +95,4 @@
 	// =========================================================================
 
 	window.materialadmin.AppNavSearch = new AppNavSearch;
-}(this.materialadmin, jQuery)); // pass in (namespace, jQuery):
+}); // pass in (namespace, jQuery):

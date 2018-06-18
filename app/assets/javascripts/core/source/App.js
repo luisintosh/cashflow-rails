@@ -1,4 +1,4 @@
-(function ($) {
+window.App = (function ($) {
 	"use strict";
 
 	var App = function () {
@@ -217,4 +217,4 @@
 
 	window.materialadmin = window.materialadmin || {};
 	window.materialadmin.App = new App;
-}(jQuery)); // pass in (jQuery):
+}); // pass in (jQuery):

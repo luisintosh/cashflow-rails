@@ -17,7 +17,7 @@
 
 @import "bootstrap-sprockets";
 //@import "bootstrap";
-@import url("http://fonts.googleapis.com/css?family=Open+Sans:400italic,300,400,600,700,800");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400italic,300,400,600,700,800");
 @import "theme/theme-default/bootstrap";
 @import "theme/theme-default/materialadmin";
 @import "theme/theme-default/font-awesome";
@@ -26,6 +26,7 @@
 @import "theme/theme-default/material-design-iconic-font";
 @import "theme/theme-default/libs/DataTables/jquery.dataTables";
 @import "theme/theme-default/libs/select2/select2";
+@import "theme/theme-default/libs/morris/morris.core";
 @import "spacing-helpers";
 
 
