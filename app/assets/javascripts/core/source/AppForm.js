@@ -1,4 +1,4 @@
-(function(namespace, $) {
+window.AppForm = (function(namespace, $) {
 	"use strict";
 
 	var AppForm = function() {
@@ -130,4 +130,4 @@
 	// =========================================================================
 
 	window.materialadmin.AppForm = new AppForm;
-}(this.materialadmin, jQuery)); // pass in (namespace, jQuery):
+}); // pass in (namespace, jQuery):

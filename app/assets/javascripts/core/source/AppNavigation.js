@@ -1,4 +1,4 @@
-(function (namespace, $) {
+window.AppNavigation = (function (namespace, $) {
 	"use strict";
 
 	var AppNavigation = function () {
@@ -321,4 +321,4 @@
 	// =========================================================================
 
 	window.materialadmin.AppNavigation = new AppNavigation;
-}(this.materialadmin, jQuery)); // pass in (namespace, jQuery):
+}); // pass in (namespace, jQuery):

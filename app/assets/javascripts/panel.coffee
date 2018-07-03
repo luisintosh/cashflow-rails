@@ -17,7 +17,6 @@ $(document).module '#panel', ()->
     dataListMXN = []
     for dk, dv of window.mov_ingreso_mxn
       dataListMXN.push [dk, dv]
-    console.log dataListMXN
     # Chart data
     data = [
       {
@@ -73,7 +72,7 @@ $(document).module '#panel', ()->
           x = item.datapoint[0]
           y = item.datapoint[1]
           tipLabel = '<strong>' + $(this).data('title') + '</strong>'
-          tipContent = Math.round(y) + ' ' + item.series.label.toLowerCase() + ' on ' + moment(x).format('dddd')
+          tipContent = '$' + Math.round(y) + ' de ' + item.series.label + ' el ' + moment(x).format('LLLL')
           if tip != undefined
             $(tip).popover 'destroy'
           tip = $('<div></div>').appendTo('body').css(

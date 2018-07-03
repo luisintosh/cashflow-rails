@@ -1,4 +1,4 @@
-(function(namespace, $) {
+window.AppVendor = (function(namespace, $) {
 	"use strict";
 
 	var AppVendor = function() {
@@ -171,4 +171,4 @@
 	// =========================================================================
 
 	window.materialadmin.AppVendor = new AppVendor;
-}(this.materialadmin, jQuery)); // pass in (namespace, jQuery):
+}); // pass in (namespace, jQuery):

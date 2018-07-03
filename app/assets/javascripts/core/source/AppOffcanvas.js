@@ -1,4 +1,4 @@
-(function (namespace, $) {
+window.AppOffcanvas = (function (namespace, $) {
 	"use strict";
 
 	var AppOffcanvas = function () {
@@ -270,4 +270,4 @@
 	// =========================================================================
 
 	window.materialadmin.AppOffcanvas = new AppOffcanvas;
-}(this.materialadmin, jQuery)); // pass in (namespace, jQuery):
+}); // pass in (namespace, jQuery):

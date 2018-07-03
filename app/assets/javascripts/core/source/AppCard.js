@@ -1,4 +1,4 @@
-(function(namespace, $) {
+window.AppCard = (function(namespace, $) {
 	"use strict";
 
 	var AppCard = function() {
@@ -86,4 +86,4 @@
 	// =========================================================================
 
 	window.materialadmin.AppCard = new AppCard;
-}(this.materialadmin, jQuery)); // pass in (namespace, jQuery):
+}); // pass in (namespace, jQuery):

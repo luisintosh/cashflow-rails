@@ -30,19 +30,25 @@
 //= require libs/DataTables/vfs_fonts
 //= require libs/DataTables/buttons.html5.min
 //= require libs/moment/moment
+//= require libs/moment/moment.es
 //= require libs/flot/jquery.flot.js
 //= require_directory ./libs/flot/.
 // require libs/select2/select2
 //= require select2
 //= require cocoon
-//= require extras
 //= require datatables
+//= require extras
 //= require_directory ./core/source/
 //= require_directory .
 
 
 // Obliga a la página a recargar en caso de congelarse los botones
-$(document).on('click', '#home-path', function (e) {
-    e.preventDefault();
-    location.href = location.protocol + '//' + location.host;
+$(document).on('turbolinks:load', function () {
+    window.App(jQuery);
+    window.AppCard(this.materialadmin, jQuery);
+    window.AppForm(this.materialadmin, jQuery);
+    window.AppNavigation(this.materialadmin, jQuery);
+    window.AppNavSearch(this.materialadmin, jQuery);
+    window.AppOffcanvas(this.materialadmin, jQuery);
+    window.AppVendor(this.materialadmin, jQuery);
 });
