@@ -11,6 +11,9 @@ class ComDetCompra < ApplicationRecord
 
   enum moneda: [:MXN, :USD, :EUR]
 
+  before_create :actualiza_inventario
+  before_destroy :elimina_del_inventario
+
   def calcular_costo
     csubtotal = cantidad * precio
     civa = iva * csubtotal
@@ -32,5 +35,33 @@ class ComDetCompra < ApplicationRecord
     cieps = ieps * csubtotal
 
     csubtotal + civa + cieps
+  end
+
+  # actualiza el inventario en caso de ser un nuevo registro
+  def actualiza_inventario
+    if inventariar
+      if new_record?
+        inventario = com_articulo
+            .com_inventario
+            .where(emp_locacion: emp_locacion).first
+
+        inventario.stock += cantidad
+        inventario.save
+      end
+    end
+  end
+
+  # al borrar un detalle de compra, esta actualiza su valor en el
+  # inventario
+  def elimina_del_inventario
+    if inventariar
+      inventario = com_articulo
+           .com_inventario
+           .where(emp_locacion: emp_locacion).first
+
+      inventario.stock -= cantidad
+      if inventario.stock < 0 then inventario.stock = 0 end # valida que no tenga numeros negativos
+      inventario.save
+    end
   end
 end

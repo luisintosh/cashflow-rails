@@ -5,6 +5,9 @@ class ComInventario < ApplicationRecord
   SINGULAR = 'Inventario'
   PLURAL = 'Inventarios'
 
+  validates :stock, numericality: {greater_than_or_equal_to: 0}
+  validates :stock_min, numericality: {greater_than_or_equal_to: 0}
+
   def title
     "#{com_articulo.nombre}: #{stock}"
   end

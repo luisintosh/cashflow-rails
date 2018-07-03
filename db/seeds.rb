@@ -151,8 +151,8 @@ hoja = 150
   m = MovMovimiento.new
   m.tipo_movimiento = rand(2)
   m.hoja = (i/10)+100
-  m.fecha = (i < 100) ? Time.new(Time.now.year, 1+Random.rand(6), 1+Random.rand(30)) : Time.new(Time.now.year, 7+Random.rand(12), 1+Random.rand(30))
-  m.ciclo = (i < 100) ? '2017-A' : '2017-B'
+  m.fecha = (i < 100) ? Faker::Date.between(Time.new(2017,6,1), Time.new(2017,12,30)) : Faker::Date.between(Time.new(2018,1,1), Time.new(2018,6,30))
+  m.ciclo = (i < 100) ? '2017-B' : '2018-A'
   if i % 2
     m.emp_clasificacion = EmpClasificacion.where(tipo_movimiento: 'ENTRADA').sample
     m.emp_cliente = EmpCliente.all.sample
@@ -171,7 +171,7 @@ hoja = 150
   m.ieps = rand(10)==5 ? (m.subtotal * 0.1) : 0.0
   m.total = m.subtotal + m.iva + m.ieps
   m.created_at = m.fecha
-  m.updated_at = rand(10)==5 ? m.fecha + 1.day : m.fecha
+  #m.updated_at = rand(10)==5 ? m.fecha + 1.day : m.fecha
   begin
     m.save
   rescue
@@ -191,6 +191,10 @@ end
   a.iva = 16
 
   a.crear_inventarios
+  a.com_inventario.each do |inv|
+    inv.stock = Faker::Number.number(3)
+    inv.stock_min = 10
+  end
 
   begin
     a.save
