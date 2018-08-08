@@ -165,7 +165,7 @@ hoja = 150
   m.emp_locacion = EmpLocacion.all.sample
   m.factura = Faker::Code.isbn
   m.comprobante = Faker::Code.asin
-  m.tipo_comprobante = rand(6)
+  m.tipo_comprobante = rand(4)
   m.subtotal = Faker::Number.decimal(4, 3)
   m.iva = m.subtotal * 0.16
   m.ieps = rand(10)==5 ? (m.subtotal * 0.1) : 0.0

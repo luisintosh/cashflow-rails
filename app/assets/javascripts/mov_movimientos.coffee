@@ -52,3 +52,13 @@ $(document).module '#mov_movimientos', ()->
     $('#save_and_add').val(1)
     $(this).closest('form').submit()
   )
+
+  # modal para nuevo cliente
+  window.newFormCallback = (data)->
+    if (selector = $('#mov_movimiento_emp_cliente_id')).length
+      selector.append("<option value='#{data.id}'>#{data.nombre} #{data.apellidos}</option>")
+    else if (selector = $('#mov_movimiento_emp_proveedor_id')).length
+      selector.append("<option value='#{data.id}'>#{data.empresa}</option>")
+
+    selector.val(data.id)
+    selector.change()

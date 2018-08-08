@@ -10,11 +10,18 @@ class EmpCliente < ApplicationRecord
   SINGULAR = 'Cliente'
   PLURAL = 'Clientes'
 
+  after_initialize :create_profile, if: :new_record?
+
   def title
     "#{nombre} #{apellidos}"
   end
 
   def self.like(q)
     where('LOWER(nombre) ILIKE LOWER(:q) OR LOWER(apellidos) ILIKE LOWER(:q)', q: "%#{q}%")
+  end
+
+  # crea un nuevo perfil
+  def create_profile
+    build_emp_perfil
   end
 end

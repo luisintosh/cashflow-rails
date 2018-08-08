@@ -10,8 +10,7 @@ class MovMovimiento < ApplicationRecord
   validate :total_correcto
   validate :resta_demas
 
-  enum tipo_comprobante: ['Factura', 'Boleta de venta', 'Ticket', 'Comprobante de opercion',
-                          'Documento', 'Recibo']
+  enum tipo_comprobante: ['Factura', 'Ticket', 'Remisión', 'Nota', 'Otro']
 
   enum tipo_movimiento: [:egreso, :ingreso]
 

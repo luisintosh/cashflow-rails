@@ -31,14 +31,14 @@
           .input-group
             = f.association :emp_proveedor, label: false, prompt: '-- Selecciona --'
             %span.input-group-btn
-              = link_to new_emp_proveedor_url, {class: 'btn btn-default'} do
+              = link_to '#', {class: 'btn btn-default', data: { toggle: :modal, target: '#modalEmpProveedor' }} do
                 %i.fa.fa-plus
         - elsif @mov_movimiento.ingreso?
           %label.control-label.select.required= EmpCliente::SINGULAR
           .input-group
             = f.association :emp_cliente, label: false, prompt: '-- Selecciona --'
             %span.input-group-btn
-              = link_to new_emp_cliente_url, {class: 'btn btn-default'} do
+              = link_to '#', {class: 'btn btn-default', data: { toggle: :modal, target: '#modalEmpCliente' }} do
                 %i.fa.fa-plus
     .col-md-4
       = f.input :factura
@@ -67,3 +67,6 @@
       = button_tag(type: :submit, class: 'btn btn-flat btn-primary ink-reaction') do
         %i.fa.fa-check
         Guardar
+
+= render 'modal_emp_proveedor'
+= render 'modal_emp_cliente'

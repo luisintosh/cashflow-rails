@@ -38,6 +38,7 @@
 //= require cocoon
 //= require datatables
 //= require extras
+//= require modal
 //= require_directory ./core/source/
 //= require_directory .
 

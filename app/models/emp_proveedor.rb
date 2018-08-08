@@ -11,11 +11,18 @@ class EmpProveedor < ApplicationRecord
   SINGULAR = 'Proveedor'
   PLURAL = 'Proveedores'
 
+  after_initialize :create_profile, if: :new_record?
+
   def title
     empresa
   end
 
   def self.like(q)
     where('LOWER(empresa) ILIKE LOWER(:empresa)', empresa: "%#{q}%")
+  end
+
+  # crea un nuevo perfil
+  def create_profile
+    build_emp_perfil
   end
 end

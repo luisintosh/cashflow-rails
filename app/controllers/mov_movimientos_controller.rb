@@ -41,10 +41,14 @@ class MovMovimientosController < ApplicationController
   def new
     @mov_movimiento = MovMovimiento.new tipo_movimiento: params.fetch('type')
     @mov_movimiento.calcula_consecutivos
+    @emp_cliente = EmpCliente.new
+    @emp_proveedor = EmpProveedor.new
   end
 
   # GET /mov_movimientos/1/edit
   def edit
+    @emp_cliente = EmpCliente.new
+    @emp_proveedor = EmpProveedor.new
   end
 
   # POST /mov_movimientos
