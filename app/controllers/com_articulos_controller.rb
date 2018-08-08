@@ -72,7 +72,7 @@ class ComArticulosController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def com_articulo_params
       params.require(:com_articulo).permit(:codigo, :nombre, :categoria, :unidad_compra, :unidad_inventario,
-                                           :cantidad_inventario, :precio_compra, :moneda, :p_iva, :p_ieps,
+                                           :cantidad_inventario, :precio_compra, :moneda, :iva, :ieps,
                                            :com_inventario_attributes => [
                                                :com_articulo_id, :emp_locacion_id, :stock, :stock_min, :_destroy, :id
                                            ])

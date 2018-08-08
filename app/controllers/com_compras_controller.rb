@@ -73,6 +73,7 @@ class ComComprasController < ApplicationController
       @com_articulos = ComArticulo.all.map(&:attributes).each{|e| e[:text]="#{e['codigo']} - #{e['nombre']}"}.to_json
       @com_articulo = ComArticulo.new
       @com_articulo.crear_inventarios
+      @emp_proveedor = EmpProveedor.new
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

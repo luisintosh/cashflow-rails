@@ -1,11 +1,11 @@
-#modalEmpCliente.modal.fade.modal-new-form{"aria-hidden" => "true", role: "dialog", tabindex: "-1"}
-  .modal-dialog
+#modalComArticulo.modal.fade.modal-new-form{"aria-hidden" => "true", role: "dialog", tabindex: "-1"}
+  .modal-dialog.modal-lg
     .modal-content
       .modal-header
         %button.close{"data-dismiss" => "modal", type: "button"}
           %span{"aria-hidden" => "true"} ×
           %span.sr-only Close
         %h4#mainModalLabel.modal-title
-          Nuevo cliente
+          Nuevo artículo
       .modal-body
-        = render 'emp_clientes/form'
+        = render 'com_articulos/form'

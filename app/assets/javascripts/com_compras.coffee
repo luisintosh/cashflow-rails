@@ -155,6 +155,31 @@ $(document).module '#com_compras', ()->
   # orden de la tabla
   window.data_table.order([0, 'desc']).draw()
 
+  # modal para nuevo cliente
+  window.newFormCallback = (data, form_id)->
+    if form_id == 'new_emp_proveedor'
+      selector = $('#com_compra_emp_proveedor_id')
+      selector.append("<option value='#{data.id}'>#{data.empresa}</option>")
+    else if form_id == 'new_com_articulo'
+      selector = $('#buscar-producto')
+      selector.append("<option value='#{data.id}'>#{data.codigo} - #{data.nombre}</option>")
+      caKey = comArticulos.length
+      comArticulos[caKey] = data
+      comArticulos[caKey].text = "#{data.codigo} - #{data.nombre}"
+
+    selector.val(data.id)
+    selector.change()
+
+  # actualiza los articulos dentro de la lista del item antes de insertarlo
+  $('#com_det_compra').on('cocoon:before-insert', (e, task_to_be_added)->
+    selectArticulo = task_to_be_added.find('.select.articulo')
+    selectArticulo.html('')
+    comArticulos.forEach((elem)->
+      selectArticulo.append("<option value='#{elem.id}'>#{elem.text}</option>")
+    )
+  )
+
+
 $(document).module '#com_compras.index', ()->
   # suma y muestra los totales de deudas y la sumatoria de cada moneda
   sum_totales_compras = ()->

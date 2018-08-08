@@ -2,24 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3f3b0c66-ccb9-4b61-a64d-d8f5d500df0c" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/app/assets/javascripts/modal.coffee" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/mov_movimientos/_modal_emp_cliente.html.haml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/mov_movimientos/_modal_emp_proveedor.html.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.generators" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.generators" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.rakeTasks" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/rohers.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/rohers.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/layouts/modal/_modal_emp_cliente.html.haml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/application.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/com_compras.coffee" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/com_compras.coffee" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/modal.coffee" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/modal.coffee" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/assets/javascripts/mov_movimientos.coffee" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/mov_movimientos.coffee" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/com_articulos_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/com_articulos_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/com_compras_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/com_compras_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/mov_movimientos_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/mov_movimientos_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/emp_cliente.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/emp_cliente.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/emp_proveedor.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/emp_proveedor.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/mov_movimiento.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/mov_movimiento.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/emp_clientes/_emp_cliente.json.jbuilder" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/emp_clientes/_emp_cliente.json.jbuilder" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/com_articulos/_com_articulo.json.jbuilder" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/com_articulos/_com_articulo.json.jbuilder" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/com_compras/_form.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/com_compras/_form.html.haml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/mov_movimientos/_form.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/mov_movimientos/_form.html.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/seeds.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/seeds.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/mov_movimientos/_modal_emp_cliente.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/modal/_modal_com_articulo.html.haml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/mov_movimientos/_modal_emp_proveedor.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/modal/_modal_emp_proveedor.html.haml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -44,81 +39,76 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="_form.html.haml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/mov_movimientos/_form.html.haml">
+      <file leaf-file-name="com_compras.coffee" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/com_compras.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="34" column="29" selection-start-line="34" selection-start-column="29" selection-end-line="34" selection-end-column="29" />
+            <state relative-caret-position="-1368">
+              <caret line="64" column="38" selection-start-line="64" selection-start-column="38" selection-end-line="64" selection-end-column="38" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mov_movimientos_controller.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/mov_movimientos_controller.rb">
+      <file leaf-file-name="emp_cliente.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/emp_cliente.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="50" column="37" selection-start-line="50" selection-start-column="37" selection-end-line="50" selection-end-column="37" />
+            <state relative-caret-position="45">
+              <caret line="3" column="63" lean-forward="true" selection-start-line="3" selection-start-column="63" selection-end-line="5" selection-end-column="69" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="modal.coffee" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/modal.coffee">
+      <file leaf-file-name="emp_proveedor.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/models/emp_proveedor.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="75">
-              <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
+              <caret line="5" column="69" lean-forward="true" selection-start-line="5" selection-start-column="69" selection-end-line="5" selection-end-column="69" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
+      <file leaf-file-name="20180525034154_add_impuestos_to_com_det_compras.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/migrate/20180525034154_add_impuestos_to_com_det_compras.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="585">
-              <caret line="39" column="18" selection-start-line="39" selection-start-column="18" selection-end-line="40" selection-end-column="17" />
+            <state relative-caret-position="30">
+              <caret line="2" column="71" lean-forward="true" selection-start-line="2" selection-start-column="71" selection-end-line="2" selection-end-column="85" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_modal_emp_cliente.html.haml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/mov_movimientos/_modal_emp_cliente.html.haml">
+      <file leaf-file-name="20180502035310_add_ivaieps_to_com_articulos.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/migrate/20180502035310_add_ivaieps_to_com_articulos.rb">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="20180225172823_create_emp_clientes.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/migrate/20180225172823_create_emp_clientes.rb">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="20180225031919_create_emp_proveedors.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/migrate/20180225031919_create_emp_proveedors.rb">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="com_articulo.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/com_articulo.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" selection-start-line="11" selection-end-line="11" />
+            <state relative-caret-position="180">
+              <caret line="12" column="37" lean-forward="true" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mov_movimientos.coffee" pinned="false" current-in-tab="true">
+      <file leaf-file-name="_form.html.haml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/emp_proveedors/_form.html.haml">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="mov_movimientos.coffee" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/javascripts/mov_movimientos.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="822">
-              <caret line="64" column="4" selection-start-line="64" selection-start-column="4" selection-end-line="64" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="schema.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/db/schema.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1498" />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_modal_emp_proveedor.html.haml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/mov_movimientos/_modal_emp_proveedor.html.haml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="38" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application.html.haml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.haml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" selection-start-line="27" selection-end-line="27" />
+            <state relative-caret-position="762">
+              <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
             </state>
           </provider>
         </entry>
@@ -178,17 +168,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/views/empleados/_form.html.haml" />
-        <option value="$PROJECT_DIR$/app/models/com_articulo.rb" />
-        <option value="$PROJECT_DIR$/app/models/emp_locacion.rb" />
-        <option value="$PROJECT_DIR$/app/models/application_record.rb" />
-        <option value="$PROJECT_DIR$/app/views/layouts/_sidebar.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/com_articulos/_form.html.haml" />
-        <option value="$PROJECT_DIR$/app/controllers/home_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/ability.rb" />
         <option value="$PROJECT_DIR$/app/models/com_pago.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/com_articulos_controller.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/com_compras_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/com_pagos_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/emp_clasificacions_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/emp_cuentabs_controller.rb" />
@@ -222,13 +203,22 @@
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.haml" />
         <option value="$PROJECT_DIR$/app/controllers/emp_clientes_controller.rb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
-        <option value="$PROJECT_DIR$/app/assets/javascripts/modal.coffee" />
         <option value="$PROJECT_DIR$/app/views/mov_movimientos/_modal_emp_cliente.html.haml" />
         <option value="$PROJECT_DIR$/app/views/mov_movimientos/_modal_emp_proveedor.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/mov_movimientos/_form.html.haml" />
         <option value="$PROJECT_DIR$/app/models/emp_proveedor.rb" />
+        <option value="$PROJECT_DIR$/app/views/mov_movimientos/_form.html.haml" />
+        <option value="$PROJECT_DIR$/app/controllers/com_compras_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/mov_movimientos_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/com_compras/_form.html.haml" />
+        <option value="$PROJECT_DIR$/app/views/layouts/modal/_modal_com_articulo.html.haml" />
+        <option value="$PROJECT_DIR$/app/views/layouts/modal/_modal_emp_cliente.html.haml" />
+        <option value="$PROJECT_DIR$/app/views/layouts/modal/_modal_emp_proveedor.html.haml" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/mov_movimientos.coffee" />
+        <option value="$PROJECT_DIR$/app/views/com_articulos/_com_articulo.json.jbuilder" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/modal.coffee" />
+        <option value="$PROJECT_DIR$/app/controllers/com_articulos_controller.rb" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/com_compras.coffee" />
+        <option value="$PROJECT_DIR$/app/models/com_articulo.rb" />
       </list>
     </option>
   </component>
@@ -315,7 +305,36 @@
               <item name="rohersadmin" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="emp_clientes" type="462c0819:PsiDirectoryNode" />
+              <item name="com_articulos" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rohersadmin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rohersadmin" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="com_compras" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rohersadmin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rohersadmin" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="emp_proveedors" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rohersadmin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rohersadmin" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="layouts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rohersadmin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rohersadmin" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="layouts" type="462c0819:PsiDirectoryNode" />
+              <item name="modal" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="rohersadmin" type="b2602c69:ProjectViewProjectNode" />
@@ -329,6 +348,12 @@
               <item name="rohersadmin" type="462c0819:PsiDirectoryNode" />
               <item name="db" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="rohersadmin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rohersadmin" type="462c0819:PsiDirectoryNode" />
+              <item name="db" type="462c0819:PsiDirectoryNode" />
+              <item name="migrate" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -337,7 +362,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="mov_&#9;FILE&#9;file:///Users/luis/ruby/rohersadmin/app/controllers/mov_movimientos_controller.rb&#10;seed&#9;FILE&#9;file:///Users/luis/RailsProjects/rohers/db/seeds.rb&#10;routes&#9;FILE&#9;file:///Users/luis/RailsProjects/rohers/config/routes.rb&#10;gem&#9;FILE&#9;file:///Users/luis/RailsProjects/rohers/Gemfile&#10;sidebar&#9;FILE&#9;file:///Users/luis/RailsProjects/rohers/app/views/layouts/_sidebar.html.haml" />
+    <property name="SearchEverywhereHistoryKey" value="gem&#9;FILE&#9;file:///Users/luis/ruby/rohersadmin/Gemfile&#10;com_com&#9;FILE&#9;file:///Users/luis/ruby/rohersadmin/app/controllers/com_compras_controller.rb&#10;mov_&#9;FILE&#9;file:///Users/luis/ruby/rohersadmin/app/controllers/mov_movimientos_controller.rb&#10;seed&#9;FILE&#9;file:///Users/luis/RailsProjects/rohers/db/seeds.rb&#10;routes&#9;FILE&#9;file:///Users/luis/RailsProjects/rohers/config/routes.rb&#10;sidebar&#9;FILE&#9;file:///Users/luis/RailsProjects/rohers/app/views/layouts/_sidebar.html.haml" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -345,13 +370,14 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/views/layouts/modal" />
       <recent name="$PROJECT_DIR$/app/views/mov_movimientos" />
       <recent name="$PROJECT_DIR$/app/services" />
       <recent name="$PROJECT_DIR$/app/helpers" />
       <recent name="$PROJECT_DIR$/public" />
-      <recent name="$PROJECT_DIR$/app/assets/stylesheets" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/views/layouts/modal" />
       <recent name="$PROJECT_DIR$/app/views/mov_movimientos" />
       <recent name="$PROJECT_DIR$/app/views/emp_clientes" />
     </key>
@@ -529,7 +555,7 @@
       <workItem from="1530593434785" duration="2605000" />
       <workItem from="1533179791818" duration="7666000" />
       <workItem from="1533260852603" duration="1952000" />
-      <workItem from="1533265459700" duration="11063000" />
+      <workItem from="1533265459700" duration="17796000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1519258704656</created>
@@ -629,11 +655,18 @@
       <option name="project" value="LOCAL" />
       <updated>1529278692653</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Agrega ventanas modal para agregar clientes y empresas a los movimientos">
+      <created>1533691776424</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1533691776424</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="273811000" />
+    <option name="totallyTimeSpent" value="280544000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-980" y="-1080" width="1920" height="1080" extended-state="0" />
@@ -643,7 +676,7 @@
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.503231" side_tool="true" weight="0.32630098" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49676898" weight="0.36590436" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.28359684" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.2827443" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32911393" />
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.46979037" visible="true" weight="0.17891374" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
@@ -682,7 +715,8 @@
     <MESSAGE value="Mejora la lista de compras para cumplir con las caracteristicas del reporte solicitado" />
     <MESSAGE value="Agrega nuevos botones en el panel de inicio" />
     <MESSAGE value="Modifica la página de inicio de sesión" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modifica la página de inicio de sesión" />
+    <MESSAGE value="Agrega ventanas modal para agregar clientes y empresas a los movimientos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Agrega ventanas modal para agregar clientes y empresas a los movimientos" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -690,85 +724,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/controllers/emp_proveedors_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="29" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/empleados_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="49" selection-start-column="49" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20180502035310_add_ivaieps_to_com_articulos.rb">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/home.coffee">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/panel.coffee">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/_topbar.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="593">
-          <caret line="55" column="63" selection-start-line="55" selection-start-column="63" selection-end-line="55" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/com_pagos/edit.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="26" lean-forward="true" selection-start-line="12" selection-start-column="8" selection-end-line="14" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/com_compras/index.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-835">
-          <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/com_pagos/index.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-564">
-          <caret line="20" selection-start-line="8" selection-start-column="4" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/com_compra.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="36" column="106" selection-start-line="36" selection-start-column="106" selection-end-line="36" selection-end-column="106" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/panel/index.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="65" column="36" selection-start-line="65" selection-start-column="36" selection-end-line="65" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/panel.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -837,13 +792,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/seeds.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="167" column="29" selection-start-line="167" selection-start-column="29" selection-end-line="167" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/emp_clientes/_modal_new.html.haml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -875,13 +823,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="822">
-          <caret line="89" selection-start-line="89" selection-end-line="89" />
         </state>
       </provider>
     </entry>
@@ -927,6 +868,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/db/seeds.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="447">
+          <caret line="179" column="3" lean-forward="true" selection-start-line="179" selection-start-column="3" selection-end-line="179" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="585">
@@ -934,64 +882,140 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/mov_movimientos/_form.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="34" column="29" selection-start-line="34" selection-start-column="29" selection-end-line="34" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/emp_proveedor.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="52" selection-start-line="13" selection-start-column="52" selection-end-line="13" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/emp_cliente.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="2" lean-forward="true" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/mov_movimientos_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="50" column="37" selection-start-line="50" selection-start-column="37" selection-end-line="50" selection-end-column="37" />
+        <state relative-caret-position="673">
+          <caret line="105" column="39" selection-start-line="105" selection-start-column="39" selection-end-line="105" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/mov_movimientos/_form.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="10" lean-forward="true" selection-start-line="29" selection-start-column="10" selection-end-line="34" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/modal/_modal_com_articulo.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="15" lean-forward="true" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/modal/_modal_emp_cliente.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="24" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/modal/_modal_emp_proveedor.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="24" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/com_compras_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="552">
+          <caret line="70" column="4" lean-forward="true" selection-start-line="70" selection-start-column="4" selection-end-line="76" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/com_compras/_form.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="777">
+          <caret line="205" column="20" selection-start-line="205" selection-start-column="8" selection-end-line="205" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gemfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="829">
+          <caret line="89" selection-start-line="89" selection-end-line="89" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/modal.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/mov_movimientos/_modal_emp_cliente.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/schema.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1498" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/mov_movimientos/_modal_emp_proveedor.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="38" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
+        <state relative-caret-position="45">
+          <caret line="3" column="3" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/mov_movimientos.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="822">
-          <caret line="64" column="4" selection-start-line="64" selection-start-column="4" selection-end-line="64" selection-end-column="4" />
+        <state relative-caret-position="762">
+          <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/schema.rb">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/com_articulos_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="717">
+          <caret line="74" column="97" selection-start-line="74" selection-start-column="97" selection-end-line="74" selection-end-column="97" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/com_articulos/_com_articulo.json.jbuilder">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/com_articulos/_form.html.haml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/com_compras.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1368">
+          <caret line="64" column="38" selection-start-line="64" selection-start-column="38" selection-end-line="64" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20180525034154_add_impuestos_to_com_det_compras.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="71" lean-forward="true" selection-start-line="2" selection-start-column="71" selection-end-line="2" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20180502035310_add_ivaieps_to_com_articulos.rb">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20180225172823_create_emp_clientes.rb">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/emp_proveedors/_form.html.haml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20180225031919_create_emp_proveedors.rb">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/com_articulo.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="37" lean-forward="true" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/emp_cliente.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="63" lean-forward="true" selection-start-line="3" selection-start-column="63" selection-end-line="5" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/emp_proveedor.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="69" lean-forward="true" selection-start-line="5" selection-start-column="69" selection-end-line="5" selection-end-column="69" />
         </state>
       </provider>
     </entry>

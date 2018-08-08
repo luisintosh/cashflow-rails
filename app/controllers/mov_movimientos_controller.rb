@@ -1,6 +1,7 @@
 class MovMovimientosController < ApplicationController
   load_and_authorize_resource
   before_action :set_mov_movimiento, only: [:show, :edit, :update, :destroy]
+  before_action :set_relation_data, only: [:new, :edit, :create, :update]
 
   include SmartListing::Helper::ControllerExtensions
   helper  SmartListing::Helper
@@ -41,14 +42,10 @@ class MovMovimientosController < ApplicationController
   def new
     @mov_movimiento = MovMovimiento.new tipo_movimiento: params.fetch('type')
     @mov_movimiento.calcula_consecutivos
-    @emp_cliente = EmpCliente.new
-    @emp_proveedor = EmpProveedor.new
   end
 
   # GET /mov_movimientos/1/edit
   def edit
-    @emp_cliente = EmpCliente.new
-    @emp_proveedor = EmpProveedor.new
   end
 
   # POST /mov_movimientos
@@ -102,6 +99,11 @@ class MovMovimientosController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_mov_movimiento
       @mov_movimiento = MovMovimiento.find(params[:id])
+    end
+
+    def set_relation_data
+      @emp_cliente = EmpCliente.new
+      @emp_proveedor = EmpProveedor.new
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

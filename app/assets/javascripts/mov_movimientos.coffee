@@ -53,11 +53,13 @@ $(document).module '#mov_movimientos', ()->
     $(this).closest('form').submit()
   )
 
-  # modal para nuevo cliente
-  window.newFormCallback = (data)->
-    if (selector = $('#mov_movimiento_emp_cliente_id')).length
+  # modal para nuevo cliente o proveedor
+  window.newFormCallback = (data, form_id)->
+    if form_id == 'new_emp_cliente'
+      selector = $('#mov_movimiento_emp_cliente_id')
       selector.append("<option value='#{data.id}'>#{data.nombre} #{data.apellidos}</option>")
-    else if (selector = $('#mov_movimiento_emp_proveedor_id')).length
+    else if form_id == 'new_emp_proveedor'
+      selector = $('#mov_movimiento_emp_proveedor_id')
       selector.append("<option value='#{data.id}'>#{data.empresa}</option>")
 
     selector.val(data.id)

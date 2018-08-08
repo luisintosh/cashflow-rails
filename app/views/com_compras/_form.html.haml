@@ -11,7 +11,12 @@
     .col-md-3
       = f.association :emp_clasificacion, label: EmpClasificacion::SINGULAR, prompt: '-- Selecciona --'
     .col-md-3
-      = f.association :emp_proveedor, label: EmpProveedor::SINGULAR, prompt: '-- Selecciona --'
+      %label.control-label.select.required= EmpProveedor::SINGULAR
+      .input-group
+        = f.association :emp_proveedor, label: false, prompt: '-- Selecciona --'
+        %span.input-group-btn
+          = link_to '#', {class: 'btn btn-default', data: { toggle: :modal, target: '#modalEmpProveedor' }} do
+            %i.fa.fa-plus
     .col-md-3
       = f.input :fecha
     .col-md-3
@@ -33,7 +38,7 @@
             %select#buscar-producto.form-control
               %option{value: -1} -- Buscar artículo --
           .col-xs-6.col-md-3
-            = link_to new_com_articulo_path, {class: 'btn btn-info'} do
+            = link_to '#', {class: 'btn btn-info', data: { toggle: :modal, target: '#modalComArticulo' }} do
               %i.fa.fa-plus
               Nuevo Artículo
 
@@ -192,6 +197,10 @@
       .modal-footer
         %button.btn.btn-default{type: :button, data: {dismiss: :modal}} Cerrar
         %button#btn-add-com_det_compra.btn.btn-primary{type: :button} Agregar
+
+
+= render 'layouts/modal/modal_emp_proveedor'
+= render 'layouts/modal/modal_com_articulo'
 
 %script
   ! var comArticulos = #{@com_articulos}; // lista de articulos
