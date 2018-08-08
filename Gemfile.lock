@@ -266,7 +266,6 @@ DEPENDENCIES
   rails (~> 5.1.4)
   rails-assets-select2!
   rails-i18n
-  responders (~> 2.0)
   sass-rails (~> 5.0)
   selenium-webdriver
   simple_form
