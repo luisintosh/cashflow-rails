@@ -10,8 +10,6 @@ class ComCompra < ApplicationRecord
 
   enum estado: [:pendiente, :pagado, :cancelado]
 
-  enum tipo_comprobante: MovMovimiento.tipo_comprobantes.keys
-
   validates :descuento, numericality: { greater_than_or_equal_to: 0 }
 
   accepts_nested_attributes_for :com_det_compra, reject_if: :all_blank, allow_destroy: true
@@ -21,9 +19,6 @@ class ComCompra < ApplicationRecord
     unless factura.empty?
       t += ", factura: #{factura}"
     end
-    unless comprobante.empty?
-      t += ", comprobante: #{comprobante}"
-    end
     t
   end
 
@@ -31,32 +26,53 @@ class ComCompra < ApplicationRecord
   def suma_valores
     resultados = {}
 
-    # totales: moneda => 0:precio, 1:cantidad, 2:descuento, 3:iva, 4:ieps
+    # totales: moneda => 0:precio, 1:cantidad, 2:descuento, 3:iva, 4:ieps, 5: total elementos
+    totales2 = com_det_compra
+                  .group(:moneda)
+                  .pluck('moneda', 'SUM(precio)', 'SUM(cantidad)', 'SUM(descuento)', 'SUM(iva)', 'SUM(ieps), COUNT(id)')
+                  .map{ |e| [e[0], e[1...7]] }.to_h
+
+    # totales: moneda => 0:valor, 1:descuentos, 2:subtotal, 3:iva, 4:ieps
     totales = com_det_compra
                   .group(:moneda)
-                  .pluck('moneda', 'SUM(precio)', 'SUM(cantidad)', 'SUM(descuento)', 'SUM(iva)', 'SUM(ieps)')
+                  .pluck('moneda',
+                         'SUM(precio * cantidad)', # 0:valor
+                         'SUM((precio * cantidad) * (descuento / 100))', # 1:descuentos
+                         "SUM( (((precio * cantidad) * (descuento / 100)) * (#{descuento} / 100)) )", # 2:descuento gral
+                         "SUM( (precio * cantidad) - ((precio * cantidad) * (descuento / 100)) - ((precio * cantidad) * (#{descuento} / 100)) )", # 3:subtotal
+                         'SUM( ((precio * cantidad) - ((precio * cantidad) * (descuento / 100))) * (iva / 100) )', # 4:iva
+                         'SUM( ((precio * cantidad) - ((precio * cantidad) * (descuento / 100))) * (ieps / 100) )') # 5:ieps
                   .map{ |e| [e[0], e[1...6]] }.to_h
 
     # revisa todas las monedas
     EmpCuentab.monedas.each do |moneda, id_moneda|
-      unless resultados[moneda]
-        resultados[moneda] = {
-            valor: 0.0,
-            descuento: 0.0,
-            subtotal: 0.0,
-            iva: 0.0,
-            ieps: 0.0,
-            total: 0.0,
-        }
-      end
+      resultados[moneda] = {
+          valor: 0.0,
+          descuento: 0.0,
+          desc_general: 0.0,
+          subtotal: 0.0,
+          iva: 0.0,
+          ieps: 0.0,
+          total: 0.0,
+      }
+      
+      com_det_compra.where(moneda: moneda).each do |cdc|
+        valor = cdc.precio * cdc.cantidad
+        desc_cdc = valor * (cdc.descuento / 100)
+        subtotal_temp = valor - desc_cdc
+        desc_gral = subtotal_temp * (descuento / 100)
+        subtotal = valor - desc_cdc - desc_gral
+        iva = subtotal * (cdc.iva / 100)
+        ieps = subtotal * (cdc.ieps / 100)
+        total = subtotal + iva + ieps
 
-      if totales[moneda]
-        resultados[moneda][:valor] += (totales[moneda][0] * totales[moneda][1])
-        resultados[moneda][:descuento] += (resultados[moneda][:valor] * totales[moneda][2] / 100)
-        resultados[moneda][:subtotal] += (resultados[moneda][:valor] - resultados[moneda][:descuento])
-        resultados[moneda][:iva] += (resultados[moneda][:subtotal] * totales[moneda][3] / 100)
-        resultados[moneda][:ieps] += (resultados[moneda][:subtotal] * totales[moneda][4] / 100)
-        resultados[moneda][:total] += (resultados[moneda][:subtotal] + resultados[moneda][:iva] + resultados[moneda][:ieps])
+        resultados[moneda][:valor] += valor
+        resultados[moneda][:descuento] += desc_cdc
+        resultados[moneda][:desc_general] += desc_gral
+        resultados[moneda][:subtotal] += subtotal
+        resultados[moneda][:iva] += iva
+        resultados[moneda][:ieps] += ieps
+        resultados[moneda][:total] += total
       end
     end
 

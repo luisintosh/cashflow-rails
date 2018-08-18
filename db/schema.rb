@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180611040534) do
+ActiveRecord::Schema.define(version: 20180817025110) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,8 +35,6 @@ ActiveRecord::Schema.define(version: 20180611040534) do
     t.integer "estado", default: 0
     t.date "fecha"
     t.string "factura"
-    t.string "comprobante"
-    t.integer "tipo_comprobante"
     t.decimal "descuento", precision: 5, scale: 2, default: "0.0"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -57,6 +55,8 @@ ActiveRecord::Schema.define(version: 20180611040534) do
     t.datetime "updated_at", null: false
     t.decimal "iva", precision: 5, scale: 2, default: "0.0"
     t.decimal "ieps", precision: 5, scale: 2, default: "0.0"
+    t.string "comprobante"
+    t.integer "tipo_comprobante"
     t.index ["com_articulo_id"], name: "index_com_det_compras_on_com_articulo_id"
     t.index ["com_compra_id"], name: "index_com_det_compras_on_com_compra_id"
     t.index ["emp_locacion_id"], name: "index_com_det_compras_on_emp_locacion_id"

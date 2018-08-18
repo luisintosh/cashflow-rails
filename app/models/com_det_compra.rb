@@ -11,16 +11,11 @@ class ComDetCompra < ApplicationRecord
 
   enum moneda: [:MXN, :USD, :EUR]
 
+  enum tipo_comprobante: MovMovimiento.tipo_comprobantes.keys
+
+
   before_create :actualiza_inventario
   before_destroy :elimina_del_inventario
-
-  def calcular_costo
-    csubtotal = cantidad * precio
-    civa = iva * csubtotal
-    cieps = ieps * csubtotal
-
-    csubtotal + civa + cieps
-  end
 
   def calcular_descuento
     cvalor = cantidad * precio
@@ -29,12 +24,8 @@ class ComDetCompra < ApplicationRecord
 
   def calcular_total
     cvalor = cantidad * precio
-    cdescuento = cvalor * descuento / 100
-    csubtotal = cvalor - cdescuento
-    civa = iva * csubtotal
-    cieps = ieps * csubtotal
-
-    csubtotal + civa + cieps
+    cdescuento = calcular_descuento
+    cvalor - cdescuento
   end
 
   # actualiza el inventario en caso de ser un nuevo registro

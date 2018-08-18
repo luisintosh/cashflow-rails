@@ -79,9 +79,9 @@ class ComComprasController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def com_compra_params
       params.require(:com_compra).permit(:ciclo, :emp_clasificacion_id, :emp_proveedor_id, :estado, :fecha, :factura,
-                                         :comprobante, :tipo_comprobante, :descuento, :com_det_compra_attributes => [
+                                         :descuento, :com_det_compra_attributes => [
               :com_articulo_id, :emp_locacion_id, :cantidad, :precio, :moneda, :descuento, :inventariar, :iva, :ieps,
-              :_destroy, :id
+              :comprobante, :tipo_comprobante, :_destroy, :id
           ])
     end
 end

@@ -27,5 +27,10 @@
         = f.association :emp_locacion, label: EmpLocacion::SINGULAR, input_html: {class: 'locacion readonly-select noselect2', readonly: true}
       .col-sm-2.col-md-1
         = f.input :inventariar, label: 'Inventariar', input_html: {class: 'inventariar form-control', readonly: true}
+    .row
+      .col-sm-6.col-md-3
+        = f.input :comprobante, input_html: {class: 'comprobante input-sm', readonly: true}
+      .col-sm-6.col-md-3
+        = f.input :tipo_comprobante, collection: ComDetCompra.tipo_comprobantes.keys, include_blank: false, input_html: {class: 'tipo_comprobante readonly-select noselect2 input-sm', readonly: true}
   %td
     = link_to_remove_association 'X', f, class: 'btn btn-sm btn-default'

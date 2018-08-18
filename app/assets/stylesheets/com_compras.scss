@@ -5,9 +5,9 @@
 #com_compras {
   #com_det_compra {
     input, select {
-      border: 0;
       height: auto;
       cursor: default;
+      border: 1px solid #DADADA;
     }
     .form-group {
       padding: 0;

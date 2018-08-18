@@ -67,12 +67,6 @@
           .factura.m-b-sm
             %b Factura:
             = @com_compra.factura
-          .comprobante.m-b-sm
-            %b Comprobante:
-            = @com_compra.comprobante
-          .tipo_comprobante.m-b-sm
-            %b Tipo de comprobante:
-            = @com_compra.tipo_comprobante
           .descuento.m-b-sm
             %b Descuento aplicado:
             = @com_compra.descuento
@@ -95,8 +89,6 @@
             %th
               Moneda
             %th
-              Costo
-            %th
               Descuento
             %th
               Total
@@ -115,8 +107,6 @@
                 = number_to_currency cdc.precio
               %td
                 = cdc.moneda
-              %td
-                = number_to_currency cdc.calcular_costo
               %td
                 = number_to_currency cdc.calcular_descuento
               %td
@@ -147,13 +137,22 @@
                   = number_to_currency @com_compra.suma_valores['EUR'][:valor]
               %tr
                 %td
-                  Descuento
+                  Descuentos
                 %td
                   = number_to_currency @com_compra.suma_valores['MXN'][:descuento]
                 %td
                   = number_to_currency @com_compra.suma_valores['USD'][:descuento]
                 %td
                   = number_to_currency @com_compra.suma_valores['EUR'][:descuento]
+              %tr
+                %td
+                  Descuento general
+                %td
+                  = number_to_currency @com_compra.suma_valores['MXN'][:desc_general]
+                %td
+                  = number_to_currency @com_compra.suma_valores['USD'][:desc_general]
+                %td
+                  = number_to_currency @com_compra.suma_valores['EUR'][:desc_general]
               %tr
                 %td
                   Subtotal

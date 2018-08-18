@@ -22,10 +22,6 @@
     .col-md-3
       = f.input :factura
     .col-md-3
-      = f.input :comprobante
-    .col-md-3
-      = f.input :tipo_comprobante, collection: ComCompra.tipo_comprobantes.keys, prompt: '-- Selecciona --'
-    .col-md-3
       = f.input :descuento, label: 'Descuento %'
 
   %h3 Lista de artículos
@@ -87,6 +83,15 @@
             %td#cc_USD_descuento
               $ -
             %td#cc_EUR_descuento
+              $ -
+          %tr
+            %td
+              Descuento general
+            %td#cc_MXN_descgral
+              $ -
+            %td#cc_USD_descgral
+              $ -
+            %td#cc_EUR_descgral
               $ -
           %tr
             %td
@@ -175,10 +180,10 @@
         %hr
         .row.com_det_compra
           %form#form-det-articulo
-            .col-md-2
+            .col-sm-6.col-md-2
               %label Cantidad
               = number_field_tag 'cdc_cantidad', 1, {min: 0.01, step: :any, class: 'form-control', required: true}
-            .col-md-2
+            .col-sm-6.col-md-2
               %label Precio unitario
               = number_field_tag 'cdc_precio', 0.0, {min: 0.01, step: :any, class: 'form-control', autofocus: true, required: true}
             .col-md-2
@@ -187,13 +192,19 @@
             .col-md-3
               %label Destino
               = select_tag 'cdc_com_locacion_id', options_from_collection_for_select(@com_locaciones, 'id', 'title'), {class: 'form-control'}
-            .col-md-1
+            .col-sm-6.col-md-1
               %label Inventariar
               %br
               = check_box_tag 'cdc_inventariar', '1', true
-            .col-md-2
+            .col-sm-6.col-md-2
               %label Descuento %
               = number_field_tag 'cdc_descuento', 0.0, {min: 0, max: 100, step: :any, class: 'form-control', required: true}
+            .col-md-3
+              %label Comprobante
+              = text_field_tag 'cdc_comprobante', '', {class: 'form-control'}
+            .col-md-3
+              %label Tipo de omprobante
+              = select_tag 'cdc_tipo_comprobante', options_for_select(ComDetCompra.tipo_comprobantes.keys), {class: 'form-control'}
       .modal-footer
         %button.btn.btn-default{type: :button, data: {dismiss: :modal}} Cerrar
         %button#btn-add-com_det_compra.btn.btn-primary{type: :button} Agregar

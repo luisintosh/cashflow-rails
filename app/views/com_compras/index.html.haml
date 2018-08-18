@@ -71,8 +71,6 @@
               %th Clasificacion
               %th Fecha
               %th Factura
-              %th Comprobante
-              %th Tipo comprobante
               %th Total MXN
               %th Anticipo MXN
               %th Saldo MXN
@@ -93,8 +91,6 @@
                 %td= com_compra.emp_clasificacion.title
                 %td= com_compra.fecha
                 %td= com_compra.factura
-                %td= com_compra.comprobante
-                %td= com_compra.tipo_comprobante
                 %td= number_to_currency com_compra.adeudos['MXN'][:total]
                 %td= number_to_currency (com_compra.adeudos['MXN'][:total]-com_compra.adeudos['MXN'][:deuda])
                 %td= number_to_currency com_compra.adeudos['MXN'][:deuda]

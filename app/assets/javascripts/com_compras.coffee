@@ -63,16 +63,19 @@ $(document).module '#com_compras', ()->
       if articulo[0]
         articulo = articulo[0]
         window.articuloTemp = articulo
-
-        $('#modalAgregarArticulo').find('.nombre').html(articulo.nombre)
-        $('#modalAgregarArticulo').find('.codigo').html(articulo.codigo)
-        $('#modalAgregarArticulo').find('.categoria').html(articulo.categoria)
-        $('#modalAgregarArticulo').find('.unidad_compra').html(articulo.unidad_compra)
-        $('#modalAgregarArticulo').find('.unidad_inventario').html(articulo.unidad_inventario)
-        $('#modalAgregarArticulo').find('.cantidad_inventario').html(articulo.cantidad_inventario)
-        $('#modalAgregarArticulo').find('.impuestos').html("IVA: #{articulo.iva}%, IEPS: #{articulo.ieps}%")
+        # asigna valores a los inputs del modal
+        modal = $('#modalAgregarArticulo')
+        modal.find('.nombre').html(articulo.nombre)
+        modal.find('.codigo').html(articulo.codigo)
+        modal.find('.categoria').html(articulo.categoria)
+        modal.find('.unidad_compra').html(articulo.unidad_compra)
+        modal.find('.unidad_inventario').html(articulo.unidad_inventario)
+        modal.find('.cantidad_inventario').html(articulo.cantidad_inventario)
+        modal.find('.impuestos').html("IVA: #{articulo.iva}%, IEPS: #{articulo.ieps}%")
 
       $('#modalAgregarArticulo').modal('show')
+      # enfoca el input de precio
+      modal.find('#cdc_precio').focus()
   )
 
   # limpia campos en modal
@@ -80,6 +83,7 @@ $(document).module '#com_compras', ()->
     $('#cdc_cantidad').val(1)
     $('#cdc_precio').val(0)
     $('#cdc_descuento').val(0)
+    $('#cdc_comprobante').val('')
 
   # valida el det de compra y lo agrega a la lista
   $('#btn-add-com_det_compra').click( ()->
@@ -96,6 +100,8 @@ $(document).module '#com_compras', ()->
         window.articuloTemp.locacion = det_articulo.find('#cdc_com_locacion_id').val()
         window.articuloTemp.inventariar = det_articulo.find('#cdc_inventariar').prop('checked')
         window.articuloTemp.descuento = det_articulo.find('#cdc_descuento').val()
+        window.articuloTemp.comprobante = det_articulo.find('#cdc_comprobante').val()
+        window.articuloTemp.tipo_comprobante = det_articulo.find('#cdc_tipo_comprobante').val()
         $('#com_det_compra .add_fields').click() # agrega item a la lista
         $('#modalAgregarArticulo').modal('hide')
   )
@@ -109,6 +115,7 @@ $(document).module '#com_compras', ()->
         subtotal = 0.0
         iva = 0.0
         ieps = 0.0
+        desc_gral = 0.0
         total = 0.0
 
         $('#com_det_compra .line-items .nested-fields').each((i,e)->
@@ -116,7 +123,9 @@ $(document).module '#com_compras', ()->
           if row.find('.moneda').val() == moneda
             valor += valorTm = parseFloat(row.find('.cantidad').val()) * parseFloat(row.find('.precio').val())
             descuento += descuentoTm = valorTm * parseFloat(row.find('.descuento').val()) / 100
-            subtotal += subtotalTm = valorTm - descuentoTm
+            subtotalTm = valorTm - descuentoTm
+            desc_gral +=  desc_gralTm = subtotalTm * parseFloat($('#com_compra_descuento').val()) / 100
+            subtotal += subtotalTm = subtotalTm - desc_gralTm
             iva += ivaTm = subtotalTm * parseFloat(row.find('.iva').val()) / 100
             ieps += iepsTm = subtotalTm * parseFloat(row.find('.ieps').val()) / 100
             total += totalTm = subtotalTm + ivaTm + iepsTm
@@ -127,10 +136,15 @@ $(document).module '#com_compras', ()->
         $("#cc_#{moneda}_subtotal").html("$ #{subtotal.toFixed(2)}")
         $("#cc_#{moneda}_iva").html("$ #{iva.toFixed(2)}")
         $("#cc_#{moneda}_ieps").html("$ #{ieps.toFixed(2)}")
+        $("#cc_#{moneda}_descgral").html("$ #{desc_gral.toFixed(2)}")
         $("#cc_#{moneda}_total").html("$ #{total.toFixed(2)}")
 
+  # detecta cuando un articulo esta por agregarse a la lista
+  $('#com_det_compra').on('cocoon:before-insert', (e, item) ->
+    item.fadeIn('slow')
+  )
   # detecta cuando un articulo es agregado a la lista y le agrega sus detalles
-  $('#com_det_compra').on('cocoon:after-insert', (e, item) ->
+  .on('cocoon:after-insert', (e, item) ->
     item.find('.articulo').val(window.articuloTemp.id)
     item.find('.cantidad').val(window.articuloTemp.cantidad)
     item.find('.precio').val(window.articuloTemp.precio)
@@ -140,7 +154,12 @@ $(document).module '#com_compras', ()->
     item.find('.iva').val(window.articuloTemp.iva)
     item.find('.ieps').val(window.articuloTemp.ieps)
     item.find('.descuento').val(window.articuloTemp.descuento)
+    item.find('.comprobante').val(window.articuloTemp.comprobante)
+    item.find('.tipo_comprobante').val(window.articuloTemp.tipo_comprobante)
     window.articuloTemp = null
+    suma_compras()
+  )
+  .on('cocoon:after-remove', (e, item) ->
     suma_compras()
   )
 
