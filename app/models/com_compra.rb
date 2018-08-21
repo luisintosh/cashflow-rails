@@ -10,6 +10,10 @@ class ComCompra < ApplicationRecord
 
   enum estado: [:pendiente, :pagado, :cancelado]
 
+  # almacena los totales de las compras
+  serialize :totales
+  serialize :totales_por_comprobante
+
   validates :descuento, numericality: { greater_than_or_equal_to: 0 }
 
   accepts_nested_attributes_for :com_det_compra, reject_if: :all_blank, allow_destroy: true
@@ -25,24 +29,8 @@ class ComCompra < ApplicationRecord
   # hace una suma de los valores de precio, descuento, subtotal, iva, ieps y total
   def suma_valores
     resultados = {}
-
-    # totales: moneda => 0:precio, 1:cantidad, 2:descuento, 3:iva, 4:ieps, 5: total elementos
-    totales2 = com_det_compra
-                  .group(:moneda)
-                  .pluck('moneda', 'SUM(precio)', 'SUM(cantidad)', 'SUM(descuento)', 'SUM(iva)', 'SUM(ieps), COUNT(id)')
-                  .map{ |e| [e[0], e[1...7]] }.to_h
-
-    # totales: moneda => 0:valor, 1:descuentos, 2:subtotal, 3:iva, 4:ieps
-    totales = com_det_compra
-                  .group(:moneda)
-                  .pluck('moneda',
-                         'SUM(precio * cantidad)', # 0:valor
-                         'SUM((precio * cantidad) * (descuento / 100))', # 1:descuentos
-                         "SUM( (((precio * cantidad) * (descuento / 100)) * (#{descuento} / 100)) )", # 2:descuento gral
-                         "SUM( (precio * cantidad) - ((precio * cantidad) * (descuento / 100)) - ((precio * cantidad) * (#{descuento} / 100)) )", # 3:subtotal
-                         'SUM( ((precio * cantidad) - ((precio * cantidad) * (descuento / 100))) * (iva / 100) )', # 4:iva
-                         'SUM( ((precio * cantidad) - ((precio * cantidad) * (descuento / 100))) * (ieps / 100) )') # 5:ieps
-                  .map{ |e| [e[0], e[1...6]] }.to_h
+    self.totales = {}
+    self.totales_por_comprobante = {}
 
     # revisa todas las monedas
     EmpCuentab.monedas.each do |moneda, id_moneda|
@@ -73,6 +61,22 @@ class ComCompra < ApplicationRecord
         resultados[moneda][:iva] += iva
         resultados[moneda][:ieps] += ieps
         resultados[moneda][:total] += total
+
+        # actualiza totales
+        totales[moneda] = 0.0 unless totales[moneda]
+        totales[moneda] += total
+
+        # actualiza totales por comprobante
+        comprobante = cdc.comprobante ? cdc.comprobante : "Sin comprobante"
+        tipo_comp = cdc.tipo_comprobante ? cdc.tipo_comprobante : nil
+        # total, moneda, nombre del departamento, id del departamento, comprobante, tipo de comprobante
+        totales_por_comprobante[comprobante] = [0.0, nil, nil, nil, nil] unless totales_por_comprobante[comprobante]
+        totales_por_comprobante[comprobante][0] += total
+        totales_por_comprobante[comprobante][1] = cdc.moneda
+        totales_por_comprobante[comprobante][2] = cdc.emp_locacion.nombre
+        totales_por_comprobante[comprobante][3] = cdc.emp_locacion.id
+        totales_por_comprobante[comprobante][4] = comprobante
+        totales_por_comprobante[comprobante][5] = tipo_comp
       end
     end
 
@@ -93,6 +97,7 @@ class ComCompra < ApplicationRecord
         resp[:cuentas_con_deuda] += 1
       end
     end
+
     resp
   end
 

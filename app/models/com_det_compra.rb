@@ -8,6 +8,7 @@ class ComDetCompra < ApplicationRecord
   validates :descuento, numericality: {greater_than_or_equal_to: 0}
   validates :iva, numericality: {greater_than_or_equal_to: 0}
   validates :ieps, numericality: {greater_than_or_equal_to: 0}
+  validates_presence_of :comprobante, :tipo_comprobante
 
   enum moneda: [:MXN, :USD, :EUR]
 
@@ -15,7 +16,9 @@ class ComDetCompra < ApplicationRecord
 
 
   before_create :actualiza_inventario
+  before_create :actualiza_totales_compra
   before_destroy :elimina_del_inventario
+  before_destroy :actualiza_totales_compra
 
   def calcular_descuento
     cvalor = cantidad * precio
@@ -54,5 +57,10 @@ class ComDetCompra < ApplicationRecord
       if inventario.stock < 0 then inventario.stock = 0 end # valida que no tenga numeros negativos
       inventario.save
     end
+  end
+
+  # actualiza el total
+  def actualiza_totales_compra
+    com_compra.suma_valores
   end
 end

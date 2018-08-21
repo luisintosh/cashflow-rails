@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180817025110) do
+ActiveRecord::Schema.define(version: 20180821004639) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(version: 20180817025110) do
     t.decimal "descuento", precision: 5, scale: 2, default: "0.0"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "totales"
+    t.string "totales_por_comprobante"
     t.index ["emp_clasificacion_id"], name: "index_com_compras_on_emp_clasificacion_id"
     t.index ["emp_proveedor_id"], name: "index_com_compras_on_emp_proveedor_id"
   end
@@ -84,6 +86,7 @@ ActiveRecord::Schema.define(version: 20180817025110) do
     t.string "concepto"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "comprobante"
     t.index ["com_compra_id"], name: "index_com_pagos_on_com_compra_id"
     t.index ["emp_cuentab_id"], name: "index_com_pagos_on_emp_cuentab_id"
     t.index ["emp_locacion_id"], name: "index_com_pagos_on_emp_locacion_id"

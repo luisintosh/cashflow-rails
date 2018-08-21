@@ -32,7 +32,7 @@ class ComPagosController < ApplicationController
 
     respond_to do |format|
       if @com_pago.save
-        format.html { redirect_to @com_pago, com_compra_id: @com_pago.com_compra.id, notice: 'Com pago was successfully created.' }
+        format.html { redirect_to @com_pago, com_compra_id: @com_pago.com_compra_id, notice: 'Com pago was successfully created.' }
         format.json { render :show, status: :created, location: @com_pago }
       else
         format.html { render :new }
@@ -46,7 +46,7 @@ class ComPagosController < ApplicationController
   def update
     respond_to do |format|
       if @com_pago.update(com_pago_params)
-        format.html { redirect_to @com_pago, com_compra_id: @com_pago.com_compra.id, notice: 'Com pago was successfully updated.' }
+        format.html { redirect_to @com_pago, com_compra_id: @com_pago.com_compra_id, notice: 'Com pago was successfully updated.' }
         format.json { render :show, status: :ok, location: @com_pago }
       else
         format.html { render :edit }
@@ -74,7 +74,7 @@ class ComPagosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def com_pago_params
-      params.require(:com_pago).permit(:com_compra_id, :mov_movimiento_id, :emp_cuentab_id, :emp_locacion_id, :monto,
-                                       :tipo_pago, :hoja, :concepto)
+      params.require(:com_pago).permit(:com_compra_id, :mov_movimiento_id, :emp_cuentab_id, :monto,
+                                       :tipo_pago, :hoja, :concepto, :comprobante)
     end
 end

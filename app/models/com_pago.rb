@@ -18,7 +18,7 @@ class ComPago < ApplicationRecord
                   'Tarjeta de servicio',
                   'Otros']
 
-  validates_presence_of :monto, :tipo_pago, :hoja, :concepto
+  validates_presence_of :monto, :tipo_pago, :hoja, :concepto, :comprobante
   validates :monto, numericality: { greater_than: 0 }
   validate :valida_monto
 
@@ -27,6 +27,8 @@ class ComPago < ApplicationRecord
   after_validation :crear_mov_movimiento, if: :new_record?
   after_create :revisa_deuda
   before_destroy :revisa_deuda
+
+  to_param :genera_url
 
   def title
     concepto
@@ -47,6 +49,7 @@ class ComPago < ApplicationRecord
 
   # funcion para crear un movimiento
   def crear_mov_movimiento
+    deudas_comp = com_compra.totales_por_comprobante
     build_mov_movimiento
 
     mov_movimiento.tipo_movimiento = MovMovimiento.tipo_movimientos[:egreso]
@@ -57,10 +60,10 @@ class ComPago < ApplicationRecord
     mov_movimiento.emp_cuentab = emp_cuentab
     mov_movimiento.concepto = concepto
     mov_movimiento.emp_proveedor = com_compra.emp_proveedor
-    mov_movimiento.emp_locacion = emp_locacion
+    mov_movimiento.emp_locacion_id = deudas_comp[comprobante][3]
     mov_movimiento.factura = com_compra.factura
-    mov_movimiento.comprobante = com_compra.comprobante
-    mov_movimiento.tipo_comprobante = com_compra.tipo_comprobante
+    mov_movimiento.comprobante = deudas_comp[comprobante][4]
+    mov_movimiento.tipo_comprobante = deudas_comp[comprobante][5]
 
     # obtiene el porcentaje de pago que se hizo
     porc = monto / com_compra.suma_valores[emp_cuentab.moneda][:total]
@@ -91,5 +94,18 @@ class ComPago < ApplicationRecord
     else
       com_compra.pendiente!
     end
+  end
+
+  # busca todos los adeudos relacionados a un comprobante de pago
+  def deudas_por_comprobante
+    valores = com_compra.totales_por_comprobante
+    valores.each do |k, v|
+      valores[k] = "#{k} - $#{v[0]} #{v[1]}, #{v[2]}"
+    end
+    valores.invert
+  end
+
+  def genera_url
+    "#{id}?com_compra_id=#{1}"
   end
 end
