@@ -2,7 +2,7 @@ class ComPago < ApplicationRecord
   belongs_to :com_compra
   belongs_to :mov_movimiento, optional: true
   belongs_to :emp_cuentab
-  belongs_to :emp_locacion
+  belongs_to :emp_locacion, optional: true
 
   SINGULAR = 'Pago'
   PLURAL = 'Pagos'
@@ -27,8 +27,6 @@ class ComPago < ApplicationRecord
   after_validation :crear_mov_movimiento, if: :new_record?
   after_create :revisa_deuda
   before_destroy :revisa_deuda
-
-  to_param :genera_url
 
   def title
     concepto
@@ -103,9 +101,5 @@ class ComPago < ApplicationRecord
       valores[k] = "#{k} - $#{v[0]} #{v[1]}, #{v[2]}"
     end
     valores.invert
-  end
-
-  def genera_url
-    "#{id}?com_compra_id=#{1}"
   end
 end
