@@ -87,3 +87,6 @@ gem 'rails-assets-select2', source: 'https://rails-assets.org'
 
 # Roles
 gem 'cancancan'
+
+# Server in Plesk
+gem 'passenger'
