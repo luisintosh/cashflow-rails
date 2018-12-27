@@ -105,4 +105,14 @@ class ComCompra < ApplicationRecord
   def dias_pasados
     (Time.now.yday - created_at.yday)
   end
+
+  def self.suma_total_adeudos
+    totales = {MXN: {total: 0.0, deuda: 0.0}, 'USD': {total: 0.0, deuda: 0.0}, 'EUR': {total: 0.0, deuda: 0.0}}
+    self.pendiente.each do |item|
+      totales[:MXN][:deuda] += item.adeudos['MXN'][:deuda]
+      totales[:USD][:deuda] += item.adeudos['USD'][:deuda]
+      totales[:EUR][:deuda] += item.adeudos['EUR'][:deuda]
+    end
+    totales
+  end
 end

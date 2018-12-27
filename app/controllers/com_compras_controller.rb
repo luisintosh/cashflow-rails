@@ -7,6 +7,9 @@ class ComComprasController < ApplicationController
   # GET /com_compras.json
   def index
     @com_compras = ComCompra.all.order id: :desc
+
+    @comp_pendientes = ComCompra.pendiente.count
+    @deudas = ComCompra.suma_total_adeudos
   end
 
   # GET /com_compras/1

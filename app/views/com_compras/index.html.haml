@@ -10,7 +10,7 @@
           .alert.alert-callout.alert-success.no-margin
             %h1.pull-right.text-success
               %i.fa.fa-shopping-cart
-            %strong.text-xl#dt-pendientes 0
+            %strong.text-xl#dt-pendientes= @comp_pendientes
             %br/
             %span.opacity-50 Pendientes de pago
 
@@ -20,7 +20,7 @@
           .alert.alert-callout.alert-warning.no-margin
             %strong.pull-right.text-success.text-lg
               MXN
-            %strong.text-xl#dt-deudamxn $ 0
+            %strong.text-xl#dt-deudamxn= number_to_currency @deudas[:MXN][:deuda]
             %br/
             %span.opacity-50 De deuda
             .stick-bottom-left-right
@@ -33,7 +33,7 @@
           .alert.alert-callout.alert-danger.no-margin
             %strong.pull-right.text-success.text-lg
               USD
-            %strong.text-xl#dt-deudausd $ 0
+            %strong.text-xl#dt-deudausd= number_to_currency @deudas[:USD][:deuda]
             %br/
             %span.opacity-50 De deuda
             .stick-bottom-left-right
@@ -46,7 +46,7 @@
           .alert.alert-callout.alert-info.no-margin
             %strong.pull-right.text-success.text-lg
               EUR
-            %strong.text-xl#dt-deudaeur $ 0
+            %strong.text-xl#dt-deudaeur= number_to_currency @deudas[:EUR][:deuda]
             %br/
             %span.opacity-50 De deuda
             .stick-bottom-left-right
