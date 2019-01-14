@@ -90,3 +90,7 @@ gem 'cancancan'
 
 # Server in Plesk
 gem 'passenger'
+
+# Extra gems
+gem 'execjs'
+gem 'therubyracer'
