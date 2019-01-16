@@ -84,6 +84,8 @@ class MovMovimiento < ApplicationRecord
     end
   end
 
+  # Clona un movimiento
+
   def self.filters(params)
     scope = self.all.joins(:emp_clasificacion, :emp_cuentab, :emp_locacion)
     unless params[:search].blank?

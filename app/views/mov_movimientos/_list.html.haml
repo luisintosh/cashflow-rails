@@ -15,13 +15,13 @@
           %th= smart_listing.sortable 'Departamento', :departamento
           %th= smart_listing.sortable 'Factura', :factura
           %th= smart_listing.sortable 'Comprobante', :comprobante
-          %th Tipo comprobante
+          -#%th Tipo comprobante
           %th Subtotal
           %th IVA
           %th IEPS
           %th= smart_listing.sortable 'Total', :total
-          %th= smart_listing.sortable 'Creado', :created_at
-          %th= smart_listing.sortable 'Actualizado', :updated_at
+          -#%th= smart_listing.sortable 'Creado', :created_at
+          -#%th= smart_listing.sortable 'Actualizado', :updated_at
           %th
         %tbody
           - @mov_movimientos.each do |mov_movimiento|
@@ -38,16 +38,16 @@
               %td= mov_movimiento.emp_locacion.nombre
               %td= mov_movimiento.factura
               %td= mov_movimiento.comprobante
-              %td= mov_movimiento.tipo_comprobante
+              -#%td= mov_movimiento.tipo_comprobante
               %td= number_to_currency mov_movimiento.subtotal
               %td= number_to_currency mov_movimiento.iva
               %td= number_to_currency mov_movimiento.ieps
               %td= number_to_currency mov_movimiento.total
-              %td= mov_movimiento.created_at.strftime '%Y %m %d'
-              %td= mov_movimiento.updated_at.strftime '%Y %m %d'
+              -#%td= mov_movimiento.created_at.strftime '%Y/%m/%d'
+              -#%td= mov_movimiento.updated_at.strftime '%Y/%m/%d'
               %td.actions
-                = link_to mov_movimiento, class: 'btn btn-success btn-xs' do
-                  %i.fa.fa-eye
+                = link_to clone_mov_path(mov_movimiento), class: 'btn btn-default btn-xs' do
+                  %i.fa.fa-copy
                 = link_to edit_mov_movimiento_path(mov_movimiento), class: 'btn btn-info btn-xs' do
                   %i.fa.fa-edit
                 = link_to mov_movimiento, method: :delete, data: { confirm: '¿Esta usted seguro?' }, class: 'btn btn-danger btn-xs' do

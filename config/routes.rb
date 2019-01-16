@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   get 'tools/uploadxls', to: 'tools#uploadxls'
   post 'tools/uploadxls', to: 'tools#uploadxls'
+  get 'mov_movimientos/clone/:id', to: 'mov_movimientos#clone', as: 'clone_mov'
 
   # Para revisar que el sistema esta funcionando
   get '/check.txt', to: proc {[200, {}, ['it_works']]}

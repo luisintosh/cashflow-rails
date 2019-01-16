@@ -1,7 +1,7 @@
 class MovMovimientosController < ApplicationController
   load_and_authorize_resource
   before_action :set_mov_movimiento, only: [:show, :edit, :update, :destroy]
-  before_action :set_relation_data, only: [:new, :edit, :create, :update]
+  before_action :set_relation_data, only: [:new, :edit, :create, :update, :clone]
 
   include SmartListing::Helper::ControllerExtensions
   helper  SmartListing::Helper
@@ -95,6 +95,15 @@ class MovMovimientosController < ApplicationController
       format.html { redirect_to mov_movimientos_url, notice: 'Mov movimiento was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  # GET /mov_movimientos/clone/1
+  # Clona datos de movimientos para ahorrar tiempos
+  def clone
+    original_mov = MovMovimiento.find params[:id]
+    @mov_movimiento = original_mov.clone
+    @mov_movimiento.calcula_consecutivos
+    render :new
   end
 
   private
