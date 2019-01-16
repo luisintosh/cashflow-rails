@@ -39,13 +39,21 @@ $(document).module '#mov_movimientos', ()->
     iva.change()
   )
 
-  $(document).on('click', '#calcular-dif-total', (e)->
+  $(document).on('click', '#calcular-ieps-base-iva', (e)->
     e.preventDefault()
-    total = parseFloat($('#mov_movimiento_total').val()) or 0.0
-    diferencia = total - calcular_total()
-    ieps = $('#mov_movimiento_ieps')
-    ieps.val( diferencia )
-    ieps.change()
+    subtotal = parseFloat($('#mov_movimiento_subtotal').val()) or null;
+    iva = parseFloat($('#mov_movimiento_iva').val()) or null;
+
+    if !subtotal or subtotal == 0
+      return alert('Debes definir un valor en Subtotal')
+    if !iva or iva == 0
+      return alert('Debes definir un valor en IVA')
+    # calcula valores
+    ieps = iva / 0.16 - subtotal
+    total = subtotal + ieps + iva
+    # asigna valores
+    $('#mov_movimiento_ieps').val(ieps)
+    $('#mov_movimiento_total').val(total)
   )
 
   $('#save-add').click( ()->
