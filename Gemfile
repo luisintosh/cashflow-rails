@@ -93,3 +93,7 @@ gem 'passenger'
 
 # Read Excel file
 gem 'simple_xlsx_reader'
+
+# Extra gems
+gem 'execjs'
+gem 'therubyracer'

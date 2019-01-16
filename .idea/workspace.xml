@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3f3b0c66-ccb9-4b61-a64d-d8f5d500df0c" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/db/migrate/20190116053823_add_retenciones_to_mov_movimiento.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/mov_movimientos.coffee" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/mov_movimientos.coffee" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/mov_movimientos.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/mov_movimientos.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/mov_movimientos/_form.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/mov_movimientos/_form.html.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
+    <list default="true" id="3f3b0c66-ccb9-4b61-a64d-d8f5d500df0c" name="Default" comment="Agrega campos de retención de iva e ieps a los movimientos">
+      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -41,20 +36,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_form.html.haml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="_form.html.haml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/mov_movimientos/_form.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="478">
-              <caret line="65" column="13" lean-forward="true" selection-start-line="65" selection-start-column="13" selection-end-line="65" selection-end-column="33" />
+            <state relative-caret-position="231">
+              <caret line="65" column="72" selection-start-line="65" selection-start-column="72" selection-end-line="65" selection-end-column="72" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mov_movimientos.coffee" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mov_movimientos.coffee" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/javascripts/mov_movimientos.coffee">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="673">
-              <caret line="77" column="30" lean-forward="true" selection-start-line="77" selection-start-column="30" selection-end-line="77" selection-end-column="30" />
+              <caret line="77" column="30" selection-start-line="77" selection-start-column="30" selection-end-line="77" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -185,8 +180,8 @@
         <option value="$PROJECT_DIR$/app/controllers/mov_movimientos_controller.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20190116053823_add_retenciones_to_mov_movimiento.rb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/mov_movimientos.scss" />
-        <option value="$PROJECT_DIR$/app/views/mov_movimientos/_form.html.haml" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/mov_movimientos.coffee" />
+        <option value="$PROJECT_DIR$/app/views/mov_movimientos/_form.html.haml" />
       </list>
     </option>
   </component>
@@ -491,7 +486,7 @@
       <workItem from="1546124875498" duration="5928000" />
       <workItem from="1546443240065" duration="948000" />
       <workItem from="1546448077548" duration="26000" />
-      <workItem from="1547603241453" duration="7683000" />
+      <workItem from="1547603241453" duration="7997000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1519258704656</created>
@@ -668,26 +663,33 @@
       <option name="project" value="LOCAL" />
       <updated>1547615377654</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Agrega campos de retención de iva e ieps a los movimientos">
+      <created>1547617792980</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1547617792980</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="331697000" />
+    <option name="totallyTimeSpent" value="332011000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-372" y="-1080" width="1920" height="1080" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.48232847" visible="true" weight="0.16134185" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32952183" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.503231" side_tool="true" weight="0.32630098" />
-      <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49676898" visible="true" weight="0.18607068" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.38045737" />
-      <window_info id="Structure" order="1" sideWeight="0.5176715" side_tool="true" weight="0.15654951" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49676898" weight="0.18607068" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="7" visible="true" weight="0.38045737" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32744282" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48232847" visible="true" weight="0.16134185" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3240469" />
+      <window_info id="Structure" order="1" sideWeight="0.5176715" side_tool="true" weight="0.15654951" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39950678" />
       <window_info id="Favorites" order="2" sideWeight="0.5176715" side_tool="true" weight="0.15654951" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -697,7 +699,6 @@
       <window_info anchor="bottom" id="Messages" order="7" weight="0.32911393" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3240469" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -707,7 +708,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="init" />
     <MESSAGE value="Crear el modulo de proveedores usando smart_listing para filtrar resultados del index" />
     <MESSAGE value="Crear modulo de movimientos y arreglar la sumatoria de saldos de las cuentas, ademas cambiar idioma de la app a español" />
     <MESSAGE value="Crear módulo de inventario&#10;&#10;Creación del módulo de articulos e inventario de estos." />
@@ -732,7 +732,8 @@
     <MESSAGE value="Agrega excepciones para IDEs" />
     <MESSAGE value="Agrega función para calcular IEPS y total en base al IVA y el subtotal" />
     <MESSAGE value="Agrega funcion clonar movimiento desde la tabla de movimientos" />
-    <option name="LAST_COMMIT_MESSAGE" value="Agrega funcion clonar movimiento desde la tabla de movimientos" />
+    <MESSAGE value="Agrega campos de retención de iva e ieps a los movimientos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Agrega campos de retención de iva e ieps a los movimientos" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1009,17 +1010,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/mov_movimientos/_form.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="65" column="13" lean-forward="true" selection-start-line="65" selection-start-column="13" selection-end-line="65" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/mov_movimientos.coffee">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="673">
-          <caret line="77" column="30" lean-forward="true" selection-start-line="77" selection-start-column="30" selection-end-line="77" selection-end-column="30" />
+          <caret line="77" column="30" selection-start-line="77" selection-start-column="30" selection-end-line="77" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/mov_movimientos/_form.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="65" column="72" selection-start-line="65" selection-start-column="72" selection-end-line="65" selection-end-column="72" />
         </state>
       </provider>
     </entry>
