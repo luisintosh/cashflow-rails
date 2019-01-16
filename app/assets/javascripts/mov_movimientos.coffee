@@ -72,3 +72,8 @@ $(document).module '#mov_movimientos', ()->
 
     selector.val(data.id)
     selector.change()
+
+  # muestra campos de retenciones
+  $(document).on('click', '#muestra-retenciones', (e) ->
+    $('.retenciones').toggle()
+  )

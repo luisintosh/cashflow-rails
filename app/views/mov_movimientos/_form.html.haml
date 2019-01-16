@@ -61,6 +61,14 @@
           = link_to 'Calcular IEPS en base a IVA', '#', { id: 'calcular-ieps-base-iva' }
     .col-md-3
       = f.input :total, label: 'TOTAL'
+    .col-sm-12
+      %hr
+      %button#muestra-retenciones.btn.btn-sm.btn-default{ type: :button }
+        > Mostrar retenciones
+    .col-md-3.col-sm-6.retenciones
+      = f.input :retencion_iva, label: 'Retención de IVA'
+    .col-md-3.col-sm-6.retenciones
+      = f.input :retencion_ieps, label: 'Retencion de IEPS'
 
   .card-actionbar
     .card-actionbar-row

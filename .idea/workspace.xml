@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3f3b0c66-ccb9-4b61-a64d-d8f5d500df0c" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/db/migrate/20190116053823_add_retenciones_to_mov_movimiento.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/mov_movimientos_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/mov_movimientos_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/mov_movimiento.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/mov_movimiento.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/mov_movimientos/_list.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/mov_movimientos/_list.html.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/mov_movimientos.coffee" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/mov_movimientos.coffee" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/mov_movimientos.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/mov_movimientos.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/mov_movimientos/_form.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/mov_movimientos/_form.html.haml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -24,7 +25,7 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/rohers@Development__rohers.coverage" NAME="Development: rohers Coverage Results" MODIFIED="1528982437479" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="rohers" />
     <SUITE FILE_PATH="coverage/rohers@com_compra.coverage" NAME="com_compra Coverage Results" MODIFIED="1528570392519" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/models" MODULE_NAME="rohers" />
-    <SUITE FILE_PATH="coverage/rohersadmin@Development__rohers.rcov" NAME="Development: rohers Coverage Results" MODIFIED="1547603481126" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="rohers" />
+    <SUITE FILE_PATH="coverage/rohersadmin@Development__rohers.rcov" NAME="Development: rohers Coverage Results" MODIFIED="1547617209006" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="rohers" />
   </component>
   <component name="FavoritesManager">
     <favorites_list name="rohers" />
@@ -35,7 +36,7 @@
         <entry file="file://$PROJECT_DIR$/config/routes.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
-              <caret line="20" column="55" lean-forward="true" selection-start-line="20" selection-start-column="55" selection-end-line="20" selection-end-column="55" />
+              <caret line="20" column="55" selection-start-line="20" selection-start-column="55" selection-end-line="20" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -43,35 +44,26 @@
       <file leaf-file-name="_form.html.haml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/mov_movimientos/_form.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="463">
-              <caret line="60" column="48" selection-start-line="60" selection-start-column="48" selection-end-line="60" selection-end-column="48" />
+            <state relative-caret-position="478">
+              <caret line="65" column="13" lean-forward="true" selection-start-line="65" selection-start-column="13" selection-end-line="65" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mov_movimientos_controller.rb" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/controllers/mov_movimientos_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="387">
-              <caret line="107" lean-forward="true" selection-start-line="107" selection-end-line="107" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_list.html.haml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/mov_movimientos/_list.html.haml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="49" column="31" selection-start-line="49" selection-start-column="31" selection-end-line="49" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mov_movimientos.coffee" pinned="false" current-in-tab="false">
+      <file leaf-file-name="mov_movimientos.coffee" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/assets/javascripts/mov_movimientos.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="42" column="22" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
+            <state relative-caret-position="673">
+              <caret line="77" column="30" lean-forward="true" selection-start-line="77" selection-start-column="30" selection-end-line="77" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mov_movimientos.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/mov_movimientos.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -83,20 +75,6 @@
               <caret line="86" column="23" selection-start-line="86" selection-start-column="23" selection-end-line="86" selection-end-column="23" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html.haml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/mov_movimientos/index.html.haml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="64" column="60" selection-start-line="64" selection-start-column="60" selection-end-line="64" selection-end-column="60" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js.haml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/mov_movimientos/index.js.haml">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -158,8 +136,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/controllers/messages_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/emp_clientes/_form.html.haml" />
         <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/layouts/modal.html.haml" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.haml" />
@@ -202,13 +178,15 @@
         <option value="$PROJECT_DIR$/app/views/mov_movimientos/edit.html.haml" />
         <option value="$PROJECT_DIR$/app/views/mov_movimientos/new.html.haml" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/app/views/mov_movimientos/_form.html.haml" />
-        <option value="$PROJECT_DIR$/app/assets/javascripts/mov_movimientos.coffee" />
         <option value="$PROJECT_DIR$/app/views/mov_movimientos/index.html.haml" />
         <option value="$PROJECT_DIR$/app/views/mov_movimientos/_list.html.haml" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/models/mov_movimiento.rb" />
         <option value="$PROJECT_DIR$/app/controllers/mov_movimientos_controller.rb" />
+        <option value="$PROJECT_DIR$/db/migrate/20190116053823_add_retenciones_to_mov_movimiento.rb" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/mov_movimientos.scss" />
+        <option value="$PROJECT_DIR$/app/views/mov_movimientos/_form.html.haml" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/mov_movimientos.coffee" />
       </list>
     </option>
   </component>
@@ -276,18 +254,6 @@
               <item name="rohersadmin" type="b2602c69:ProjectViewProjectNode" />
               <item name="rohersadmin" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="rohersadmin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="rohersadmin" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="rohersadmin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="rohersadmin" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -306,6 +272,12 @@
               <item name="rohersadmin" type="b2602c69:ProjectViewProjectNode" />
               <item name="rohersadmin" type="462c0819:PsiDirectoryNode" />
               <item name="db" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rohersadmin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rohersadmin" type="462c0819:PsiDirectoryNode" />
+              <item name="db" type="462c0819:PsiDirectoryNode" />
+              <item name="migrate" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -519,7 +491,7 @@
       <workItem from="1546124875498" duration="5928000" />
       <workItem from="1546443240065" duration="948000" />
       <workItem from="1546448077548" duration="26000" />
-      <workItem from="1547603241453" duration="5974000" />
+      <workItem from="1547603241453" duration="7683000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1519258704656</created>
@@ -689,11 +661,18 @@
       <option name="project" value="LOCAL" />
       <updated>1547613075183</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Agrega funcion clonar movimiento desde la tabla de movimientos">
+      <created>1547615377653</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1547615377654</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="329988000" />
+    <option name="totallyTimeSpent" value="331697000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-372" y="-1080" width="1920" height="1080" extended-state="0" />
@@ -708,7 +687,7 @@
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49676898" visible="true" weight="0.18607068" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.38045737" />
       <window_info id="Structure" order="1" sideWeight="0.5176715" side_tool="true" weight="0.15654951" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32844576" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32744282" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39950678" />
       <window_info id="Favorites" order="2" sideWeight="0.5176715" side_tool="true" weight="0.15654951" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -752,7 +731,8 @@
     <MESSAGE value="Herramienta para subir archivos xlsx al panel" />
     <MESSAGE value="Agrega excepciones para IDEs" />
     <MESSAGE value="Agrega función para calcular IEPS y total en base al IVA y el subtotal" />
-    <option name="LAST_COMMIT_MESSAGE" value="Agrega función para calcular IEPS y total en base al IVA y el subtotal" />
+    <MESSAGE value="Agrega funcion clonar movimiento desde la tabla de movimientos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Agrega funcion clonar movimiento desde la tabla de movimientos" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -760,24 +740,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/initializers/application_controller_renderer.rb">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/initializers/backtrace_silencers.rb">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/initializers/cookies_serializer.rb">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/initializers/filter_parameter_logging.rb">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/initializers/inflections.rb">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/initializers/mime_types.rb">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/initializers/simple_form.rb">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -972,13 +934,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/mov_movimientos.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="42" column="22" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/mov_movimientos/index.js.haml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1013,21 +968,58 @@
     <entry file="file://$PROJECT_DIR$/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
-          <caret line="20" column="55" lean-forward="true" selection-start-line="20" selection-start-column="55" selection-end-line="20" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/mov_movimientos/_form.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="463">
-          <caret line="60" column="48" selection-start-line="60" selection-start-column="48" selection-end-line="60" selection-end-column="48" />
+          <caret line="20" column="55" selection-start-line="20" selection-start-column="55" selection-end-line="20" selection-end-column="55" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/mov_movimientos_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="107" lean-forward="true" selection-start-line="107" selection-end-line="107" />
+        <state relative-caret-position="538">
+          <caret line="107" selection-start-line="107" selection-end-line="107" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20180225201034_create_mov_movimientos.rb">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20180529051034_create_com_pagos.rb">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20180821004639_add_total_to_com_compras.rb">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20180502035310_add_ivaieps_to_com_articulos.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="83" selection-start-line="2" selection-start-column="45" selection-end-line="2" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20190116053823_add_retenciones_to_mov_movimiento.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="96" selection-start-line="3" selection-start-column="96" selection-end-line="3" selection-end-column="96" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/mov_movimientos.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/mov_movimientos/_form.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="478">
+          <caret line="65" column="13" lean-forward="true" selection-start-line="65" selection-start-column="13" selection-end-line="65" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/mov_movimientos.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="673">
+          <caret line="77" column="30" lean-forward="true" selection-start-line="77" selection-start-column="30" selection-end-line="77" selection-end-column="30" />
         </state>
       </provider>
     </entry>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180821004639) do
+ActiveRecord::Schema.define(version: 20190116053823) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -168,6 +168,8 @@ ActiveRecord::Schema.define(version: 20180821004639) do
     t.decimal "total", precision: 10, scale: 2, default: "0.0"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "retencion_iva", precision: 5, scale: 2, default: "0.0"
+    t.decimal "retencion_ieps", precision: 5, scale: 2, default: "0.0"
     t.index ["emp_clasificacion_id"], name: "index_mov_movimientos_on_emp_clasificacion_id"
     t.index ["emp_cliente_id"], name: "index_mov_movimientos_on_emp_cliente_id"
     t.index ["emp_cuentab_id"], name: "index_mov_movimientos_on_emp_cuentab_id"
