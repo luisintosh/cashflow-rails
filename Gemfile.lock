@@ -204,6 +204,9 @@ GEM
     simple_form (3.5.0)
       actionpack (> 4, < 5.2)
       activemodel (> 4, < 5.2)
+    simple_xlsx_reader (1.0.4)
+      nokogiri
+      rubyzip
     smart_listing (1.2.1)
       coffee-rails
       jquery-rails
@@ -273,6 +276,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   selenium-webdriver
   simple_form
+  simple_xlsx_reader
   smart_listing
   spring
   spring-watcher-listen (~> 2.0.0)

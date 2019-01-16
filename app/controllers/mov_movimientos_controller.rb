@@ -42,6 +42,8 @@ class MovMovimientosController < ApplicationController
   def new
     @mov_movimiento = MovMovimiento.new tipo_movimiento: params.fetch('type')
     @mov_movimiento.calcula_consecutivos
+    @ingreso_ruta_activa = @mov_movimiento.ingreso? ? 'active' : ''
+    @egreso_ruta_activa = @mov_movimiento.egreso? ? 'active' : ''
   end
 
   # GET /mov_movimientos/1/edit

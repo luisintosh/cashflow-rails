@@ -1,0 +1,32 @@
+.section-header
+  %ol.breadcrumb
+    %li.active
+      Herramienta para subir excel
+.section-body
+  .card
+    .card-head.style-primary
+    .card-body
+      .lead
+        Esta herramienta te permite subir un archivo de Excel para importar movimientos de dinero
+      %h3
+        1. Elegir archivo Excel
+      = form_tag(tools_uploadxls_path, method: :post, multipart: true) do
+        %ul
+          %li= file_field_tag :xlsfile, {accept: '.xlsx'}
+        %button.btn.btn-success{type: :submit} Enviar
+      - if @doc
+        %h3
+          2. Seleccionar y subir movimientos
+        = @doc.sheets.first.rows[3].to_s
+        %table.table.table-striped.table-hover.dataTable
+          %thead
+            %tr
+              %th
+                Hoja
+              %th
+                Fecha
+              %th
+                Ciclo
+              %th
+                Tipo movimiento
+              %th

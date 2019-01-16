@@ -7,7 +7,7 @@ class EmpClasificacion < ApplicationRecord
   enum tipo_movimiento: [:ENTRADA, :SALIDA]
 
   def title
-    "#{nombre}, #{tipo_cuenta}, #{tipo_subcuenta}"
+    "#{nombre}, #{tipo_cuenta}"
   end
 
   # Arreglo de los diferentes tipos de cuenta registrados con anterioridad

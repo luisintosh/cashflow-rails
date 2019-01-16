@@ -36,8 +36,9 @@ class Ability
       can :read, [ComArticulo, EmpLocacion]
       can [:read], [User, EmpPerfil]
     elsif user.contabilidad?
-      can :read, [EmpCuentab, EmpLocacion]
+      can :read, [EmpLocacion]
       can [:read, :create], [MovMovimiento, ComCompra, ComArticulo, ComInventario, ComPago, EmpCliente, EmpProveedor]
+      can [:manage], [EmpCuentab]
       can [:read, :update], User, id: user.id
     end
   end

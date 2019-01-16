@@ -11,5 +11,12 @@
         = link_to mov_movimientos_path, class: 'btn btn-flat' do
           %i.glyphicon.glyphicon-arrow-left
           Regresar a lista
+        .btn-group
+          = link_to new_mov_movimiento_path(type: 'ingreso'), {class: "btn btn-flat #{@ingreso_ruta_activa}"} do
+            %i.fa.fa-arrow-down
+            Ingreso
+          = link_to new_mov_movimiento_path(type: 'egreso'), {class: "btn btn-flat #{@egreso_ruta_activa}"} do
+            %i.fa.fa-arrow-up
+            Egreso
     .card-body
       = render 'form'

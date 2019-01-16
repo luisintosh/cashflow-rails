@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'tools/uploadxls'
+
   resources :com_pagos
   resources :com_compras
   resources :com_articulos
@@ -13,6 +15,9 @@ Rails.application.routes.draw do
   #get 'panel/index'
 
   root 'panel#index'
+
+  get 'tools/uploadxls', to: 'tools#uploadxls'
+  post 'tools/uploadxls', to: 'tools#uploadxls'
 
   # Para revisar que el sistema esta funcionando
   get '/check.txt', to: proc {[200, {}, ['it_works']]}

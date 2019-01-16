@@ -90,3 +90,6 @@ gem 'cancancan'
 
 # Server in Plesk
 gem 'passenger'
+
+# Read Excel file
+gem 'simple_xlsx_reader'
