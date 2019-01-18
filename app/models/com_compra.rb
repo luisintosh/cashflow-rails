@@ -115,4 +115,18 @@ class ComCompra < ApplicationRecord
     end
     totales
   end
+
+  # marca todos los elementos como pagados
+  def self.marcar_pagado(ids)
+    unless ids.kind_of?(Array) then return end
+
+    ComCompra.find(ids).each do |record|
+      record.estado = ComCompra.estados['pagado']
+
+      if record.adeudos['MXN'][:deuda] > 0
+        rpago = record.com_pagos.new
+        rpago
+      end
+    end
+  end
 end

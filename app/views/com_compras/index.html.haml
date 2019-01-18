@@ -60,10 +60,16 @@
         = link_to new_com_compra_path, class: 'btn btn-floating-action btn-default-light' do
           %i.fa.fa-plus
     .card-body
+      .tools.m-b-sm
+        %small Acciones en lote:
+        %br
+        %button#pagar-compras.btn.btn-info{type: :button}
+          Marcar como pagado
       .table-responsive
         %table.table.table-striped.table-hover.dataTable
           %thead
             %tr
+              %th
               %th Fecha
               %th Estado
               %th Ciclo
@@ -84,6 +90,7 @@
           %tbody
             - @com_compras.each do |com_compra|
               %tr
+                %td= check_box_tag "itm#{com_compra.id}", com_compra.id, false, {class: 'table_select'}
                 %td= com_compra.created_at.strftime('%Y-%m-%d %H:%M:%S')
                 %td= com_compra.estado.upcase
                 %td= com_compra.ciclo

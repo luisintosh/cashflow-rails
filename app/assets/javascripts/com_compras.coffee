@@ -226,3 +226,17 @@ $(document).module '#com_compras.index', ()->
   window.data_table.on('search.dt', ()->
     sum_totales_compras()
   )
+
+  # funciones en lote
+  $('#pagar-compras').click((e) ->
+    e.preventDefault()
+    compras = []
+    $('.table_select:checked').each((e)->
+      compras.push(this.value)
+    )
+
+    if !compras.length
+      return alert('Debe seleccionar por lo menos un registro de la tabla')
+
+    location.href = "/com_compras/com_pagos/multipago?ids=#{compras}"
+  )

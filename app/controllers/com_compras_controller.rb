@@ -65,6 +65,23 @@ class ComComprasController < ApplicationController
     end
   end
 
+  # POST /com_compras/com_pagos/multipago
+  # Marca como pagado las compras enviadas
+  def multipago
+    @ids = params[:ids]
+    if @ids.blank?
+      raise 'No existe IDs'
+    else
+      @ids = @ids.split(',')
+    end
+
+    unless @ids.kind_of? Array
+      raise 'No es un arreglo de IDs'
+    end
+
+    @ids = ComCompra.find(@ids)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_com_compra
