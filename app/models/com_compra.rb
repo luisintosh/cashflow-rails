@@ -101,11 +101,6 @@ class ComCompra < ApplicationRecord
     resp
   end
 
-  # dias que han pasado desde la compra
-  def dias_pasados
-    (Time.now.yday - created_at.yday)
-  end
-
   def self.suma_total_adeudos
     totales = {MXN: {total: 0.0, deuda: 0.0}, 'USD': {total: 0.0, deuda: 0.0}, 'EUR': {total: 0.0, deuda: 0.0}}
     self.pendiente.each do |item|
@@ -117,15 +112,43 @@ class ComCompra < ApplicationRecord
   end
 
   # marca todos los elementos como pagados
-  def self.marcar_pagado(ids)
+  def self.marcar_pagado(params)
+    ids = params[:ids].split(',')
     unless ids.kind_of?(Array) then return end
 
-    ComCompra.find(ids).each do |record|
-      record.estado = ComCompra.estados['pagado']
+    ActiveRecord::Base.transaction do
+      ComCompra.find(ids).each do |compra|
+        # cambia estado a pagado
+        compra.estado = ComCompra.estados['pagado']
+        # busca todos los comprobantes
+        compra.suma_valores
 
-      if record.adeudos['MXN'][:deuda] > 0
-        rpago = record.com_pagos.new
-        rpago
+        compra.totales_por_comprobante.keys.each do |key|
+          comprobante = compra.totales_por_comprobante[key]
+          # asigna datos
+          rpago = compra.com_pagos.new
+          rpago.datos_default
+
+          rpago.monto = comprobante[0]
+          rpago.emp_locacion = EmpLocacion.find comprobante[3]
+          rpago.comprobante = comprobante[4]
+
+          if comprobante[1] == 'MXN'
+            rpago.hoja = params[:mxn_hoja]
+            rpago.tipo_pago = params[:mxn_tipo_pago].to_i
+            rpago.emp_cuentab = EmpCuentab.find params[:mxn_emp_cuentab]
+          elsif comprobante[1] == 'USD'
+            rpago.hoja = params[:usd_hoja]
+            rpago.tipo_pago = params[:usd_tipo_pago].to_i
+            rpago.emp_cuentab = EmpCuentab.find params[:usd_emp_cuentab]
+          elsif comprobante[1] == 'EUR'
+            rpago.hoja = params[:eur_hoja]
+            rpago.tipo_pago = params[:eur_tipo_pago].to_i
+            rpago.emp_cuentab = EmpCuentab.find params[:eur_emp_cuentab]
+          end
+          # guarda
+          rpago.save
+        end
       end
     end
   end

@@ -51,7 +51,7 @@
           .alert.alert-callout.alert-success.no-margin
             %h1.pull-right.text-success
               %i.md.md-timer
-            %strong.text-xl #{@com_compra.dias_pasados} dias
+            %strong.text-xl= distance_of_time_in_words Time.now, @com_compra.created_at
             %br/
             %span.opacity-50 Desde la compra
 

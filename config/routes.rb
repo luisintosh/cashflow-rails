@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   post 'tools/uploadxls', to: 'tools#uploadxls'
   get 'mov_movimientos/clone/:id', to: 'mov_movimientos#clone', as: 'clone_mov'
   get 'com_compras/com_pagos/multipago', to: 'com_compras#multipago', as: 'com_compras_pagar'
+  post 'com_compras/com_pagos/multipago', to: 'com_compras#multipago_guardar', as: 'guardar_com_compras_pagar'
 
   # Para revisar que el sistema esta funcionando
   get '/check.txt', to: proc {[200, {}, ['it_works']]}

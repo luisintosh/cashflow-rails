@@ -23,4 +23,8 @@ class EmpCuentab < ApplicationRecord
   def saldo_actual
     saldo + ingresos - egresos
   end
+
+  def self.cuentas_array(tipo)
+    EmpCuentab.where(moneda: tipo).map(){|r| [r.title, r.id]}
+  end
 end

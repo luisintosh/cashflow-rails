@@ -65,7 +65,7 @@ class ComComprasController < ApplicationController
     end
   end
 
-  # POST /com_compras/com_pagos/multipago
+  # GET /com_compras/com_pagos/multipago
   # Marca como pagado las compras enviadas
   def multipago
     @ids = params[:ids]
@@ -80,6 +80,16 @@ class ComComprasController < ApplicationController
     end
 
     @ids = ComCompra.find(@ids)
+  end
+
+  # POST /com_compras/com_pagos/multipago
+  # Inicia el pago de multiples cuentas
+  def multipago_guardar
+    if ComCompra.marcar_pagado(params)
+      redirect_to com_compras_path, notice: 'Pagos generados correctamente.'
+    else
+      redirect_to :back, notice: 'Exite un error con las cuentas de pago'
+    end
   end
 
   private

@@ -39,6 +39,7 @@
 //= require datatables
 //= require extras
 //= require modal
+//= require toastr
 //= require_directory ./core/source/
 //= require_directory .
 

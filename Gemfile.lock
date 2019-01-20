@@ -161,7 +161,10 @@ GEM
       bundler (>= 1.3.0)
       railties (= 5.1.5)
       sprockets-rails (>= 2.0.0)
+    rails-assets-jquery (2.2.4)
     rails-assets-select2 (4.0.5)
+    rails-assets-toastr (2.1.3)
+      rails-assets-jquery (>= 1.6.3, < 3)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
@@ -278,6 +281,7 @@ DEPENDENCIES
   puma (~> 3.7)
   rails (~> 5.1.4)
   rails-assets-select2!
+  rails-assets-toastr!
   rails-i18n
   sass-rails (~> 5.0)
   selenium-webdriver

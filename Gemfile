@@ -97,3 +97,6 @@ gem 'simple_xlsx_reader'
 # Extra gems
 gem 'execjs'
 gem 'therubyracer'
+
+# Notifications
+gem 'rails-assets-toastr', source: 'https://rails-assets.org'

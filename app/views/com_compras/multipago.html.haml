@@ -33,27 +33,74 @@
               %td= number_to_currency com_compra.adeudos['MXN'][:deuda]
               %td= number_to_currency com_compra.adeudos['USD'][:deuda]
               %td= number_to_currency com_compra.adeudos['EUR'][:deuda]
+          %tr
+            %td.text-right{colspan: 4}
+              %b Totales:
+            %td
+              %b= number_to_currency @ids.map(){|a| a.adeudos['MXN'][:deuda]}.sum
+            %td
+              %b= number_to_currency @ids.map(){|a| a.adeudos['USD'][:deuda]}.sum
+            %td
+              %b= number_to_currency @ids.map(){|a| a.adeudos['EUR'][:deuda]}.sum
       %hr
 
-      = simple_form_for(@com_pago) do |f|
+      = form_tag(guardar_com_compras_pagar_path) do
+        = hidden_field_tag :ids, params[:ids]
         .alert.alert-info
           %h4 Información
           %ul
             %li Todos los campos con * son requeridos
-        = f.error_notification
 
-        .form-inputs.row
-          .col-md-12
-            = f.hidden_field :com_compra_id
-            = f.hidden_field :mov_movimiento_id
-          .col-md-4
-            = f.input :tipo_pago, collection: ComPago.tipo_pagos.keys, prompt: '-- Selecciona --'
-          .col-md-4
-            = f.association :emp_cuentab, label: EmpCuentab::SINGULAR, prompt: '-- Selecciona --'
-          .col-md-2
-            = f.input :hoja
-          .col-md-10
-            = f.input :concepto
+        - if @ids.map(){|a| a.adeudos['MXN'][:deuda]}.sum > 0
+          .row
+            .col-md-1
+              %h4 MXN
+            .col-md-2
+              .form-group.required
+                = label_tag :mxn_hoja, '* Hoja', {class: 'control-label'}
+                = text_field_tag :mxn_hoja, nil, {class: 'form-control', required: true}
+            .col-md-3
+              .form-group.required
+                = label_tag :mxn_tipo_pago, '* Tipo de pago', {class: 'control-label'}
+                = select_tag :mxn_tipo_pago, options_for_select(ComPago.tipo_pagos), {class: 'form-control', required: true}
+            .col-md-3
+              .form-group.required
+                = label_tag :mxn_emp_cuentab, "* #{EmpCuentab::SINGULAR}", {class: 'control-label'}
+                = select_tag :mxn_emp_cuentab, options_for_select(EmpCuentab.cuentas_array(:MXN)), {class: 'form-control', required: true}
+
+        - if @ids.map(){|a| a.adeudos['USD'][:deuda]}.sum > 0
+          .row
+            .col-md-1
+              %h4 USD
+            .col-md-2
+              .form-group.required
+                = label_tag :usd_hoja, '* Hoja', {class: 'control-label'}
+                = text_field_tag :usd_hoja, nil, {class: 'form-control', required: true}
+            .col-md-3
+              .form-group.required
+                = label_tag :usd_tipo_pago, '* Tipo de pago', {class: 'control-label'}
+                = select_tag :usd_tipo_pago, options_for_select(ComPago.tipo_pagos), {class: 'form-control', required: true}
+            .col-md-3
+              .form-group.required
+                = label_tag :usd_emp_cuentab, "* #{EmpCuentab::SINGULAR}", {class: 'control-label'}
+                = select_tag :usd_emp_cuentab, options_for_select(EmpCuentab.cuentas_array(:USD)), {class: 'form-control', required: true}
+
+        - if @ids.map(){|a| a.adeudos['EUR'][:deuda]}.sum > 0
+          .row
+            .col-md-1
+              %h4 EUR
+            .col-md-2
+              .form-group.required
+                = label_tag :eur_hoja, '* Hoja', {class: 'control-label'}
+                = text_field_tag :eur_hoja, nil, {class: 'form-control', required: true}
+            .col-md-3
+              .form-group.required
+                = label_tag :eur_tipo_pago, '* Tipo de pago', {class: 'control-label'}
+                = select_tag :eur_tipo_pago, options_for_select(ComPago.tipo_pagos), {class: 'form-control', required: true}
+            .col-md-3
+              .form-group.required
+                = label_tag :eur_emp_cuentab, "* #{EmpCuentab::SINGULAR}", {class: 'control-label'}
+                = select_tag :eur_emp_cuentab, options_for_select(EmpCuentab.cuentas_array(:EUR)), {class: 'form-control', required: true}
 
         .card-actionbar
           .card-actionbar-row
