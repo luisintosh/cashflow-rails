@@ -29,7 +29,7 @@ class EmpCuentabsController < ApplicationController
 
     respond_to do |format|
       if @emp_cuentab.save
-        format.html { redirect_to @emp_cuentab, notice: 'Emp cuentab was successfully created.' }
+        format.html { redirect_to @emp_cuentab, notice: 'Cuenta bancaria creado correctamente.' }
         format.json { render :show, status: :created, location: @emp_cuentab }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class EmpCuentabsController < ApplicationController
   def update
     respond_to do |format|
       if @emp_cuentab.update(emp_cuentab_params)
-        format.html { redirect_to @emp_cuentab, notice: 'Emp cuentab was successfully updated.' }
+        format.html { redirect_to @emp_cuentab, notice: 'Cuenta bancaria actualizado correctamente.' }
         format.json { render :show, status: :ok, location: @emp_cuentab }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class EmpCuentabsController < ApplicationController
   def destroy
     @emp_cuentab.destroy
     respond_to do |format|
-      format.html { redirect_to emp_cuentabs_url, notice: 'Emp cuentab was successfully destroyed.' }
+      format.html { redirect_to emp_cuentabs_url, notice: 'Cuenta bancaria eliminado correctamente.' }
       format.json { head :no_content }
     end
   end

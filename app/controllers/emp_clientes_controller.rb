@@ -51,7 +51,7 @@ class EmpClientesController < ApplicationController
 
     respond_to do |format|
       if @emp_cliente.save
-        format.html { redirect_to @emp_cliente, notice: 'Emp cliente was successfully created.' }
+        format.html { redirect_to @emp_cliente, notice: 'Cliente creado correctamente.' }
         format.json { render :show, status: :created, location: @emp_cliente }
       else
         format.html { render :new }
@@ -65,7 +65,7 @@ class EmpClientesController < ApplicationController
   def update
     respond_to do |format|
       if @emp_cliente.update(emp_cliente_params)
-        format.html { redirect_to @emp_cliente, notice: 'Emp cliente was successfully updated.' }
+        format.html { redirect_to @emp_cliente, notice: 'Cliente actualizado correctamente.' }
         format.json { render :show, status: :ok, location: @emp_cliente }
       else
         format.html { render :edit }
@@ -79,7 +79,7 @@ class EmpClientesController < ApplicationController
   def destroy
     @emp_cliente.destroy
     respond_to do |format|
-      format.html { redirect_to emp_clientes_url, notice: 'Emp cliente was successfully destroyed.' }
+      format.html { redirect_to emp_clientes_url, notice: 'Cliente eliminado correctamente.' }
       format.json { head :no_content }
     end
   end

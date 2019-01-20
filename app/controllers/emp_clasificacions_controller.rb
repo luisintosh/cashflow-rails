@@ -29,7 +29,7 @@ class EmpClasificacionsController < ApplicationController
 
     respond_to do |format|
       if @emp_clasificacion.save
-        format.html { redirect_to @emp_clasificacion, notice: 'Emp clasificacion was successfully created.' }
+        format.html { redirect_to @emp_clasificacion, notice: 'Clasificacion contable creado correctamente.' }
         format.json { render :show, status: :created, location: @emp_clasificacion }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class EmpClasificacionsController < ApplicationController
   def update
     respond_to do |format|
       if @emp_clasificacion.update(emp_clasificacion_params)
-        format.html { redirect_to @emp_clasificacion, notice: 'Emp clasificacion was successfully updated.' }
+        format.html { redirect_to @emp_clasificacion, notice: 'Clasificacion contable actualizado correctamente.' }
         format.json { render :show, status: :ok, location: @emp_clasificacion }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class EmpClasificacionsController < ApplicationController
   def destroy
     @emp_clasificacion.destroy
     respond_to do |format|
-      format.html { redirect_to emp_clasificacions_url, notice: 'Emp clasificacion was successfully destroyed.' }
+      format.html { redirect_to emp_clasificacions_url, notice: 'Clasificacion contable eliminado correctamente.' }
       format.json { head :no_content }
     end
   end

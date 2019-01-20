@@ -30,7 +30,7 @@ class ComArticulosController < ApplicationController
 
     respond_to do |format|
       if @com_articulo.save
-        format.html { redirect_to @com_articulo, notice: 'Com articulo was successfully created.' }
+        format.html { redirect_to @com_articulo, notice: 'Producto creado correctamente.' }
         format.json { render :show, status: :created, location: @com_articulo }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class ComArticulosController < ApplicationController
   def update
     respond_to do |format|
       if @com_articulo.update(com_articulo_params)
-        format.html { redirect_to @com_articulo, notice: 'Com articulo was successfully updated.' }
+        format.html { redirect_to @com_articulo, notice: 'Producto actualizado correctamente.' }
         format.json { render :show, status: :ok, location: @com_articulo }
       else
         format.html { render :edit }
@@ -58,7 +58,7 @@ class ComArticulosController < ApplicationController
   def destroy
     @com_articulo.destroy
     respond_to do |format|
-      format.html { redirect_to com_articulos_url, notice: 'Com articulo was successfully destroyed.' }
+      format.html { redirect_to com_articulos_url, notice: 'Producto eliminado correctamente.' }
       format.json { head :no_content }
     end
   end

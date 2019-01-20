@@ -32,7 +32,7 @@ class EmpleadosController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to empleado_path(@user.id), notice: 'User was successfully created.' }
+        format.html { redirect_to empleado_path(@user.id), notice: 'Usuario creado correctamente.' }
         format.json { render :show, status: :created, location: empleado_path(@user.id) }
       else
         format.html { render :new }
@@ -46,7 +46,7 @@ class EmpleadosController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to empleado_path(@user.id), notice: 'User was successfully updated.' }
+        format.html { redirect_to empleado_path(@user.id), notice: 'Usuario actualizado correctamente.' }
         format.json { render :show, status: :ok, location: empleado_path(@user.id) }
       else
         format.html { render :edit }
@@ -61,7 +61,7 @@ class EmpleadosController < ApplicationController
     error_404 unless can? :destroy, User
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to empleados_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to empleados_url, notice: 'Usuario eliminado correctamente.' }
       format.json { head :no_content }
     end
   end

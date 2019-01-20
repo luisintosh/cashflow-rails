@@ -32,7 +32,7 @@ class ComComprasController < ApplicationController
     @com_compra = ComCompra.new(com_compra_params)
     respond_to do |format|
       if @com_compra.save
-        format.html { redirect_to @com_compra, notice: 'Com compra was successfully created.' }
+        format.html { redirect_to @com_compra, notice: 'Compra creado correctamente.' }
         format.json { render :show, status: :created, location: @com_compra }
       else
         format.html { render :new }
@@ -46,7 +46,7 @@ class ComComprasController < ApplicationController
   def update
     respond_to do |format|
       if @com_compra.update(com_compra_params)
-        format.html { redirect_to @com_compra, notice: 'Com compra was successfully updated.' }
+        format.html { redirect_to @com_compra, notice: 'Compra actualizado correctamente.' }
         format.json { render :show, status: :ok, location: @com_compra }
       else
         format.html { render :edit }
@@ -60,7 +60,7 @@ class ComComprasController < ApplicationController
   def destroy
     @com_compra.destroy
     respond_to do |format|
-      format.html { redirect_to com_compras_url, notice: 'Com compra was successfully destroyed.' }
+      format.html { redirect_to com_compras_url, notice: 'Compra eliminado correctamente.' }
       format.json { head :no_content }
     end
   end

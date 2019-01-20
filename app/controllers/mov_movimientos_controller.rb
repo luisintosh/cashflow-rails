@@ -78,7 +78,7 @@ class MovMovimientosController < ApplicationController
   def update
     respond_to do |format|
       if @mov_movimiento.update(mov_movimiento_params)
-        format.html { redirect_to @mov_movimiento, notice: 'Mov movimiento was successfully updated.' }
+        format.html { redirect_to @mov_movimiento, notice: 'Movimiento actualizado correctamente.' }
         format.json { render :show, status: :ok, location: @mov_movimiento }
       else
         format.html { render :edit }
@@ -92,7 +92,7 @@ class MovMovimientosController < ApplicationController
   def destroy
     @mov_movimiento.destroy
     respond_to do |format|
-      format.html { redirect_to mov_movimientos_url, notice: 'Mov movimiento was successfully destroyed.' }
+      format.html { redirect_to mov_movimientos_url, notice: 'Movimiento eliminado correctamente.' }
       format.json { head :no_content }
     end
   end
