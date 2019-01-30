@@ -54,7 +54,7 @@ group :development do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Template engine
 gem 'haml-rails'
@@ -83,7 +83,7 @@ gem 'rails-i18n'
 gem 'cocoon'
 
 # Select2 js library
-gem 'rails-assets-select2', source: 'https://rails-assets.org'
+gem 'rails-assets-select2', source: 'http://insecure.rails-assets.org'
 
 # Roles
 gem 'cancancan'
@@ -99,4 +99,4 @@ gem 'execjs'
 gem 'therubyracer'
 
 # Notifications
-gem 'rails-assets-toastr', source: 'https://rails-assets.org'
+gem 'rails-assets-toastr', source: 'http://insecure.rails-assets.org'
