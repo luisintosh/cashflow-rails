@@ -3,7 +3,7 @@
 ## Description
 Cashflow Ruby is a web application that allows you to manage your sales and inventory on website.Update your stock information, make purchases and view sales data from anywhere whether in the office, at home, in the warehouse, or on the go. All you need to access this a device with internet connection.
 
-### **Feature of Instant Inventory**
+### **Features**
 
 -   Manage customers, supplier, users
 -   Manage item with category
@@ -20,6 +20,7 @@ Cashflow Ruby is a web application that allows you to manage your sales and inve
 <image src=https://i.imgur.com/xaDFk7B.png style="display: inline; float: left; margin: 0 0;" width="45%"/>
 </p>
 
+Contact: [luis@tequilapps.com](mailto:luis@tequilapps.com)
 
 ## Install
 
