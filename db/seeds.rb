@@ -116,88 +116,90 @@ EmpCuentab.create nombre: 'GREENHOUSE MONEX MXN 1748', moneda: 'MXN', saldo: Fak
 EmpCuentab.create nombre: 'GREENHOUSE CAJA CHICA USD', moneda: 'USD', saldo: Faker::Number.number(5)
 EmpCuentab.create nombre: 'GREENHOUSE CAJA CHICA MXN', moneda: 'MXN', saldo: Faker::Number.number(5)
 
-# Proveedores
-50.times do |i|
-  m = EmpProveedor.new
-  m.build_emp_perfil
-  m.empresa = Faker::Company.name
-  m.saldo = 0.0
-  m.saldo_max = 0.0
-  m.emp_perfil.tel_fijo = Faker::Number.number(10)
-  m.emp_perfil.tel_movil = Faker::Number.number(10)
-  m.emp_perfil.email = Faker::Internet.email
-  m.emp_perfil.direccion = Faker::Address.street_address
-  m.save
-end
+if Rails.env == 'development' or Rails.env == 'test'
+  # Proveedores
+  50.times do |i|
+    m = EmpProveedor.new
+    m.build_emp_perfil
+    m.empresa = Faker::Company.name
+    m.saldo = 0.0
+    m.saldo_max = 0.0
+    m.emp_perfil.tel_fijo = Faker::Number.number(10)
+    m.emp_perfil.tel_movil = Faker::Number.number(10)
+    m.emp_perfil.email = Faker::Internet.email
+    m.emp_perfil.direccion = Faker::Address.street_address
+    m.save
+  end
 
 # Clientes
-50.times do |i|
-  m = EmpCliente.new
-  m.build_emp_perfil
-  m.nombre = Faker::Name.first_name
-  m.apellidos = Faker::Name.last_name
-  m.saldo = 0.0
-  m.saldo_max = 0.0
-  m.emp_perfil.tel_fijo = Faker::Number.number(10)
-  m.emp_perfil.tel_movil = Faker::Number.number(10)
-  m.emp_perfil.email = Faker::Internet.email
-  m.emp_perfil.direccion = Faker::Address.street_address
-  m.save
-end
+  50.times do |i|
+    m = EmpCliente.new
+    m.build_emp_perfil
+    m.nombre = Faker::Name.first_name
+    m.apellidos = Faker::Name.last_name
+    m.saldo = 0.0
+    m.saldo_max = 0.0
+    m.emp_perfil.tel_fijo = Faker::Number.number(10)
+    m.emp_perfil.tel_movil = Faker::Number.number(10)
+    m.emp_perfil.email = Faker::Internet.email
+    m.emp_perfil.direccion = Faker::Address.street_address
+    m.save
+  end
 
 # Movimientos
-hoja = 150
-200.times do |i|
-  m = MovMovimiento.new
-  m.tipo_movimiento = rand(2)
-  m.hoja = (i/10)+100
-  m.fecha = (i < 100) ? Faker::Date.between(Time.new(2017,6,1), Time.new(2017,12,30)) : Faker::Date.between(Time.new(2018,1,1), Time.new(2018,6,30))
-  m.ciclo = (i < 100) ? '2017-B' : '2018-A'
-  if i % 2
-    m.emp_clasificacion = EmpClasificacion.where(tipo_movimiento: 'ENTRADA').sample
-    m.emp_cliente = EmpCliente.all.sample
-  else
-    m.emp_clasificacion = EmpClasificacion.where(tipo_movimiento: 'SALIDA').sample
-    m.emp_proveedors = EmpProveedor.all.sample
-  end
-  m.emp_cuentab = EmpCuentab.all.sample
-  m.concepto = Faker::Lorem.sentence(3)
-  m.emp_locacion = EmpLocacion.all.sample
-  m.factura = Faker::Code.isbn
-  m.comprobante = Faker::Code.asin
-  m.tipo_comprobante = rand(4)
-  m.subtotal = Faker::Number.decimal(4, 3)
-  m.iva = m.subtotal * 0.16
-  m.ieps = rand(10)==5 ? (m.subtotal * 0.1) : 0.0
-  m.total = m.subtotal + m.iva + m.ieps
-  m.created_at = m.fecha
-  #m.updated_at = rand(10)==5 ? m.fecha + 1.day : m.fecha
-  begin
-    m.save
-  rescue
-  end
+  hoja = 150
+  200.times do |i|
+    m = MovMovimiento.new
+    m.tipo_movimiento = rand(2)
+    m.hoja = (i/10)+100
+    m.fecha = (i < 100) ? Faker::Date.between(Time.new(2017,6,1), Time.new(2017,12,30)) : Faker::Date.between(Time.new(2018,1,1), Time.new(2018,6,30))
+    m.ciclo = (i < 100) ? '2017-B' : '2018-A'
+    if i % 2
+      m.emp_clasificacion = EmpClasificacion.where(tipo_movimiento: 'ENTRADA').sample
+      m.emp_cliente = EmpCliente.all.sample
+    else
+      m.emp_clasificacion = EmpClasificacion.where(tipo_movimiento: 'SALIDA').sample
+      m.emp_proveedors = EmpProveedor.all.sample
+    end
+    m.emp_cuentab = EmpCuentab.all.sample
+    m.concepto = Faker::Lorem.sentence(3)
+    m.emp_locacion = EmpLocacion.all.sample
+    m.factura = Faker::Code.isbn
+    m.comprobante = Faker::Code.asin
+    m.tipo_comprobante = rand(4)
+    m.subtotal = Faker::Number.decimal(4, 3)
+    m.iva = m.subtotal * 0.16
+    m.ieps = rand(10)==5 ? (m.subtotal * 0.1) : 0.0
+    m.total = m.subtotal + m.iva + m.ieps
+    m.created_at = m.fecha
+    #m.updated_at = rand(10)==5 ? m.fecha + 1.day : m.fecha
+    begin
+      m.save
+    rescue
+    end
 
-end
+  end
 
 # Articulos e inventario
-50.times do |i|
-  a = ComArticulo.new
-  a.codigo = (i+1).to_s + Faker::Number.number(4)
-  a.nombre = Faker::Commerce.product_name
-  a.categoria = Faker::Commerce.department(1)
-  a.unidad_compra = ComArticulo.unidades.sample
-  a.unidad_inventario = ComArticulo.unidades.sample
-  a.cantidad_inventario = Faker::Number.number(2)
-  a.iva = 16
+  50.times do |i|
+    a = ComArticulo.new
+    a.codigo = (i+1).to_s + Faker::Number.number(4)
+    a.nombre = Faker::Commerce.product_name
+    a.categoria = Faker::Commerce.department(1)
+    a.unidad_compra = ComArticulo.unidades.sample
+    a.unidad_inventario = ComArticulo.unidades.sample
+    a.cantidad_inventario = Faker::Number.number(2)
+    a.iva = 16
 
-  a.crear_inventarios
-  a.com_inventario.each do |inv|
-    inv.stock = Faker::Number.number(3)
-    inv.stock_min = 10
-  end
+    a.crear_inventarios
+    a.com_inventario.each do |inv|
+      inv.stock = Faker::Number.number(3)
+      inv.stock_min = 10
+    end
 
-  begin
-    a.save
-  rescue
+    begin
+      a.save
+    rescue
+    end
   end
 end
