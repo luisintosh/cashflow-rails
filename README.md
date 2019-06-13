@@ -20,8 +20,6 @@ Cashflow Ruby is a web application that allows you to manage your sales and inve
 <image src=https://i.imgur.com/xaDFk7B.png style="display: inline; float: left; margin: 0 0;" width="45%"/>
 </p>
 
-Contact: [luis@tequilapps.com](mailto:luis@tequilapps.com)
-
 ## Install
 
 ### Clone the repository
