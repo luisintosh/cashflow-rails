@@ -61,7 +61,7 @@ end
 gem 'haml-rails'
 
 # Auth
-gem 'devise', '~> 4.4.0'
+gem 'devise', '~> 4.7.1'
 
 # Theme
 gem 'bootstrap-sass', '~> 3.3.7'
