@@ -2,7 +2,7 @@
   "name": "rohers",
   "private": true,
   "dependencies": {
-    "@angular/cli": "^1.7.2",
+    "@angular/cli": "^14.2.9",
     "npm": "^5.8.0"
   }
 }
